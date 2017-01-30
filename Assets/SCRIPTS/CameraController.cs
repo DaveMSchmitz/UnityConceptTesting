@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    Rigidbody rigidbody = GetComponent<Rigidbody>();
-	    camera.transform.position = new Vector3(rigidbody.position.x,rigidbody.position.y, -10.0f);
+	    Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+	    camera.transform.position = new Vector3(rigidbody2D.position.x,rigidbody2D.position.y, -10.0f);
 	}
 }
