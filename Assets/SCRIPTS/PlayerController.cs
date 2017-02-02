@@ -9,21 +9,23 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpSpeed;
     private bool onFloor = false;
+    private Rigidbody2D rigidbody;
+
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    rigidbody = GetComponent<Rigidbody2D>();
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
             //Handles the Left and right movement
-	    float horizontal = Input.GetAxis("Horizontal");
+	   
         
-        Vector2 offset = new Vector2(horizontal, 0.0f) * speed * Time.deltaTime;
-        transform.Translate(offset);
-
+       
             //Handles the jump
 	    if (Input.GetButtonDown("Jump") && onFloor)
 	    {
@@ -33,6 +35,13 @@ public class PlayerController : MonoBehaviour
         
 
 	}
+
+    void FixedUpdate()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
+
+        rigidbody.velocity = new Vector2(horizontal, rigidbody.velocity.y);
+    }
 
     //Checks to see if the object is colliding with the ground
     void OnCollisionEnter2D(Collision2D obj)

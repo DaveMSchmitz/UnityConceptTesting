@@ -461,6 +461,8 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 1
+    Collab: 0
     UNet: 1
   cloudProjectId: fc2cff27-2864-4dd5-b3f4-791df7323a34
   projectName: ConceptTesting
