@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public GameObject camera;
+    public GameObject playerCamera;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,6 @@ public class CameraController : MonoBehaviour
 	void Update ()
 	{
 	    Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-	    camera.transform.position = new Vector3(rigidbody2D.position.x,rigidbody2D.position.y, -10.0f);
+	    playerCamera.transform.position = new Vector3(rigidbody2D.position.x,rigidbody2D.position.y, -10.0f);
 	}
 }
