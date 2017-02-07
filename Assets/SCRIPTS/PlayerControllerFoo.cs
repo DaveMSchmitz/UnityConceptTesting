@@ -73,7 +73,7 @@ public class PlayerControllerFoo : MonoBehaviour
     private void CheckGround()
     {
         //check if the ground sensor is touching the ground
-        onGround = Physics2D.OverlapCircle(groundSensor.position, radius, consideredGround);
+        onGround = Physics2D.OverlapCircle(groundSensor.position, radius, consideredGround); 
     }
 
     void OnTriggerEnter2D(Collider2D obj)
