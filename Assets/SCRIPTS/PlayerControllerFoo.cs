@@ -83,6 +83,12 @@ public class PlayerControllerFoo : MonoBehaviour
             transform.position = respawnTransform;
 
         }
+
+        if (obj.tag == "Checkpoint")
+        {
+            respawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
+            obj.gameObject.GetComponent<Animator>().SetBool("check", true);
+        }
     }
 
     public bool GetCanMove()

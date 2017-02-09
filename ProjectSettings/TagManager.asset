@@ -8,6 +8,7 @@ TagManager:
   - VerticleJumpFloor
   - Wall
   - WallJumpWall
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
