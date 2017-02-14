@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerControllerFoo : MonoBehaviour
 {
@@ -35,8 +36,19 @@ public class PlayerControllerFoo : MonoBehaviour
         if (canMove)
         {
             //check to see if the player is pressing the arrow keys
-            horizontal = Input.GetAxisRaw("Horizontal");
-
+            //horizontal = Input.GetAxisRaw("Horizontal");
+            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+            {
+                horizontal = 1;
+            }else if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+            {
+                horizontal = -1;
+            }
+            else if (CrossPlatformInputManager.GetButtonUp("Fire1") || CrossPlatformInputManager.GetButtonUp("Fire2"))
+            {
+                horizontal = 0;
+            }
+          
             //check to see if the character is on the ground
             CheckGround();
 
@@ -51,7 +63,7 @@ public class PlayerControllerFoo : MonoBehaviour
 
             //checks if initJump is true. This code is actually already checked but because fixed update is called more than update it is possible to want to
             //jump and it wont jump so its a second check.
-            if ((Input.GetButtonDown("Jump")) && onGround)
+            if ((CrossPlatformInputManager.GetButtonDown("Jump")) && onGround) //Input.GetButtonDown("Jump")
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpSpeed * Time.fixedDeltaTime);
 
