@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 
 public class PlayerControllerFoo : MonoBehaviour {
@@ -9,15 +10,17 @@ public class PlayerControllerFoo : MonoBehaviour {
     public float Radius;
     public LayerMask ConsideredGround;
     public Vector3 RespawnTransform;
+    public float SlowingDown;
 
     private Rigidbody2D _playerRigidbody;
     private float _horizontal;
+    private float _movement;
     private bool _onGround;
     private Animator _playerAnimator;
 
 
     private bool _triggerJump;
-    private bool _triggerMove;
+    private bool _firstTimeStopped;
 
     // Use this for initialization
     void Start() {
@@ -34,7 +37,15 @@ public class PlayerControllerFoo : MonoBehaviour {
         //because direction is based on what way the player is moving, don't set orientation if player is not moving
         if (_horizontal != 0) {
             //set the players orientation 
-            transform.localScale = new Vector3(_horizontal, transform.localScale.y);
+            transform.localScale = new Vector3(Mathf.Sign(_horizontal), transform.localScale.y);
+            _movement = _horizontal;
+        } else {
+            if (Mathf.Abs(_movement) < 0.1)
+            {
+                _movement = 0;
+            }
+            _movement = Mathf.Lerp(_movement, 0, SlowingDown*Time.deltaTime);
+                
         }
 
         //check to see if the player is on the ground
@@ -47,18 +58,18 @@ public class PlayerControllerFoo : MonoBehaviour {
         }
     }
 
-    void FixedUpdate() { 
+    void FixedUpdate() {
 
         //if the jump is triggered
         if (_triggerJump) {
-            
+
             //add velocity to the player so that they will jump, and reset the trigger
             _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, JumpSpeed * Time.fixedDeltaTime);
             _triggerJump = false;
         }
 
         //move the player bassed on what the _horizontal was
-        _playerRigidbody.velocity = new Vector2(_horizontal * MovementSpeed * Time.fixedDeltaTime, _playerRigidbody.velocity.y);
+        _playerRigidbody.velocity = new Vector2(_movement * MovementSpeed * Time.fixedDeltaTime, _playerRigidbody.velocity.y);
 
     }
 
@@ -76,13 +87,13 @@ public class PlayerControllerFoo : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D obj) {
 
         //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
-        if(obj.tag == "Respawn") {
+        if (obj.tag == "Respawn") {
             transform.position = RespawnTransform;
 
         }
 
         //if the object hit is a checkpoint set the respawn transform to the transform of the object and set the checkpoint animation to set
-        if(obj.tag == "Checkpoint") {
+        if (obj.tag == "Checkpoint") {
             RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
