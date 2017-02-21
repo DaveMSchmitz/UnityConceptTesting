@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305877999022486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.12, y: 8.74, z: 0}
+  m_LocalPosition: {x: -8.17, y: 9.740292, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4625774619309092}
@@ -106,7 +106,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.8, y: 1}
 --- !u!95 &95496235399252000
 Animator:
   serializedVersion: 3
@@ -138,7 +138,7 @@ MonoBehaviour:
   movementSpeed: 250
   jumpSpeed: 600
   groundSensor: {fileID: 4625774619309092}
-  radius: 0.25
+  radius: 0.4
   consideredGround:
     serializedVersion: 2
     m_Bits: 256
