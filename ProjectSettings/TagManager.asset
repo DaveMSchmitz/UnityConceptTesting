@@ -8,6 +8,7 @@ TagManager:
   - VerticleJumpFloor
   - Wall
   - WallJumpWall
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
+  - Background
   - 
   - 
   - 
@@ -42,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2064794905
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

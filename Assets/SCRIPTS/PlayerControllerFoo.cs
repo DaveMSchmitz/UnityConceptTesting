@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerControllerFoo : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerControllerFoo : MonoBehaviour
     private Animator _playerAnimator;
     private bool canMove;
 
+    private bool triggerJump;
+    private bool triggerMove;
 
     // Use this for initialization
     void Start()
@@ -34,28 +37,49 @@ public class PlayerControllerFoo : MonoBehaviour
 
         if (canMove)
         {
-            //check to see if the player is pressing the arrow keys
+#if UNITY_ANDROID
+            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+            {
+                horizontal = 1;
+            }
+            else if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+            {
+                horizontal = -1;
+            }
+            else if (CrossPlatformInputManager.GetButtonUp("Fire1") || CrossPlatformInputManager.GetButtonUp("Fire2"))
+            {
+                horizontal = 0;
+            }
+#else
             horizontal = Input.GetAxisRaw("Horizontal");
+#endif
+            
 
-            //check to see if the character is on the ground
-            CheckGround();
 
-            //set the players orientation 
             if (horizontal != 0)
             {
+                //set the players orientation 
                 transform.localScale = new Vector3(horizontal, transform.localScale.y);
             }
 
             //move the player in the direction that the arrow key was pressed, if it wasn't then horizontal will be zero making the player stop
-            playerRigidbody.velocity = new Vector2(horizontal * movementSpeed * Time.fixedDeltaTime, playerRigidbody.velocity.y);
+           
+            
+
+
+            //check to see if the character is on the ground
 
             //checks if initJump is true. This code is actually already checked but because fixed update is called more than update it is possible to want to
             //jump and it wont jump so its a second check.
-            if ((Input.GetButtonDown("Jump")) && onGround)
+            CheckGround();
+
+            if (Input.GetButtonDown("Jump") && onGround)
             {
-                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpSpeed * Time.fixedDeltaTime);
-
-
+                triggerJump = true;
+            }
+            if (Input.GetButtonDown("Jump"))
+            {
+                Debug.Log(onGround.ToString());
             }
 
 
@@ -63,6 +87,24 @@ public class PlayerControllerFoo : MonoBehaviour
 
     }
 
+    void FixedUpdate()
+    {
+       
+
+        if (triggerJump)
+        {
+            Debug.Log(onGround.ToString());
+        }
+
+        if (triggerJump)
+        {
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpSpeed * Time.fixedDeltaTime);
+            triggerJump = false;
+        }
+
+        playerRigidbody.velocity = new Vector2(horizontal * movementSpeed * Time.fixedDeltaTime, playerRigidbody.velocity.y);
+
+    }
 
     void LateUpdate()
     {
@@ -73,7 +115,7 @@ public class PlayerControllerFoo : MonoBehaviour
     private void CheckGround()
     {
         //check if the ground sensor is touching the ground
-        onGround = Physics2D.OverlapCircle(groundSensor.position, radius, consideredGround);
+        onGround = Physics2D.OverlapCircle(groundSensor.position, radius, consideredGround); 
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -82,6 +124,12 @@ public class PlayerControllerFoo : MonoBehaviour
         {
             transform.position = respawnTransform;
 
+        }
+
+        if (obj.tag == "Checkpoint")
+        {
+            respawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
+            obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
     }
 

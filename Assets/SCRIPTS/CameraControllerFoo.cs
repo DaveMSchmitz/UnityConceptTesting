@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraControllerFoo : MonoBehaviour
 {
@@ -11,11 +9,11 @@ public class CameraControllerFoo : MonoBehaviour
     public float clampYpos;
 
     private Vector3 focusPosition;
-    private PlayerControllerFoo playerControllerFoo;
+    
 
 	// Use this for initialization
 	void Start () {
-		playerControllerFoo = focus.GetComponent<PlayerControllerFoo>();
+//		playerControllerFoo = focus.GetComponent<PlayerControllerFoo>();
         
     }
 	
@@ -27,9 +25,10 @@ public class CameraControllerFoo : MonoBehaviour
 	    float y = Mathf.Clamp(focus.transform.position.y, clampYpos, float.MaxValue);
 	    float z = transform.position.z;
 
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
         focusPosition = new Vector3(x,y,z);
-	    transform.position = Vector3.Lerp(transform.position, focusPosition, smoothness * Time.deltaTime);
+	    transform.position = Vector3.Slerp(transform.position, focusPosition, smoothness * Time.deltaTime);
 
-
-	}
+    }
 }
