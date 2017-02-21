@@ -1,146 +1,90 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+﻿using UnityEngine;
 
-public class PlayerControllerFoo : MonoBehaviour
-{
 
-    public float movementSpeed;
-    public float jumpSpeed;
-    public Transform groundSensor;
-    public float radius;
-    public LayerMask consideredGround;
-    public Vector3 respawnTransform;
+public class PlayerControllerFoo : MonoBehaviour {
 
-    private Rigidbody2D playerRigidbody;
-    private bool initJump;
-    private float horizontal;
-    private bool onGround;
+    public float MovementSpeed;
+    public float JumpSpeed;
+    public Transform GroundSensor;
+    public float Radius;
+    public LayerMask ConsideredGround;
+    public Vector3 RespawnTransform;
+
+    private Rigidbody2D _playerRigidbody;
+    private float _horizontal;
+    private bool _onGround;
     private Animator _playerAnimator;
-    private bool canMove;
 
-    private bool triggerJump;
-    private bool triggerMove;
+
+    private bool _triggerJump;
+    private bool _triggerMove;
 
     // Use this for initialization
-    void Start()
-    {
-        playerRigidbody = GetComponent<Rigidbody2D>();
+    void Start() {
+        _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-        canMove = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
-        if (canMove)
-        {
-#if UNITY_ANDROID
-            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-            {
-                horizontal = 1;
-            }
-            else if (CrossPlatformInputManager.GetButtonDown("Fire2"))
-            {
-                horizontal = -1;
-            }
-            else if (CrossPlatformInputManager.GetButtonUp("Fire1") || CrossPlatformInputManager.GetButtonUp("Fire2"))
-            {
-                horizontal = 0;
-            }
-#else
-            horizontal = Input.GetAxisRaw("Horizontal");
-#endif
+        //get the direction the player wants to move
+        _horizontal = Input.GetAxisRaw("Horizontal");
+
+        //because direction is based on what way the player is moving, don't set orientation if player is not moving
+        if (_horizontal != 0) {
+            //set the players orientation 
+            transform.localScale = new Vector3(_horizontal, transform.localScale.y);
+        }
+
+        //check to see if the player is on the ground
+        CheckGround();
+
+        //if the player presses the jump button and is on the ground for this frame set the trigger to true
+        //so that when the next fixedUpdate comes around, jump
+        if (Input.GetButtonDown("Jump") && _onGround) {
+            _triggerJump = true;
+        }
+    }
+
+    void FixedUpdate() { 
+
+        //if the jump is triggered
+        if (_triggerJump) {
             
-
-
-            if (horizontal != 0)
-            {
-                //set the players orientation 
-                transform.localScale = new Vector3(horizontal, transform.localScale.y);
-            }
-
-            //move the player in the direction that the arrow key was pressed, if it wasn't then horizontal will be zero making the player stop
-           
-            
-
-
-            //check to see if the character is on the ground
-
-            //checks if initJump is true. This code is actually already checked but because fixed update is called more than update it is possible to want to
-            //jump and it wont jump so its a second check.
-            CheckGround();
-
-            if (Input.GetButtonDown("Jump") && onGround)
-            {
-                triggerJump = true;
-            }
-            if (Input.GetButtonDown("Jump"))
-            {
-                Debug.Log(onGround.ToString());
-            }
-
-
+            //add velocity to the player so that they will jump, and reset the trigger
+            _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, JumpSpeed * Time.fixedDeltaTime);
+            _triggerJump = false;
         }
+
+        //move the player bassed on what the _horizontal was
+        _playerRigidbody.velocity = new Vector2(_horizontal * MovementSpeed * Time.fixedDeltaTime, _playerRigidbody.velocity.y);
 
     }
 
-    void FixedUpdate()
-    {
-       
-
-        if (triggerJump)
-        {
-            Debug.Log(onGround.ToString());
-        }
-
-        if (triggerJump)
-        {
-            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpSpeed * Time.fixedDeltaTime);
-            triggerJump = false;
-        }
-
-        playerRigidbody.velocity = new Vector2(horizontal * movementSpeed * Time.fixedDeltaTime, playerRigidbody.velocity.y);
-
+    void LateUpdate() {
+        //after all of the physics, set the animation of the player
+        _playerAnimator.SetBool("onGround", _onGround);
+        _playerAnimator.SetFloat("Speed", Mathf.Abs(_playerRigidbody.velocity.x));
     }
 
-    void LateUpdate()
-    {
-        _playerAnimator.SetBool("onGround", onGround);
-        _playerAnimator.SetFloat("Speed", Mathf.Abs(playerRigidbody.velocity.x));
-    }
-
-    private void CheckGround()
-    {
+    private void CheckGround() {
         //check if the ground sensor is touching the ground
-        onGround = Physics2D.OverlapCircle(groundSensor.position, radius, consideredGround); 
+        _onGround = Physics2D.OverlapCircle(GroundSensor.position, Radius, ConsideredGround);
     }
 
-    void OnTriggerEnter2D(Collider2D obj)
-    {
-        if (obj.tag == "Respawn")
-        {
-            transform.position = respawnTransform;
+    void OnTriggerEnter2D(Collider2D obj) {
+
+        //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
+        if(obj.tag == "Respawn") {
+            transform.position = RespawnTransform;
 
         }
 
-        if (obj.tag == "Checkpoint")
-        {
-            respawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
+        //if the object hit is a checkpoint set the respawn transform to the transform of the object and set the checkpoint animation to set
+        if(obj.tag == "Checkpoint") {
+            RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
     }
-
-    public bool GetCanMove()
-    {
-        return canMove;
-    }
-
-    public void SetCanMove(bool value)
-    {
-        canMove = value;
-    }
-
 }

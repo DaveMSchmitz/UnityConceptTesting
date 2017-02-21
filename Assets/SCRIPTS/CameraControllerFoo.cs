@@ -25,10 +25,10 @@ public class CameraControllerFoo : MonoBehaviour
 	    float y = Mathf.Clamp(focus.transform.position.y, clampYpos, float.MaxValue);
 	    float z = transform.position.z;
 
-        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+//        transform.position = new Vector3(transform.position.x, y, transform.position.z);
 
         focusPosition = new Vector3(x,y,z);
-	    transform.position = Vector3.Slerp(transform.position, focusPosition, smoothness * Time.deltaTime);
+	    transform.position = Vector3.Lerp(transform.position, focusPosition, smoothness * Time.deltaTime);
 
     }
 }

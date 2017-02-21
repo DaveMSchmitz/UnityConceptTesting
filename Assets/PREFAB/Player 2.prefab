@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4625774619309092}
+  - component: {fileID: 58503841921992294}
   m_Layer: 9
   m_Name: GroundSensor
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305877999022486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.17, y: 9.740292, z: 0}
+  m_LocalPosition: {x: -8.152, y: 9.733, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4625774619309092}
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540646104323892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.458, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4270202655708710}
@@ -93,6 +94,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58503841921992294
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540646104323892}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!61 &61883554786868542
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -106,7 +121,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1}
+  m_Size: {x: 1, y: 1}
 --- !u!95 &95496235399252000
 Animator:
   serializedVersion: 3
@@ -135,14 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4820258146494499e13e19efc12251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 250
-  jumpSpeed: 600
-  groundSensor: {fileID: 4625774619309092}
-  radius: 0.4
-  consideredGround:
+  MovementSpeed: 300
+  JumpSpeed: 600
+  GroundSensor: {fileID: 4625774619309092}
+  Radius: 0.5
+  ConsideredGround:
     serializedVersion: 2
-    m_Bits: 256
-  respawnTransform: {x: -7, y: 8, z: 0}
+    m_Bits: 1280
+  RespawnTransform: {x: -8.17, y: 9.740292, z: 0}
 --- !u!212 &212287670197285502
 SpriteRenderer:
   m_ObjectHideFlags: 1
