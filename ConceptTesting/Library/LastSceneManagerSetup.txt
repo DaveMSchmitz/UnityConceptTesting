@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/bradt/Documents/Github/UnityConceptTesting/Assets/_SCENE/game.unity
+  isLoaded: 1
+  isActive: 1
