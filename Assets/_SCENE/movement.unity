@@ -223,26 +223,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114534539101971900, guid: 52057e5a16382ae4db2c268d7b26ab12,
-        type: 2}
-      propertyPath: RespawnTransform.x
-      value: -9.625723
-      objectReference: {fileID: 0}
-    - target: {fileID: 114534539101971900, guid: 52057e5a16382ae4db2c268d7b26ab12,
-        type: 2}
-      propertyPath: RespawnTransform.y
-      value: 8.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 50574157550598022, guid: 52057e5a16382ae4db2c268d7b26ab12,
-        type: 2}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114534539101971900, guid: 52057e5a16382ae4db2c268d7b26ab12,
-        type: 2}
-      propertyPath: SlowingDown
-      value: 13
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52057e5a16382ae4db2c268d7b26ab12, type: 2}
   m_IsPrefabParent: 0
