@@ -4,7 +4,8 @@ using UnityEngine.Assertions.Comparers;
 
 public class PlayerControllerFoo : MonoBehaviour {
 
-   
+    public Health health;
+
     public Vector3 RespawnTransform;
  
     private Animator _playerAnimator;
@@ -16,6 +17,7 @@ public class PlayerControllerFoo : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        health = new Health(25);
         _playerAnimator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<MovementController>();

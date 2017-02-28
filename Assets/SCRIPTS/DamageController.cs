@@ -15,11 +15,14 @@ public class DamageController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D obj)
     {
 
-        
-        if(obj.name == "dt1")
+        //This damages the player
+        if(obj.CompareTag("Damage"))
         {
-            Debug.Log("Destroying dt1");
-            Destroy(obj.gameObject);
+            Debug.Log("Dealing damage to player");
+
+
+            //Debug.Log("Destroying dt1");
+            //Destroy(obj.gameObject);
         }
     }
 }
