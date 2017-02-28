@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmbientDamageController : MonoBehaviour {
+public class DamageController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Log("Damage testing");
