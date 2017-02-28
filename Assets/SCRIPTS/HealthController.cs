@@ -1,12 +1,13 @@
-﻿
-public class Health
+﻿using UnityEngine;
+
+public class HealthController : MonoBehaviour
 {
 
-    private int health;
-    private int maxHealth;
-    private bool isAlive;
+    public int health;
+    public int maxHealth;
+    public bool isAlive;
 
-    public Health(int maxHealth)
+    public HealthController(int maxHealth)
     {
         //set the health to max health
         this.health = maxHealth;
@@ -19,7 +20,7 @@ public class Health
         }
     }
 
-    public Health(int maxHealth, int health)
+    public HealthController(int maxHealth, int health)
     {
         //set the health to max health
         this.health = health;
