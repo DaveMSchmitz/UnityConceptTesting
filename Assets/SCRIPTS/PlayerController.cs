@@ -187,6 +187,4 @@ public class PlayerController : MonoBehaviour
             acceleration = groundAcceleration;
         }
     }
-
-
 }
