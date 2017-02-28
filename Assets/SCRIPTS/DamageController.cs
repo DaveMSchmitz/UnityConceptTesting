@@ -5,19 +5,21 @@ using UnityEngine;
 public class AmbientDamageController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Testing");
+        Debug.Log("Damage testing");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	}
 
-    void OnCollision2DEnter(Collision2D col)
+    void OnTriggerEnter2D(Collider2D obj)
     {
-        Debug.Log("Collision");
-        if (col.gameObject.name.Equals("dt1"))
+
+        
+        if(obj.name == "dt1")
         {
-            Destroy(col.gameObject);
+            Debug.Log("Destroying dt1");
+            Destroy(obj.gameObject);
         }
     }
 }
