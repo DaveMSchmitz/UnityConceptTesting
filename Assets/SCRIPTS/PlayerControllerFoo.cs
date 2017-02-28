@@ -2,7 +2,8 @@
 using UnityEngine.Assertions.Comparers;
 
 
-public class PlayerControllerFoo : MonoBehaviour {
+public class PlayerControllerFoo : MonoBehaviour
+{
 
     public Health health;
 
