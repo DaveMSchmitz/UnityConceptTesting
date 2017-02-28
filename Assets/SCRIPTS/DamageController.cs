@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageController : MonoBehaviour {
-	// Use this for initialization
-	void Start () {
+    public bool takeDamage;
+    // Use this for initialization
+    void Start () {
         Debug.Log("Damage testing");
 	}
 	
@@ -14,15 +15,21 @@ public class DamageController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-
+        takeDamage = true;
         //This damages the player
         if(obj.CompareTag("Damage"))
         {
             Debug.Log("Dealing damage to player");
-
-
-            //Debug.Log("Destroying dt1");
-            //Destroy(obj.gameObject);
         }
+    }
+
+    void OnTriggerExit2D(Collider2D obj)
+    {
+        if (obj.CompareTag("Damage"))
+        {
+            takeDamage = false;
+            Debug.Log("Stop dealing damage to player");
+        }
+
     }
 }
