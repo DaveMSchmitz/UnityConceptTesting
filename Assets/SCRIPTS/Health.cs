@@ -4,7 +4,7 @@ public class Health
 
     private int health;
     private int maxHealth;
-    private bool isAlive = false;
+    private bool isAlive;
 
     public Health(int maxHealth)
     {
@@ -83,7 +83,7 @@ public class Health
     public bool changeHealth(int deltaHealth)
     {
         //change the health by delta
-        health = health + deltaHealth;
+        health += deltaHealth;
 
         //check if the object is dead
         if (health <= 0)
