@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Animator _playerAnimator;
     private Rigidbody2D _playerRigidbody;
 
-    private MovementController movement;
+    private MovementController _movement;
 
 
 
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         
         _playerAnimator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
-        movement = GetComponent<MovementController>();
+        _movement = GetComponent<MovementController>();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate() {
         //after all of the physics, set the animation of the player
-        _playerAnimator.SetBool("onGround", movement.CheckGround());
+        _playerAnimator.SetBool("onGround", _movement.CheckGround());
         _playerAnimator.SetFloat("Speed", Mathf.Abs(_playerRigidbody.velocity.x));
     }
 
