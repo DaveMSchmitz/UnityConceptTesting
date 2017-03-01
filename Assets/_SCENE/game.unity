@@ -2761,9 +2761,10 @@ GameObject:
   - component: {fileID: 1639474086}
   - component: {fileID: 1639474089}
   - component: {fileID: 1639474088}
+  - component: {fileID: 1639474090}
   m_Layer: 10
   m_Name: dt1
-  m_TagString: Damage
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2850,6 +2851,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &1639474090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639474085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d593491275aaa4aa6ecf8d05d66abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takeDamage: 0
+  tag: Player
 --- !u!1001 &1642547428
 Prefab:
   m_ObjectHideFlags: 0
@@ -2973,10 +2987,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722865667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d593491275aaa4aa6ecf8d05d66abc, type: 3}
+  m_Script: {fileID: 11500000, guid: af68fdc37f40189458094062b326dcc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeDamage: 0
 --- !u!114 &1722865669
 MonoBehaviour:
   m_ObjectHideFlags: 0
