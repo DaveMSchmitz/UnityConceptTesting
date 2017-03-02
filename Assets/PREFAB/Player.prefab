@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4270202655708710}
   - component: {fileID: 212287670197285502}
-  - component: {fileID: 61883554786868542}
   - component: {fileID: 50574157550598022}
   - component: {fileID: 95496235399252000}
   - component: {fileID: 114547422852036168}
@@ -110,20 +109,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!61 &61883554786868542
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305877999022486}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a7fc72d1432cb6444b16e8aac9c7162b, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!70 &70026452185744102
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -178,14 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eec10906caa3a4293b13b030e70bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 300
-  JumpSpeed: 600
+  MovementSpeed: 10
+  JumpSpeed: 11
+  Acceleration: 20
+  Decceleration: 30
   GroundSensor: {fileID: 4625774619309092}
   Radius: 0.4
   ConsideredGround:
     serializedVersion: 2
     m_Bits: 256
-  SlowingDown: 10
 --- !u!212 &212287670197285502
 SpriteRenderer:
   m_ObjectHideFlags: 1
