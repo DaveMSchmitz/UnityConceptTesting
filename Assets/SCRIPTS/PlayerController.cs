@@ -3,7 +3,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-
+    public HealthController health;
     public Vector3 RespawnTransform;
  
     private Animator _playerAnimator;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     // Use this for initialization
     void Start() {
-        
+        health = new HealthController(10,10);
         _playerAnimator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _movement = GetComponent<MovementController>();
