@@ -136,7 +136,7 @@ MonoBehaviour:
   Focus: {fileID: 0}
   CameraBuffer: 5
   Smoothness: 1.3
-  ClampYPosition: 0
+  ClampYPosition: -1
   FollowFocusAlongX: 1
   FollowFocusAlongY: 1
 --- !u!124 &124754839818968084
