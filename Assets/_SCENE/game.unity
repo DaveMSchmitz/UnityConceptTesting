@@ -2777,6 +2777,7 @@ GameObject:
   - component: {fileID: 1639474089}
   - component: {fileID: 1639474088}
   - component: {fileID: 1639474090}
+  - component: {fileID: 1639474091}
   m_Layer: 10
   m_Name: dt1
   m_TagString: Enemy
@@ -2875,6 +2876,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3d593491275aaa4aa6ecf8d05d66abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1639474091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639474085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb06fe1dc5e1d4743965e0a202d65cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1642547428
