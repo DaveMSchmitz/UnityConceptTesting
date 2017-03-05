@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     private Animator _playerAnimator;
     private Rigidbody2D _playerRigidbody;
 
+    private float nextFire;
+    public float fireRate;
+
     private MovementController _movement;
 
 
@@ -23,8 +26,11 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
-        
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Debug.Log("Attack");
+        }
     }
 
 
