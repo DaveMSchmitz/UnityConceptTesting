@@ -1,11 +1,9 @@
-﻿using UnityEngine;
-
-public class HealthController : MonoBehaviour
+﻿public class HealthController
 {
 
-    public int health;
-    public int maxHealth;
-    public bool isAlive;
+    private int health;
+    private int maxHealth;
+    private bool isAlive;
 
     public HealthController(int maxHealth)
     {
@@ -104,7 +102,7 @@ public class HealthController : MonoBehaviour
         return isAlive;
     }
 
-    //returns weather the object is dead or alive.
+    //returns whether the object is dead or alive.
     public bool getIsAlive()
     {
         return isAlive;
