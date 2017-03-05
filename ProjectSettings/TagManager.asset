@@ -9,7 +9,7 @@ TagManager:
   - Wall
   - WallJumpWall
   - Checkpoint
-  - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
