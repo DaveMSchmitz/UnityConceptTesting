@@ -545,9 +545,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114742180920402902, guid: 11a5359584248bc41bcc0cf33c739dd9,
+    - target: {fileID: 114281825163289000, guid: 11a5359584248bc41bcc0cf33c739dd9,
         type: 2}
-      propertyPath: focus
+      propertyPath: Focus
       value: 
       objectReference: {fileID: 716122724}
     m_RemovedComponents:
