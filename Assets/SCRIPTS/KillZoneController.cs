@@ -5,7 +5,6 @@ using UnityEngine;
 public class KillZoneController : MonoBehaviour
 {
 
-    public float killZoneY;
    
     void Start()
     {
@@ -16,6 +15,6 @@ public class KillZoneController : MonoBehaviour
 	void Update ()
 	{
 	    
-		transform.position = new Vector3(Camera.main.transform.position.x, killZoneY, transform.position.z);
+		transform.position = new Vector3(Camera.main.transform.position.x, transform.position.y, transform.position.z);
 	}
 }
