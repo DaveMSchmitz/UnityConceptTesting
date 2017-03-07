@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         _playerAnimator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _movement = GetComponent<MovementController>();
+        RespawnTransform = transform.position;
     }
 
     // Update is called once per frame

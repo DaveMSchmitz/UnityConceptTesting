@@ -293,11 +293,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4270202655708710, guid: 52057e5a16382ae4db2c268d7b26ab12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.625723
+      value: -6.52
       objectReference: {fileID: 0}
     - target: {fileID: 4270202655708710, guid: 52057e5a16382ae4db2c268d7b26ab12, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.36
+      value: 8.56
       objectReference: {fileID: 0}
     - target: {fileID: 4270202655708710, guid: 52057e5a16382ae4db2c268d7b26ab12, type: 2}
       propertyPath: m_LocalPosition.z
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 2112792284}
   - component: {fileID: 2112792283}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
