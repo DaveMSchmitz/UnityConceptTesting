@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Focus: {fileID: 0}
   CameraBuffer: 5
-  Smoothness: 1.3
+  Smoothness: 1.7
   ClampYPosition: -100
   FollowFocusAlongX: 1
   FollowFocusAlongY: 1
