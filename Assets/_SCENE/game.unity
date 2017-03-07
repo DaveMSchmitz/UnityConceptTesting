@@ -1357,6 +1357,16 @@ Prefab:
       propertyPath: focus
       value: 
       objectReference: {fileID: 1722865667}
+    - target: {fileID: 114281825163289000, guid: 11a5359584248bc41bcc0cf33c739dd9,
+        type: 2}
+      propertyPath: Focus
+      value: 
+      objectReference: {fileID: 1722865667}
+    - target: {fileID: 114281825163289000, guid: 11a5359584248bc41bcc0cf33c739dd9,
+        type: 2}
+      propertyPath: Smoothness
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11a5359584248bc41bcc0cf33c739dd9, type: 2}
   m_IsPrefabParent: 0
@@ -1667,6 +1677,16 @@ Prefab:
         type: 2}
       propertyPath: fireRate
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547422852036168, guid: 52057e5a16382ae4db2c268d7b26ab12,
+        type: 2}
+      propertyPath: JumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547422852036168, guid: 52057e5a16382ae4db2c268d7b26ab12,
+        type: 2}
+      propertyPath: MovementSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52057e5a16382ae4db2c268d7b26ab12, type: 2}
@@ -2827,7 +2847,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1639474085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.54, y: 5.36, z: 0}
+  m_LocalPosition: {x: 3.6, y: 5.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

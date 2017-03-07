@@ -25,17 +25,25 @@ public class DamageController : MonoBehaviour {
         //Debug.Log("Dealing damage to player");
         if (obj.CompareTag("Player"))
         {
+
             dmgCoroutine = StartCoroutine(dmg());
+
+        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+            
+            
+
         }
     }
 
     void OnTriggerExit2D(Collider2D obj)
     {
         //if (obj.CompareTag("Damage"))
-        if(obj.CompareTag("Player"))
+        if (obj.CompareTag("Player") && this.CompareTag("Enemy"))
         {
             Debug.Log("Stop dealing damage to player");
             StopCoroutine(dmgCoroutine);
+        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+            Debug.Log("Stop dealing damage to enemy");
         }
 
     }
@@ -48,9 +56,11 @@ public class DamageController : MonoBehaviour {
             player.health.changeHealth(-1);
             if (!player.health.getIsAlive())
             {
+                player.health.setHealth(player.health.getMaxHealth());
                 player.transform.position = player.RespawnTransform;
+                
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
     }
 }
