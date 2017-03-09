@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4415352109836138}
   - component: {fileID: 61695446254296182}
   m_Layer: 8
-  m_Name: Ground 3x3 1
+  m_Name: 3x3 ground (no bottom dirt)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
