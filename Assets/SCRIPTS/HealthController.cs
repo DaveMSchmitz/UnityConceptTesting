@@ -25,7 +25,7 @@
         this.maxHealth = maxHealth;
 
         //a check to make sure that the health is bigger than zero
-        if (health > 0)
+        if (health >= 0)
         {
             isAlive = true;
         }
@@ -46,6 +46,9 @@
         if (health <= 0)
         {
             isAlive = false;
+        } else
+        {
+            isAlive = true;
         }
 
         return isAlive;
