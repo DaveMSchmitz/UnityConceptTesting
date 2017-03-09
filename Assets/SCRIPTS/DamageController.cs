@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour {
     private PlayerController player;
+	private EnemyController enemy;
     private Coroutine dmgCoroutine;
 
     // Use this for initialization
     void Start () {
         player = GameObject.Find("/Player").GetComponent<PlayerController>();
+		enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyController> ();
         Debug.Log("Damage testing");
         //var player = GameObject.FindWithTag("Player");
 	}
@@ -26,10 +28,15 @@ public class DamageController : MonoBehaviour {
         if (obj.CompareTag("Player"))
         {
 
-            dmgCoroutine = StartCoroutine(dmg());
+            dmgCoroutine = StartCoroutine(dmgPlayer());
 
         } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
-            
+			Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
+			enemy.health.changeHealth (-1);
+			if (!enemy.health.getIsAlive ()) {
+				enemy.health.setHealth (player.health.getMaxHealth ());
+				enemy.transform.position = enemy.RespawnTransform;
+			}
             //Attacking from player
 
         }
@@ -48,7 +55,7 @@ public class DamageController : MonoBehaviour {
 
     }
 
-    IEnumerator dmg()
+    IEnumerator dmgPlayer()
     {
         while (true)
         {
@@ -63,4 +70,5 @@ public class DamageController : MonoBehaviour {
             yield return new WaitForSeconds(2);
         }
     }
+		
 }
