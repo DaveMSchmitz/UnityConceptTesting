@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour {
     private PlayerController player;
-    private bool takeDamage;
     private Coroutine dmgCoroutine;
 
     // Use this for initialization
@@ -16,28 +15,35 @@ public class DamageController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
     void OnTriggerEnter2D(Collider2D obj)
     {
         //This damages the player
         //if(obj.CompareTag("Damage"))
-        if(obj.CompareTag("Player"))
+        //Debug.Log("Dealing damage to player");
+        if (obj.CompareTag("Player"))
         {
-            //takeDamage = true;
+
             dmgCoroutine = StartCoroutine(dmg());
-            //Debug.Log("Dealing damage to player");
+
+        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+            
+            //Attacking from player
+
         }
     }
 
     void OnTriggerExit2D(Collider2D obj)
     {
         //if (obj.CompareTag("Damage"))
-        if(obj.CompareTag("Player"))
+        if (obj.CompareTag("Player") && this.CompareTag("Enemy"))
         {
-            takeDamage = false;
             Debug.Log("Stop dealing damage to player");
             StopCoroutine(dmgCoroutine);
+        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+            Debug.Log("Stop dealing damage to enemy");
         }
 
     }
@@ -50,9 +56,11 @@ public class DamageController : MonoBehaviour {
             player.health.changeHealth(-1);
             if (!player.health.getIsAlive())
             {
+                player.health.setHealth(player.health.getMaxHealth());
                 player.transform.position = player.RespawnTransform;
+                
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
     }
 }
