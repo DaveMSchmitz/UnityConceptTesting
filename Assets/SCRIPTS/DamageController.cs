@@ -30,7 +30,7 @@ public class DamageController : MonoBehaviour {
 
         } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
             
-            
+            //Attacking from player
 
         }
     }
