@@ -26,11 +26,10 @@ public class DamageController : MonoBehaviour {
         //if(obj.CompareTag("Damage"))
         //Debug.Log("Dealing damage to player");
         if (obj.CompareTag("Player"))
-        {
-
+		{
             dmgCoroutine = StartCoroutine(dmgPlayer());
 
-        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+        } else if (player.isAttacking && obj.CompareTag("Enemy")/* && this.CompareTag("Weapon")*/) {
 			Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
 			enemy.health.changeHealth (-1);
 			if (!enemy.health.getIsAlive ()) {
