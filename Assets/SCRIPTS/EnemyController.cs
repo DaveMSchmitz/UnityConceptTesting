@@ -41,5 +41,11 @@ public class EnemyController : MonoBehaviour {
         _enemyAnimator.SetBool("onGround", _movement.CheckGround());
         _enemyAnimator.SetFloat("Speed", Mathf.Abs(_enemyRigidbody.velocity.x));
     }
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.tag == "Respawn") {
+			Destroy (gameObject);
+		}
+	}
 		
 }
