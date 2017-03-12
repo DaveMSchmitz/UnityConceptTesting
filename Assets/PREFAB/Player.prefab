@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4820258146494499e13e19efc12251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RespawnTransform: {x: -10, y: 8, z: 0}
+  RespawnTransform: {x: 0, y: 1, z: 0}
 --- !u!114 &114547422852036168
 MonoBehaviour:
   m_ObjectHideFlags: 1
