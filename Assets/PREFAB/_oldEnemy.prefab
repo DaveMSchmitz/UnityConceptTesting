@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 50060301299633762}
   - component: {fileID: 114077037792448976}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: _oldEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,6 +244,8 @@ MonoBehaviour:
   ConsideredGround:
     serializedVersion: 2
     m_Bits: 256
+  JumpSensorRadius: 0.3
+  JumpSensor: {fileID: 0}
 --- !u!212 &212678899115342994
 SpriteRenderer:
   m_ObjectHideFlags: 1

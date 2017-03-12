@@ -5,14 +5,15 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider2D))]
 public class EnemyMovement : MovementController{
 
+	public float JumpSensorRadius;
+	public GameObject JumpSensor;
+
 	private GameObject _focus = null;
 
-	private Transform _jumpSensorRight;
-	private Transform _jumpSensorLeft;
 
 	public override void setUp (){
-		_jumpSensorRight = GameObject.Find ("JumpSensorRight").transform;
-		_jumpSensorLeft = GameObject.Find ("JumpSensorLeft").transform;
+		
+
 	}
 
 	public override float getMovement(){
@@ -26,9 +27,8 @@ public class EnemyMovement : MovementController{
 	}
 
 	public override bool getJump(){
-
-
-		return Physics2D.OverlapCircle(_jumpSensorRight.position, .3f, ConsideredGround) || Physics2D.OverlapCircle(_jumpSensorLeft.position, .3f, ConsideredGround);;
+	
+		return Physics2D.OverlapCircle(JumpSensor.transform.position, JumpSensorRadius, ConsideredGround);
 	}
 
 	public void OnTriggerEnter2D(Collider2D col){
