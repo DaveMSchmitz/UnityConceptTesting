@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour {
+public abstract class MovementController : MonoBehaviour {
     public float MovementSpeed;
     public float JumpSpeed;
     public float Acceleration;
@@ -17,15 +17,20 @@ public class MovementController : MonoBehaviour {
     private float _horizontal;
     private float _movement;
 
+	public abstract float getMovement ();
+	public abstract bool getJump ();
+	public abstract void setUp ();
+
     // Use this for initialization
     void Start() {
         _playerRigidbody = GetComponent<Rigidbody2D>();
+		setUp ();
     }
 
     // Update is called once per frame
     void Update() {
         //get the direction the player wants to move
-        _horizontal = Input.GetAxisRaw("Horizontal");
+		_horizontal = getMovement();
 
         //because direction is based on what way the player is moving, don't set orientation if player is not moving
         if (_horizontal != 0) {
@@ -39,7 +44,7 @@ public class MovementController : MonoBehaviour {
 
         //if the player presses the jump button and is on the ground for this frame set the trigger to true
         //so that when the next fixedUpdate comes around, jump
-        if (Input.GetButtonDown("Jump") && _onGround) {
+		if (getJump() && _onGround) {
             _triggerJump = true;
         }
 
@@ -104,4 +109,5 @@ public class MovementController : MonoBehaviour {
         }
 
     }
+		
 }
