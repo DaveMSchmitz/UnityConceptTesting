@@ -10,6 +10,7 @@ TagManager:
   - WallJumpWall
   - Checkpoint
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Ground
   - Player
   - Background
-  - 
+  - Sensor
   - 
   - 
   - 
