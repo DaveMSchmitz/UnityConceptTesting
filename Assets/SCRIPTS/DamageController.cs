@@ -29,28 +29,33 @@ public class DamageController : MonoBehaviour {
 		{
             dmgCoroutine = StartCoroutine(dmgPlayer());
 
-        } else if (player.isAttacking && obj.CompareTag("Enemy")/* && this.CompareTag("Weapon")*/) {
-			Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
-			enemy.health.changeHealth (-1);
-			if (!enemy.health.getIsAlive ()) {
-				enemy.health.setHealth (player.health.getMaxHealth ());
-				enemy.transform.position = enemy.RespawnTransform;
-			}
+		//} else if (player.isAttacking && obj.CompareTag("Enemy")) {	// && this.CompareTag("Weapon")
+			//Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
+			//enemy.health.changeHealth (-1);
+			//if (!enemy.health.getIsAlive ()) {
+			//	enemy.health.setHealth (player.health.getMaxHealth ());
+			//	enemy.transform.position = enemy.RespawnTransform;
+			//}
             //Attacking from player
 
-        }
+		} else if (this.tag == "Weapon" && obj.CompareTag("Enemy")){
+			//dmgCoroutine = StartCoroutine (dmgEnemy ());
+			Destroy(obj);
+		}
     }
 
     void OnTriggerExit2D(Collider2D obj)
     {
         //if (obj.CompareTag("Damage"))
-        if (obj.CompareTag("Player") && this.CompareTag("Enemy"))
-        {
-            Debug.Log("Stop dealing damage to player");
-            StopCoroutine(dmgCoroutine);
-        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
-            Debug.Log("Stop dealing damage to enemy");
-        }
+		if (obj.CompareTag ("Player") && this.CompareTag ("Enemy")) {
+			Debug.Log ("Stop dealing damage to player");
+			StopCoroutine (dmgCoroutine);
+			//} else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+			Debug.Log ("Stop dealing damage to enemy");
+		} else if (this.tag == "Weapon" && obj.CompareTag ("Enemy")) {
+			//StopCoroutine (dmgPlayer ());
+			Debug.Log ("Weapon exits enemy");
+		}
 
     }
 
@@ -69,5 +74,17 @@ public class DamageController : MonoBehaviour {
             yield return new WaitForSeconds(2);
         }
     }
+
+	IEnumerator dmgEnemy (){
+		while(true){
+			Debug.Log("Health: " + enemy.health.getCurrentHealth());
+			enemy.health.changeHealth (-1);
+			if(!enemy.health.getIsAlive()){
+				enemy.health.setHealth (enemy.health.getMaxHealth ());
+				enemy.transform.position = enemy.RespawnTransform;
+			}
+			yield return new WaitForSeconds(2);
+		}
+	}
 		
 }
