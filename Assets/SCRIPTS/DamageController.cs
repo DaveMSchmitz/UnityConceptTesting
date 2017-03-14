@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour {
     private PlayerController player;
+	private EnemyController enemy;
     private Coroutine dmgCoroutine;
 
     // Use this for initialization
     void Start () {
         player = GameObject.Find("/Player").GetComponent<PlayerController>();
+		enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyController> ();
         Debug.Log("Damage testing");
         //var player = GameObject.FindWithTag("Player");
 	}
@@ -24,31 +26,40 @@ public class DamageController : MonoBehaviour {
         //if(obj.CompareTag("Damage"))
         //Debug.Log("Dealing damage to player");
         if (obj.CompareTag("Player"))
-        {
+		{
+            dmgCoroutine = StartCoroutine(dmgPlayer());
 
-            dmgCoroutine = StartCoroutine(dmg());
-
-        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
-            
+		//} else if (player.isAttacking && obj.CompareTag("Enemy")) {	// && this.CompareTag("Weapon")
+			//Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
+			//enemy.health.changeHealth (-1);
+			//if (!enemy.health.getIsAlive ()) {
+			//	enemy.health.setHealth (player.health.getMaxHealth ());
+			//	enemy.transform.position = enemy.RespawnTransform;
+			//}
             //Attacking from player
 
-        }
+		} else if (this.tag == "Weapon" && obj.CompareTag("Enemy")){
+			//dmgCoroutine = StartCoroutine (dmgEnemy ());
+			Destroy(obj);
+		}
     }
 
     void OnTriggerExit2D(Collider2D obj)
     {
         //if (obj.CompareTag("Damage"))
-        if (obj.CompareTag("Player") && this.CompareTag("Enemy"))
-        {
-            Debug.Log("Stop dealing damage to player");
-            StopCoroutine(dmgCoroutine);
-        } else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
-            Debug.Log("Stop dealing damage to enemy");
-        }
+		if (obj.CompareTag ("Player") && this.CompareTag ("Enemy")) {
+			Debug.Log ("Stop dealing damage to player");
+			StopCoroutine (dmgCoroutine);
+			//} else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
+			Debug.Log ("Stop dealing damage to enemy");
+		} else if (this.tag == "Weapon" && obj.CompareTag ("Enemy")) {
+			//StopCoroutine (dmgPlayer ());
+			Debug.Log ("Weapon exits enemy");
+		}
 
     }
 
-    IEnumerator dmg()
+    IEnumerator dmgPlayer()
     {
         while (true)
         {
@@ -63,4 +74,17 @@ public class DamageController : MonoBehaviour {
             yield return new WaitForSeconds(2);
         }
     }
+
+	IEnumerator dmgEnemy (){
+		while(true){
+			Debug.Log("Health: " + enemy.health.getCurrentHealth());
+			enemy.health.changeHealth (-1);
+			if(!enemy.health.getIsAlive()){
+				enemy.health.setHealth (enemy.health.getMaxHealth ());
+				enemy.transform.position = enemy.RespawnTransform;
+			}
+			yield return new WaitForSeconds(2);
+		}
+	}
+		
 }

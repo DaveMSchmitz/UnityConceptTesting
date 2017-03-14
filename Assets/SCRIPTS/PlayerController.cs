@@ -29,13 +29,16 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+		/*
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             isAttacking = true;
             nextFire = Time.time + fireRate;
             Debug.Log("Attack");
             isAttacking = false;
+
         }
+        */
     }
 
 
