@@ -1,26 +1,32 @@
 fileFormatVersion: 2
-guid: a5f1d6317bce0a74d949c5771227bb92
-timeCreated: 1488907195
+guid: b5e221e107b9e1841a286ab7f67a69aa
+timeCreated: 1489081631
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArthurTest2_0
-    21300002: ArthurTest2_1
-    21300004: ArthurTest2_2
-    21300006: ArthurTest2_3
-    21300008: ArthurTest2_4
-    21300010: ArthurTest2_5
-    21300012: ArthurTest2_6
-    21300014: ArthurTest2_7
-    21300016: ArthurTest2_8
-    21300018: ArthurTest2_9
-    21300020: ArthurTest2_10
-    21300022: ArthurTest2_11
-    21300024: ArthurTest2_12
-    21300026: ArthurTest2_13
-    21300028: ArthurTest2_14
-    21300030: ArthurTest2_15
-    21300032: ArthurTest2_16
+    21300000: ArthurWithWalk_0
+    21300002: ArthurWithWalk_1
+    21300004: ArthurWithWalk_2
+    21300006: ArthurWithWalk_3
+    21300008: ArthurWithWalk_4
+    21300010: ArthurWithWalk_5
+    21300012: ArthurWithWalk_6
+    21300014: ArthurWithWalk_7
+    21300016: ArthurWithWalk_8
+    21300018: ArthurWithWalk_9
+    21300020: ArthurWithWalk_10
+    21300022: ArthurWithWalk_11
+    21300024: ArthurWithWalk_12
+    21300026: ArthurWithWalk_13
+    21300028: ArthurWithWalk_14
+    21300030: ArthurWithWalk_15
+    21300032: ArthurWithWalk_16
+    21300034: ArthurWithWalk_17
+    21300036: ArthurWithWalk_18
+    21300038: ArthurWithWalk_19
+    21300040: ArthurWithWalk_20
+    21300042: ArthurWithWalk_21
+    21300044: ArthurWithWalk_22
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -83,35 +89,102 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArthurTest2_0
+      name: ArthurWithWalk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 126
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_7
       rect:
         serializedVersion: 2
         x: 0
@@ -124,7 +197,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_1
+      name: ArthurWithWalk_8
       rect:
         serializedVersion: 2
         x: 21
@@ -137,7 +210,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_2
+      name: ArthurWithWalk_9
       rect:
         serializedVersion: 2
         x: 42
@@ -150,7 +223,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_3
+      name: ArthurWithWalk_10
       rect:
         serializedVersion: 2
         x: 63
@@ -163,7 +236,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_4
+      name: ArthurWithWalk_11
       rect:
         serializedVersion: 2
         x: 84
@@ -176,7 +249,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_5
+      name: ArthurWithWalk_12
       rect:
         serializedVersion: 2
         x: 105
@@ -189,7 +262,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_6
+      name: ArthurWithWalk_13
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 84
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_14
       rect:
         serializedVersion: 2
         x: 0
@@ -202,7 +288,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_7
+      name: ArthurWithWalk_15
       rect:
         serializedVersion: 2
         x: 21
@@ -215,7 +301,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_8
+      name: ArthurWithWalk_16
       rect:
         serializedVersion: 2
         x: 42
@@ -228,7 +314,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_9
+      name: ArthurWithWalk_17
       rect:
         serializedVersion: 2
         x: 63
@@ -241,7 +327,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_10
+      name: ArthurWithWalk_18
       rect:
         serializedVersion: 2
         x: 84
@@ -254,7 +340,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_11
+      name: ArthurWithWalk_19
       rect:
         serializedVersion: 2
         x: 105
@@ -267,7 +353,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_12
+      name: ArthurWithWalk_20
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 42
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArthurWithWalk_21
       rect:
         serializedVersion: 2
         x: 0
@@ -280,49 +379,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArthurTest2_13
+      name: ArthurWithWalk_22
       rect:
         serializedVersion: 2
         x: 21
-        y: 0
-        width: 21
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ArthurTest2_14
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 21
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ArthurTest2_15
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 0
-        width: 21
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ArthurTest2_16
-      rect:
-        serializedVersion: 2
-        x: 84
         y: 0
         width: 21
         height: 42
