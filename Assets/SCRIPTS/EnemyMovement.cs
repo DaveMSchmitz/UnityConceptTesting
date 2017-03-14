@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(BoxCollider2D))]
+
 public class EnemyMovement : MovementController{
 
 	public float JumpSensorRadius;
 	public GameObject JumpSensor;
+	public GameObject PlayerSensor;
 
-	private GameObject _focus = null;
-
+	private AIController ai;
 
 	public override void setUp (){
-		
+		ai = PlayerSensor.GetComponent<AIController> ();
 
 	}
 
 	public override float getMovement(){
-		float horizontal = 0;
 
-		if(_focus != null){
-			horizontal = Mathf.Sign (_focus.transform.position.x - transform.position.x);
-		}
 
-		return horizontal;
+		return ai.GetMovement();
 	}
 
 	public override bool getJump(){
@@ -31,16 +27,6 @@ public class EnemyMovement : MovementController{
 		return Physics2D.OverlapCircle(JumpSensor.transform.position, JumpSensorRadius, ConsideredGround);
 	}
 
-	public void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player"){
-			_focus = col.gameObject;
-		}
-	}
 
-	public void OnTriggerExit2D(Collider2D col){
-		if(col.tag == "Player"){
-			_focus = null;
-		}
-	}
 }
 
