@@ -18,7 +18,7 @@ public class AIController : MonoBehaviour {
 
 		if(_focus != null){
 			_horizontal = Mathf.Sign (_focus.transform.position.x - transform.position.x);
-			Debug.Log ("Found Player");
+			
 		}
 	}
 
@@ -30,7 +30,7 @@ public class AIController : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "Player"){
-            Debug.Log("Found Player Trigger");
+         
             _focus = col.gameObject;
 		}
 	}
