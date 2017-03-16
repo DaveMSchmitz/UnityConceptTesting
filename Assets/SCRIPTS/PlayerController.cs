@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if (!health.isAlive)
         {
             transform.position = RespawnTransform;
+            health.setHealth(health.maxHealth);
         }
 
 		if (Input.GetKey (KeyCode.R)) {
