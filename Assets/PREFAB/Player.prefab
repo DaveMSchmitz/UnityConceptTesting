@@ -216,7 +216,7 @@ MonoBehaviour:
   Acceleration: 20
   Decceleration: 50
   AirAcceleration: 10
-  AirDecceleration: 30
+  AirDecceleration: 10
   GroundSensor: {fileID: 4830671307198714}
   Radius: 0.2
   ConsideredGround:
