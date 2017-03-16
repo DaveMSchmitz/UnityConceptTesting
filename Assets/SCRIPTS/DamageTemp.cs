@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageTemp : MonoBehaviour {
 
-	public float Damage;
+	public int Damage;
 	public float CoolDown;
 
 	private float nextFire;
@@ -33,7 +33,7 @@ public class DamageTemp : MonoBehaviour {
 		        if (enemy != null)
 		        {
                     EnemyController ec = enemy.GetComponent<EnemyController>();
-                    ec.health.changeHealth(-5);
+                    ec.health.changeHealth(Damage);
                     Debug.Log(ec.health.getCurrentHealth());
                 }
 
