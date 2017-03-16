@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        health = new HealthController(10, 10);
+        health = GetComponent<HealthController>();
         //_playerAnimator = GetComponent<Animator>();
         //_playerRigidbody = GetComponent<Rigidbody2D>();
         //_movement = GetComponent<MovementController>();

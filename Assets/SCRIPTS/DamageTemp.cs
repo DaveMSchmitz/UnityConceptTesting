@@ -28,13 +28,14 @@ public class DamageTemp : MonoBehaviour {
 			Debug.Log("Attack");
 
 			//if the weapon is touching an enemy gut it
-		    foreach (GameObject enemy in enemies)
+		    foreach (GameObject enemy in enemies) 
 		    {
 		        if (enemy != null)
 		        {
-                    EnemyController ec = enemy.GetComponent<EnemyController>();
-                    ec.health.changeHealth(Damage);
-                    Debug.Log(ec.health.getCurrentHealth());
+
+                    HealthController ec = enemy.GetComponent<HealthController>();
+                    ec.changeHealth(Damage);
+                    Debug.Log(ec.getCurrentHealth());
                 }
 
 			}
@@ -46,15 +47,17 @@ public class DamageTemp : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter2D(Collider2D col){
+        
 		//if you touch an enemy, keep track of that enemy
-		if (col.tag == "Enemy") {
-			enemies.Add(col.gameObject);
+		if (col.tag == "Damage") {
+            
+            enemies.Add(col.gameObject);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		//when that enemy is no longer tounching you, get rid of that reference
-		if (col.tag == "Enemy")
+		if (col.tag == "Damage")
 		{
 		    enemies.Remove(col.gameObject);
 		}

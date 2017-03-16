@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 95796475898614804}
   - component: {fileID: 114074615583021748}
   - component: {fileID: 114743952737512106}
+  - component: {fileID: 114103240325774544}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,9 +198,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4820258146494499e13e19efc12251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   isAttacking: 0
   RespawnTransform: {x: -10, y: 8, z: 0}
   fireRate: 0
+--- !u!114 &114103240325774544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853083654767284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  isAlive: 1
 --- !u!114 &114743952737512106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +237,7 @@ MonoBehaviour:
   Radius: 0.2
   ConsideredGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16640
 --- !u!114 &114816568152435710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d90b16bad83b946b70789927393f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
+  Damage: -5
   CoolDown: 0.5
 --- !u!212 &212545402074701650
 SpriteRenderer:

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
     public float fireRate;
+    
 
     private MovementController _movement;
 
@@ -20,15 +21,22 @@ public class PlayerController : MonoBehaviour
 
     // Use this for initialization
     void Start() {
-        health = new HealthController(10,10);
+        
         _playerAnimator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _movement = GetComponent<MovementController>();
         RespawnTransform = transform.position;
+        health = GetComponent<HealthController>();
+
     }
 
     // Update is called once per frame
     void Update() {
+        if (!health.isAlive)
+        {
+            transform.position = RespawnTransform;
+        }
+
 		if (Input.GetKey (KeyCode.R)) {
 			transform.position = RespawnTransform;
 		}
