@@ -29,14 +29,14 @@ public class AIController : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player"){
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player")){
          
             _focus = col.gameObject;
 		}
 	}
 
 	public void OnTriggerExit2D(Collider2D col){
-		if(col.tag == "Player"){
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player")) {
 			_focus = null;
 		}
 	}

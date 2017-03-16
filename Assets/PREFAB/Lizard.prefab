@@ -57,9 +57,10 @@ GameObject:
   - component: {fileID: 114547317381100378}
   - component: {fileID: 114173143750520570}
   - component: {fileID: 95348632560432114}
+  - component: {fileID: 114710573379432416}
   m_Layer: 14
   m_Name: Lizard
-  m_TagString: Enemy
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ GameObject:
   - component: {fileID: 114267502050911808}
   m_Layer: 12
   m_Name: PlayerSensor
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622201864706752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 276.3721, y: -0.43834758, z: 0}
+  m_LocalPosition: {x: 58.34, y: 1.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188635095226270}
@@ -240,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb06fe1dc5e1d4743965e0a202d65cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   RespawnTransform: {x: 0, y: 0, z: 0}
 --- !u!114 &114267502050911808
 MonoBehaviour:
@@ -267,7 +269,7 @@ MonoBehaviour:
   JumpSpeed: 15
   Acceleration: 20
   Decceleration: 70
-  AirAcceleration: 10
+  AirAcceleration: 100
   AirDecceleration: 30
   GroundSensor: {fileID: 4188635095226270}
   Radius: 0.2
@@ -277,6 +279,20 @@ MonoBehaviour:
   JumpSensorRadius: 0.3
   JumpSensor: {fileID: 1557447054417404}
   PlayerSensor: {fileID: 1850334832160106}
+--- !u!114 &114710573379432416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622201864706752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  isAlive: 1
 --- !u!212 &212969495762701784
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,9 +1,12 @@
-﻿public class HealthController
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class HealthController : MonoBehaviour 
 {
 
-    private int health;
-    private int maxHealth;
-    private bool isAlive;
+    public int health;
+    public int maxHealth;
+    public bool isAlive;
 
     public HealthController(int maxHealth)
     {
