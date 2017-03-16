@@ -8,13 +8,13 @@ public class DamageTemp : MonoBehaviour {
 	public float CoolDown;
 
 	private float nextFire;
-	private GameObject enemies;
+	private List<GameObject> enemies;
 
 
 	// Use this for initialization
 	void Start () {
 		nextFire = 0;
-		enemies = null;
+		enemies = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -28,27 +28,35 @@ public class DamageTemp : MonoBehaviour {
 			Debug.Log("Attack");
 
 			//if the weapon is touching an enemy gut it
-			if (enemies != null) {
-				EnemyController ec = enemies.GetComponent<EnemyController> ();
-				ec.health.changeHealth (-5);
-				Debug.Log (ec.health.getCurrentHealth());
+		    foreach (GameObject enemy in enemies)
+		    {
+		        if (enemy != null)
+		        {
+                    EnemyController ec = enemy.GetComponent<EnemyController>();
+                    ec.health.changeHealth(-5);
+                    Debug.Log(ec.health.getCurrentHealth());
+                }
+
 			}
 
 
 		}
+
+	    enemies.RemoveAll(item => item == null);
 	}
 		
 	void OnTriggerEnter2D(Collider2D col){
 		//if you touch an enemy, keep track of that enemy
 		if (col.tag == "Enemy") {
-			enemies = col.gameObject;
+			enemies.Add(col.gameObject);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		//when that enemy is no longer tounching you, get rid of that reference
-		if (col.tag == "Enemy") {
-			enemies = null;
+		if (col.tag == "Enemy")
+		{
+		    enemies.Remove(col.gameObject);
 		}
 	}
 }
