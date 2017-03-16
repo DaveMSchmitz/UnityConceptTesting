@@ -7,6 +7,8 @@ public abstract class MovementController : MonoBehaviour {
     public float JumpSpeed;
     public float Acceleration;
     public float Decceleration;
+    public float AirAcceleration;
+    public float AirDecceleration;
     public Transform GroundSensor;
     public float Radius;
     public LayerMask ConsideredGround;
@@ -16,6 +18,8 @@ public abstract class MovementController : MonoBehaviour {
     private Rigidbody2D _playerRigidbody;
     private float _horizontal;
     private float _movement;
+    private float _accelerationType;
+    private float _deccelerationType;
 
 	public abstract float getMovement ();
 	public abstract bool getJump ();
@@ -67,7 +71,20 @@ public abstract class MovementController : MonoBehaviour {
 
     public bool CheckGround() {
         //check if the ground sensor is touching the ground
-        return Physics2D.OverlapCircle(GroundSensor.position, Radius, ConsideredGround);
+        bool result = Physics2D.OverlapCircle(GroundSensor.position, Radius, ConsideredGround);
+
+        if (result)
+        {
+            _accelerationType = Acceleration;
+            _deccelerationType = Decceleration;
+        }
+        else
+        {
+            _accelerationType = AirAcceleration;
+            _deccelerationType = AirDecceleration;
+        }
+
+        return result;
     }
 
     //calculate the move 
@@ -95,14 +112,14 @@ public abstract class MovementController : MonoBehaviour {
 
     //accelerate the player
     private void Accelerate() {
-        _movement = _playerRigidbody.velocity.x + (Acceleration * Time.fixedDeltaTime * _horizontal);
+        _movement = _playerRigidbody.velocity.x + (_accelerationType * Time.fixedDeltaTime * _horizontal);
         _movement = Mathf.Clamp(_movement, -MovementSpeed, MovementSpeed);
     }
 
     //decelerate the player
     private void Deccelerate() {
 
-        _movement = _playerRigidbody.velocity.x + (Decceleration * Time.fixedDeltaTime * -transform.localScale.x);
+        _movement = _playerRigidbody.velocity.x + (_deccelerationType * Time.fixedDeltaTime * -transform.localScale.x);
 
         if (Mathf.Sign(_movement) != Mathf.Sign(transform.localScale.x)) {
             _movement = 0;

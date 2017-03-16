@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622201864706752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1237.8972, y: 10.572104, z: 0}
+  m_LocalPosition: {x: 276.3721, y: -0.43834758, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188635095226270}
@@ -267,6 +267,8 @@ MonoBehaviour:
   JumpSpeed: 15
   Acceleration: 20
   Decceleration: 70
+  AirAcceleration: 10
+  AirDecceleration: 30
   GroundSensor: {fileID: 4188635095226270}
   Radius: 0.2
   ConsideredGround:
