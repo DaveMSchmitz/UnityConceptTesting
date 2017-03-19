@@ -22,9 +22,10 @@ public class EnemyMovement : MovementController{
 		return ai.GetMovement();
 	}
 
-	public override bool getJump(){
-	
-		return Physics2D.OverlapCircle(JumpSensor.transform.position, JumpSensorRadius, ConsideredGround);
+	public override bool getJump()
+	{
+
+	    return false;
 	}
 
 

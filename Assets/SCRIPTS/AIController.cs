@@ -6,12 +6,7 @@ public class AIController : MonoBehaviour {
 
 	private GameObject _focus;
 	private float _horizontal;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    
 	// Update is called once per frame
 	void Update () {
 		_horizontal = 0;
@@ -24,13 +19,13 @@ public class AIController : MonoBehaviour {
 
 	public float GetMovement(){
 
-
 		return _horizontal;
 	}
 
 	public void OnTriggerEnter2D(Collider2D col){
+        
 		if(col.gameObject.layer == LayerMask.NameToLayer("Player")){
-         
+            
             _focus = col.gameObject;
 		}
 	}
@@ -40,4 +35,9 @@ public class AIController : MonoBehaviour {
 			_focus = null;
 		}
 	}
+
+    public void foo()
+    {
+        Debug.Log("Inside Foo");
+    }
 }
