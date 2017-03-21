@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour
 {
-    const  float skinWidth = .015f;
+    const  float skinWidth = .02f;
 
     public BoxCollider2D _collider;
     private RaycastOrigins raycastOrigins;
@@ -59,8 +59,20 @@ public class Controller2D : MonoBehaviour
                 velocity.x = (hit.distance - skinWidth) * xDirection;
                 rayLength = hit.distance;
 
-                Collision.left = xDirection == -1;
-                Collision.right = xDirection == 1;
+                Collision.left = (xDirection == -1) || Collision.left;
+                Collision.right = (xDirection == 1) || Collision.right;
+
+                //TODO check to see if this should not me an if else
+
+                if (Collision.left)
+                {
+                    Collision.leftGameObject = hit.collider.gameObject;
+                    
+                }
+                else
+                {
+                    Collision.rightGameObject = hit.collider.gameObject;
+                }
             }
 
             Debug.DrawRay(rayOrigin, Vector2.right * xDirection * rayLength, Color.green);
@@ -85,6 +97,17 @@ public class Controller2D : MonoBehaviour
 
                 Collision.below = yDirection == -1;
                 Collision.above = yDirection == 1;
+
+                if (Collision.below)
+                {
+                    Collision.belowGameObject = hit.collider.gameObject;
+                    
+                }
+                else
+                {
+                    Collision.aboveGameObject = hit.collider.gameObject;
+                    
+                }
             }
        
             Debug.DrawRay(rayOrigin, Vector2.up * yDirection *rayLength, Color.green);
@@ -127,10 +150,16 @@ public class Controller2D : MonoBehaviour
         public bool above, below;
         public bool right, left;
 
+        public GameObject aboveGameObject, belowGameObject;
+        public GameObject rightGameObject, leftGameObject;
+
         public void Reset()
         {
             above = below = false;
             right = left = false;
+
+            aboveGameObject = belowGameObject = null;
+            rightGameObject = leftGameObject = null;
         }
     }
 }

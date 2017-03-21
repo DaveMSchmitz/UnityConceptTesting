@@ -87,7 +87,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1482934257271428}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -177,11 +177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 0}
-  _horizontalRays: 4
-  _verticalRays: 4
+  _horizontalRays: 5
+  _verticalRays: 5
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 17152
 --- !u!114 &114407082540778474
 MonoBehaviour:
   m_ObjectHideFlags: 1

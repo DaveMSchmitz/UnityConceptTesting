@@ -22,7 +22,25 @@ public class EnemyMovement : MovementController {
 
     public override bool getJump()
     {
-        return _controller.Collision.right || _controller.Collision.left;
+        
+
+        bool shouldJump = false;
+
+        if (_controller.Collision.right)
+        {
+            Debug.Log(_controller.Collision.rightGameObject);
+            
+            shouldJump = _controller.Collision.rightGameObject.layer == LayerMask.NameToLayer("Ground");
+        }
+
+        if (_controller.Collision.left)
+        {
+            Debug.Log(_controller.Collision.leftGameObject);
+            shouldJump = _controller.Collision.leftGameObject.layer == LayerMask.NameToLayer("Ground");
+        }
+
+        return shouldJump;
+        
     }
 
    
