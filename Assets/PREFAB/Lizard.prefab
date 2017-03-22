@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 61751863350744584}
   - component: {fileID: 114851671613274282}
   - component: {fileID: 114162496472250620}
+  - component: {fileID: 114892380472435568}
   m_Layer: 14
   m_Name: Lizard
   m_TagString: Damage
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482934257271428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5432596, y: 4.464118, z: 0}
+  m_LocalPosition: {x: 25.77, y: 4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4373996064140114}
@@ -210,7 +211,6 @@ MonoBehaviour:
   JumpHeight: 4
   TimeToJumpHeight: 0.4
   Acceleration: 0.1
-  RespawnTransform: {x: 0, y: 0, z: 0}
   _controller: {fileID: 0}
   PlayerSensor: {fileID: 1442637697269872}
 --- !u!114 &114889308476066386
@@ -224,6 +224,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae164bfb69a29a478f88dd7533a69c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114892380472435568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482934257271428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec66413a1b766964e89265f6dae9eb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RespawnTransform: {x: 0, y: 0, z: 0}
 --- !u!212 &212395412037796478
 SpriteRenderer:
   m_ObjectHideFlags: 1

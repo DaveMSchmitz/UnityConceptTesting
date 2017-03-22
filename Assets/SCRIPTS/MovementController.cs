@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
+[RequireComponent(typeof(Animator))]
 public abstract class MovementController : MonoBehaviour {
 
     public float MovementSpeed = 10;
     public float JumpHeight = 4;
     public float TimeToJumpHeight = .4f;
     public float Acceleration = .1f;
-    public Vector3 RespawnTransform;
+    
 
 
     private float _smoothing;
@@ -26,7 +27,7 @@ public abstract class MovementController : MonoBehaviour {
         _gravity = -(2 * JumpHeight) / Mathf.Pow(TimeToJumpHeight, 2);
         _jumpSpeed = Mathf.Abs(_gravity) * TimeToJumpHeight;
         animator = GetComponent<Animator>();
-        RespawnTransform = transform.position;
+        
         SetUp();
 
     }
@@ -96,18 +97,4 @@ public abstract class MovementController : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D obj) {
-
-        //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
-        if (obj.tag == "Respawn") {
-            transform.position = RespawnTransform;
-
-        }
-
-        //if the object hit is a checkpoint set the respawn transform to the transform of the object and set the checkpoint animation to set
-        if (obj.tag == "Checkpoint") {
-            RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
-            obj.gameObject.GetComponent<Animator>().SetBool("check", true);
-        }
-    }
 }

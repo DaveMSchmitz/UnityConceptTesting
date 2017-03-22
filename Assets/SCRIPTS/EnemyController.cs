@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MovementController {
+public class EnemyController : MonoBehaviour {
 
-    public GameObject PlayerSensor;
-
-    private AIController _ai;
+    public Vector3 RespawnTransform;
     // Use this for initialization
-    public override void Start()
-    {
-        base.Start();
-        _ai = GetComponentInChildren<AIController>();
+    void Start(){
+        RespawnTransform = transform.position;
     }
 
+    // Update is called once per frame
+    void Update () {
+		
+	}
 
-    public override float getHorizontal()
+    void OnTriggerEnter2D(Collider2D obj)
     {
-        
-        return _ai.GetMovement();
-    }
 
-    public override bool getJump()
-    {
-        return _controller.Collision.right || _controller.Collision.left;
-    }
+        //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
+        if (obj.tag == "Respawn")
+        {
+            transform.position = RespawnTransform;
 
-   
+        }
+
+    }
 }
