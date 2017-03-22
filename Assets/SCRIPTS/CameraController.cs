@@ -4,88 +4,60 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    public Controller2D Player;
-    public Vector2 BoxAreaSize;
-    public float verticalOffset;
-    public float horizontalOffset;
-    public float verticalSmooth;
-    public float horizontalSmooth;
-
-    private BoxArea box;
 
 
+    public Renderer target;
+    public Rect box;
+    public Vector3 pos;
 
-    void Start()
-    {
-     box = new BoxArea(Player._collider.bounds, BoxAreaSize);   
+    
+
+    protected Camera _camera;
+    protected Vector3 _cureentVelocity;
+
+
+    public void Start() {
+
+        //set the initial position to where the target is
+        pos = target.transform.position;
+        pos.z = transform.position.z;
+
+        //zero the current velocity
+        _cureentVelocity = Vector3.zero;
+
     }
 
-    private struct BoxArea
-    {
-        public Vector2 center;
-        float left, right;
-        float top, bottom;
+    public void Update() {
 
-        public BoxArea(Bounds playerBounds, Vector2 size)
-        {
-            left = playerBounds.center.x - size.x / 2;
-            right = playerBounds.center.x + size.x / 2;
-            bottom = playerBounds.min.y;
-            top = playerBounds.min.y + size.y;
-            center = new Vector2((left + right) / 2, (top + bottom) / 2);
+        //we first figure out where the target is relative to the camera itself
+        float localX = target.transform.position.x - transform.position.x;
+        float localY = target.transform.position.y - transform.position.y;
+
+        //if the target is outside of the box area to the left then move the camera so that it
+        //is inside of the box area
+        if (localX < box.xMin) {
+            pos.x += localX - box.xMin;
+
+            //if the target is outside of the box area to the right then move the camera so that it
+            //is inside of the box area
+        } else if (localX > box.xMax) {
+            pos.x += localX - box.xMax;
+
+         //if the target is outside of the box area to the bottom then move the camera so that it
+         //is inside of the box area
+        }
+        if (localY < box.yMin) {
+            pos.y += localY - box.yMin;
+
+            //if the target is outside of the box area to the top then move the camera so that it
+            //is inside of the box area
+        } else if (localY > box.yMax) {
+            pos.y += localY - box.yMax;
+
         }
 
-        public void Update(Bounds playerBounds)
-        {
-            float xMove = 0;
-            float yMove = 0;
-
-            if (playerBounds.min.x < left)
-            {
-                xMove = playerBounds.min.x - left;
-            }
-            else if (playerBounds.max.x > right)
-            {
-                xMove = playerBounds.max.x - right;
-            }
-
-
-            if (playerBounds.min.y < bottom)
-            {
-                yMove = playerBounds.min.y - bottom;
-            }
-            else if (playerBounds.max.y > top)
-            {
-                yMove = playerBounds.max.y - top;
-            }
-
-            left += xMove;
-            right += xMove;
-            top += yMove;
-            bottom += yMove;
-            center = new Vector2((left + right) / 2, (top + bottom) / 2);
-
-        }
+        transform.position = pos;
+       
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        box.Update(Player._collider.bounds);
-        Vector2 focus = box.center + Vector2.up + new Vector2(0,verticalOffset);
-        Vector3 position = (Vector3) focus;
-        position.z = -10;
-        transform.position = position;
-
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(0,0,1,.2f);
-        Gizmos.DrawCube(box.center, BoxAreaSize);
-    }
-
-
-
-        
 }

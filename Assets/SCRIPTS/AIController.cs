@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour {
 
+    public Bounds PlayerSensor;
+    public LayerMask ConsideredGround;
+    public LayerMask ConsideredPlayer;
+    public GameObject JumpSensor;
+    public float JumpSensorRadius;
+
+
+    private GameObject _player;
 	private GameObject _focus;
 	private float _horizontal;
     
-	// Update is called once per frame
-	void Update () {
-		_horizontal = 0;
+    void Start() {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
 
-		if(_focus != null){
-			_horizontal = Mathf.Sign (_focus.transform.position.x - transform.position.x);
-			
-		}
+	public float GetMovementFromPlayer(){
+
+        PlayerSensor.center = transform.position;
+        _horizontal = 0;
+
+        if (Mathf.Abs(_player.transform.position.x - transform.position.x) < PlayerSensor.extents.x) {
+            _horizontal = Mathf.Sign(_player.transform.position.x - transform.position.x);
+
+
+        }
+        return _horizontal;
 	}
 
-	public float GetMovement(){
-
-		return _horizontal;
-	}
+    public bool GetJump() {
+        return Physics2D.OverlapCircle(JumpSensor.transform.position, JumpSensorRadius, ConsideredGround);
+    }
 
 	public void OnTriggerEnter2D(Collider2D col){
         
@@ -36,8 +50,8 @@ public class AIController : MonoBehaviour {
 		}
 	}
 
-    public void foo()
-    {
-        Debug.Log("Inside Foo");
+    void OnDrawGizmos() {
+        Gizmos.color = new Color(0,0,255, .1f);
+        Gizmos.DrawCube(PlayerSensor.center, PlayerSensor.size);
     }
 }
