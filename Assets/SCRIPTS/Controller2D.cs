@@ -19,7 +19,7 @@ public class Controller2D : MonoBehaviour
     private float _verticalRaySpace;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
         CalcRaySpace();

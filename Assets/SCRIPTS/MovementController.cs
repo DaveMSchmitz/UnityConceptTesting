@@ -2,129 +2,112 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Controller2D))]
 public abstract class MovementController : MonoBehaviour {
-    public float MovementSpeed;
-    public float JumpSpeed;
-    public float Acceleration;
-    public float Decceleration;
-    public float AirAcceleration;
-    public float AirDecceleration;
-    public Transform GroundSensor;
-    public float Radius;
-    public LayerMask ConsideredGround;
 
-    private bool _onGround;
-    private bool _triggerJump;
-    private Rigidbody2D _playerRigidbody;
-    private float _horizontal;
-    private float _movement;
-    private float _accelerationType;
-    private float _deccelerationType;
+    public float MovementSpeed = 10;
+    public float JumpHeight = 4;
+    public float TimeToJumpHeight = .4f;
+    public float Acceleration = .1f;
+    public Vector3 RespawnTransform;
 
-	public abstract float getMovement ();
-	public abstract bool getJump ();
-	public abstract void setUp ();
 
+    private float _smoothing;
+    private Vector3 _velocity;
+    [HideInInspector]
+    public Controller2D _controller;
+    private float _jumpSpeed;
+    private float _gravity;
+    private Animator animator;
     // Use this for initialization
-    void Start() {
-        _playerRigidbody = GetComponent<Rigidbody2D>();
-		setUp ();
+    public virtual void Start() {
+
+        _controller = GetComponent<Controller2D>();
+        _gravity = -(2 * JumpHeight) / Mathf.Pow(TimeToJumpHeight, 2);
+        _jumpSpeed = Mathf.Abs(_gravity) * TimeToJumpHeight;
+        animator = GetComponent<Animator>();
+        RespawnTransform = transform.position;
+        SetUp();
+
+    }
+
+    public virtual void SetUp()
+    {
+        
     }
 
     // Update is called once per frame
-    void Update() {
-        //get the direction the player wants to move
-		_horizontal = getMovement();
+    public virtual void Update() {
 
-        //because direction is based on what way the player is moving, don't set orientation if player is not moving
-        if (_horizontal != 0) {
-            //set the players orientation 
-            transform.localScale = new Vector3(Mathf.Sign(_horizontal), transform.localScale.y);
+        SetDefaultVelocity();
+
+        float horizontal = getHorizontal();
+
+
+        if (getJump() && _controller.Collision.below) {
+            _velocity.y = _jumpSpeed;
         }
 
-        CalcMove();
-        //check to see if the player is on the ground
-        _onGround = CheckGround();
+        float targetVelocity = horizontal * MovementSpeed;
 
-        //if the player presses the jump button and is on the ground for this frame set the trigger to true
-        //so that when the next fixedUpdate comes around, jump
-		if (getJump() && _onGround) {
-            _triggerJump = true;
-        }
+        _velocity.x = Mathf.SmoothDamp(_velocity.x, targetVelocity, ref _smoothing, Acceleration);
+
+        _velocity.y += _gravity * Time.deltaTime;
+        _controller.Move(_velocity * Time.deltaTime);
+
+        SetSpriteDirection();
+
 
     }
 
-    void FixedUpdate() {
-
-        //if the jump is triggered
-        if (_triggerJump) {
-
-            //add velocity to the player so that they will jump, and reset the trigger
-            _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, JumpSpeed);
-            _triggerJump = false;
-        }
-
-        //move the player bassed on what the _horizontal was
-        _playerRigidbody.velocity = new Vector2(_movement, _playerRigidbody.velocity.y);
-
+    void LateUpdate() {
+        animator.SetBool("onGround", _controller.Collision.below);
+        animator.SetFloat("Speed", Mathf.Abs(_velocity.x));
     }
 
-    public bool CheckGround() {
-        //check if the ground sensor is touching the ground
-        bool result = Physics2D.OverlapCircle(GroundSensor.position, Radius, ConsideredGround);
+     public virtual float getHorizontal()
+    {
+        return 0;
+    }
 
-        if (result)
+    public virtual bool getJump()
+    {
+        return true;
+    }
+
+    void SetDefaultVelocity()
+    {
+        if (_controller.Collision.above || _controller.Collision.below)
         {
-            _accelerationType = Acceleration;
-            _deccelerationType = Decceleration;
+            _velocity.y = 0;
         }
-        else
+
+        if (_controller.Collision.right || _controller.Collision.left)
         {
-            _accelerationType = AirAcceleration;
-            _deccelerationType = AirDecceleration;
+            _velocity.x = 0;
+        }
+    }
+
+    void SetSpriteDirection()
+    {
+        if (_velocity.x != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(_velocity.x), transform.localScale.y);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D obj) {
+
+        //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
+        if (obj.tag == "Respawn") {
+            transform.position = RespawnTransform;
+
         }
 
-        return result;
-    }
-
-    //calculate the move 
-    private void CalcMove() {
-
-        //if the player isn't standing still
-        if (_horizontal != 0) {
-
-            //accelerate the player unless..
-            Accelerate();
-
-            //the player has switched the direction they are moving, then deccelerate them before accelerating them
-            if (Mathf.Sign(_movement) != Mathf.Sign(transform.localScale.x)) {
-                Deccelerate();
-            }
-
-
-            //if the player has stopped pressing the move button make them deccelerate
-        } else {
-            Deccelerate();
+        //if the object hit is a checkpoint set the respawn transform to the transform of the object and set the checkpoint animation to set
+        if (obj.tag == "Checkpoint") {
+            RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
+            obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
-
-
     }
-
-    //accelerate the player
-    private void Accelerate() {
-        _movement = _playerRigidbody.velocity.x + (_accelerationType * Time.fixedDeltaTime * _horizontal);
-        _movement = Mathf.Clamp(_movement, -MovementSpeed, MovementSpeed);
-    }
-
-    //decelerate the player
-    private void Deccelerate() {
-
-        _movement = _playerRigidbody.velocity.x + (_deccelerationType * Time.fixedDeltaTime * -transform.localScale.x);
-
-        if (Mathf.Sign(_movement) != Mathf.Sign(transform.localScale.x)) {
-            _movement = 0;
-        }
-
-    }
-		
 }

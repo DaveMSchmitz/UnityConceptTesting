@@ -2,68 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
-    public HealthController health;
-    //public bool isAttacking;
+public class EnemyController : MovementController {
 
-    public Vector3 RespawnTransform;
+    public GameObject PlayerSensor;
 
-    //private Animator _playerAnimator;
-    //private Rigidbody2D _playerRigidbody;
-
-	//private float nextFire;
-    //public float fireRate;
-
-    //private MovementController _movement;
-
-
-
+    private AIController _ai;
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
-        health = GetComponent<HealthController>();
-        //_playerAnimator = GetComponent<Animator>();
-        //_playerRigidbody = GetComponent<Rigidbody2D>();
-        //_movement = GetComponent<MovementController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		if (!health.getIsAlive()) {
-			Destroy (gameObject);
-		}
+        base.Start();
+        _ai = GetComponentInChildren<AIController>();
     }
 
 
-
-    void LateUpdate()
+    public override float getHorizontal()
     {
-        //after all of the physics, set the animation of the player
-
-        //_playerAnimator.SetBool("onGround", _movement.CheckGround());
-        //_playerAnimator.SetFloat("Speed", Mathf.Abs(_playerRigidbody.velocity.x));
+        
+        return _ai.GetMovement();
     }
 
-
-
-    void OnTriggerEnter2D(Collider2D obj)
+    public override bool getJump()
     {
-
-        //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
-        if (obj.tag == "Respawn")
-        {
-            transform.position = RespawnTransform;
-
-        }
-
-        //if the object hit is a checkpoint set the respawn transform to the transform of the object and set the checkpoint animation to set
-        /*
-        if (obj.tag == "Checkpoint")
-        {
-            RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
-            obj.gameObject.GetComponent<Animator>().SetBool("check", true);
-        }
-        */
+        return _controller.Collision.right || _controller.Collision.left;
     }
+
+   
 }
