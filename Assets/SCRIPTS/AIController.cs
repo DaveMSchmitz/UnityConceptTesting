@@ -12,7 +12,7 @@ public class AIController : MonoBehaviour {
 
 
     private GameObject _player;
-	private GameObject _focus;
+	
 	private float _horizontal;
     
     void Start() {
@@ -35,20 +35,6 @@ public class AIController : MonoBehaviour {
     public bool GetJump() {
         return Physics2D.OverlapCircle(JumpSensor.transform.position, JumpSensorRadius, ConsideredGround);
     }
-
-	public void OnTriggerEnter2D(Collider2D col){
-        
-		if(col.gameObject.layer == LayerMask.NameToLayer("Player")){
-            
-            _focus = col.gameObject;
-		}
-	}
-
-	public void OnTriggerExit2D(Collider2D col){
-		if(col.gameObject.layer == LayerMask.NameToLayer("Player")) {
-			_focus = null;
-		}
-	}
 
     void OnDrawGizmos() {
         Gizmos.color = new Color(0,0,255, .1f);

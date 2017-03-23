@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public Vector3 RespawnTransform;
+    public LevelManager levelManager;
+    
     // Use this for initialization
     void Start () {
         RespawnTransform = transform.position;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 	
 	// Update is called once per frame
@@ -23,7 +26,7 @@ public class PlayerController : MonoBehaviour {
         //if the tag is something that is a respawn, set the players position to what ever to is designated as the RespawnTransform
         if (obj.tag == "Respawn")
         {
-            transform.position = RespawnTransform;
+            levelManager.Respawn();
 
         }
 
