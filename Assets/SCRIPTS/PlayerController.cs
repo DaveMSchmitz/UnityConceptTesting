@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = RespawnTransform;
+            levelManager.Respawn();
         }
     }
 
