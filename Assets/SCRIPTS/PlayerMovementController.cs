@@ -7,13 +7,13 @@ public class PlayerMovementController : PhysicsObject {
     public float jumpTakeOffSpeed = 15;
     public float MaxSpeed = 10;
 
-    private ParticleSystem _jumpParticle;
+    
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
     // Use this for initialization
     void Awake () {
-        _jumpParticle = GetComponentInChildren<ParticleSystem>();
+        
         _animator = GetComponent<Animator>();
 	}
 	
@@ -25,7 +25,7 @@ public class PlayerMovementController : PhysicsObject {
 
         if(Input.GetButton("Jump") && isGrounded) {
             velocity.y = jumpTakeOffSpeed;
-            _jumpParticle.Play();
+            
         }else if (Input.GetButtonUp("Jump")) {
 
             if(velocity.y > 0) {
