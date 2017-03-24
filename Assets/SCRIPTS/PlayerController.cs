@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public Vector3 RespawnTransform;
-    public LevelManager levelManager;
+    private LevelManager levelManager;
     
     // Use this for initialization
     void Start () {

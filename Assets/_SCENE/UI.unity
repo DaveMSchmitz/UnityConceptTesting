@@ -404,7 +404,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!114 &741463650 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114830177403200036, guid: 23dff68eb2843bf4abcc90ba893eeeef,
+  m_PrefabParentObject: {fileID: 114574092419307124, guid: 23dff68eb2843bf4abcc90ba893eeeef,
     type: 2}
   m_PrefabInternal: {fileID: 142693648}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -459,6 +459,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e85cfe79d2df7ee46b66226106950e75, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1115658600 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1981554052719696, guid: 58c7628310af1a54e84de897ee69b419,
+    type: 2}
+  m_PrefabInternal: {fileID: 1181862846}
+--- !u!114 &1115658601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115658600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  isAlive: 0
 --- !u!1001 &1134432659
 Prefab:
   m_ObjectHideFlags: 0
@@ -542,11 +561,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1981554052719696, guid: 58c7628310af1a54e84de897ee69b419, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58c7628310af1a54e84de897ee69b419, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1200416717 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114830177403200036, guid: 23dff68eb2843bf4abcc90ba893eeeef,
+    type: 2}
+  m_PrefabInternal: {fileID: 142693648}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1216941387 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1853083654767284, guid: fcaadc39b1682cc4ea8500f36747ff86,
+    type: 2}
+  m_PrefabInternal: {fileID: 2139796965}
+--- !u!114 &1216941394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1216941387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  isAlive: 1
 --- !u!1001 &1394106645
 Prefab:
   m_ObjectHideFlags: 0
@@ -791,6 +835,11 @@ Prefab:
       propertyPath: coinText
       value: 
       objectReference: {fileID: 741463650}
+    - target: {fileID: 114939902997184316, guid: 3b52ec931bbcfcd44b046960deb81a3d,
+        type: 2}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1200416717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b52ec931bbcfcd44b046960deb81a3d, type: 2}
   m_IsPrefabParent: 0

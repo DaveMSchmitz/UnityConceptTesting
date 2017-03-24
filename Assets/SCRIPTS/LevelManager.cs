@@ -7,10 +7,12 @@ public class LevelManager : MonoBehaviour {
 
     public float RespawnDelay;
     public Text coinText;
+    public Text healthText;
 
     public int coinCount = 0;
 
     private PlayerController player;
+    private HealthController _playerHealth;
     private ResetWhenRespawn[] _objectsToRespawn;
     
 
@@ -18,11 +20,22 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
         player = FindObjectOfType<PlayerController>();
 
+        _playerHealth = player.gameObject.GetComponent<HealthController>();
+        healthText.text = "" + _playerHealth.getCurrentHealth();
+
         coinText.text = "" + coinCount;
 
         _objectsToRespawn = FindObjectsOfType<ResetWhenRespawn>();
 
 	}
+
+    void OnEnable() {
+        HealthController.onHealthChange += changeHealthText;
+    }
+
+    void OnDisable() {
+        HealthController.onHealthChange -= changeHealthText;
+    }
 	
 
     public void Respawn() {
@@ -50,11 +63,18 @@ public class LevelManager : MonoBehaviour {
         player.transform.position = player.RespawnTransform;
         player.gameObject.SetActive(true);
 
+        _playerHealth.changeHealth(-2);
+
     }
 
     //change the coin amount
     public void changeCoins(int coins) {
         coinCount += coins;
         coinText.text = "" + coinCount;
+    }
+
+    //this function gets subscribed on the enabled 
+    void changeHealthText() {
+        healthText.text = "" + _playerHealth.getCurrentHealth();
     }
 }

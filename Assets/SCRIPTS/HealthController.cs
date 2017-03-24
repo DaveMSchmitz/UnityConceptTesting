@@ -4,6 +4,9 @@ using UnityEngine;
 public class HealthController : MonoBehaviour 
 {
 
+    public delegate void HealthChange();
+    public static event HealthChange onHealthChange; 
+
     public int health;
     public int maxHealth;
     public bool isAlive;
@@ -54,6 +57,10 @@ public class HealthController : MonoBehaviour
             isAlive = true;
         }
 
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
+
         return isAlive;
     }
 
@@ -73,6 +80,10 @@ public class HealthController : MonoBehaviour
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+
+        if (onHealthChange != null) {
+            onHealthChange();
         }
 
         return isAlive;
@@ -96,6 +107,10 @@ public class HealthController : MonoBehaviour
             isAlive = false;
         }
 
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
+
         return isAlive;
     }
 
@@ -104,6 +119,10 @@ public class HealthController : MonoBehaviour
     {
         health = 0;
         isAlive = false;
+
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
 
         return isAlive;
     }
