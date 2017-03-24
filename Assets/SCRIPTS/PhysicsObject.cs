@@ -30,6 +30,7 @@ public class PhysicsObject : MonoBehaviour {
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        
     }
 
     // Update is called once per frame
@@ -82,7 +83,7 @@ public class PhysicsObject : MonoBehaviour {
             //this loop grabs all of the hits from the hitBuffer and puts them into the list
             for (int i = 0; i < count; ++i) {
                 hitBufferList.Add(hitBuffer[i]);
-                
+                //Debug.Log(hitBuffer[i]);
 
             }
 
@@ -111,6 +112,7 @@ public class PhysicsObject : MonoBehaviour {
                 if (projection < 0) {
                     velocity = velocity - projection * currentNormal;
                 }
+          
 
                 //this will protect us if we are inside something move us outside of it
                 float modifiedDistance = hitBufferList[i].distance - shellRadius;
