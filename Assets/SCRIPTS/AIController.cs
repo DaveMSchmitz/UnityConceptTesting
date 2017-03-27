@@ -24,7 +24,7 @@ public class AIController : MonoBehaviour {
         PlayerSensor.center = transform.position;
         _horizontal = 0;
 
-        if (Mathf.Abs(_player.transform.position.x - transform.position.x) < PlayerSensor.extents.x &&
+        if ((Mathf.Abs(_player.transform.position.x - transform.position.x) < PlayerSensor.extents.x) && (Mathf.Abs(_player.transform.position.y - transform.position.y) < PlayerSensor.extents.y) &&
             Mathf.Abs(_player.transform.position.x - transform.position.x) > .25f) {
             _horizontal = Mathf.Sign(_player.transform.position.x - transform.position.x);
 

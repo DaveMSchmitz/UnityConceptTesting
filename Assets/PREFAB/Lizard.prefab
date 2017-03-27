@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 50724923599793356}
   - component: {fileID: 95239797520801976}
   - component: {fileID: 114386576387777530}
-  - component: {fileID: 114452519416231764}
   - component: {fileID: 114683322516405030}
   - component: {fileID: 114068159746110284}
-  - component: {fileID: 61927997831134090}
+  - component: {fileID: 70412236484524622}
+  - component: {fileID: 114682110964404854}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981554052719696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.373394, y: 13.125882, z: 0}
+  m_LocalPosition: {x: -4.528524, y: 5.1029863, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4302379859773878}
@@ -84,7 +84,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981554052719696}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -92,10 +92,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a7fc72d1432cb6444b16e8aac9c7162b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58891705597723494
 CircleCollider2D:
@@ -112,8 +112,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!61 &61927997831134090
-BoxCollider2D:
+--- !u!70 &70412236484524622
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -124,19 +124,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004753113, y: 0.07129192}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.68631744, y: 1.3251038}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.06116557, y: 0.12789154}
+  m_Size: {x: 0.6330066, y: 1.3661022}
+  m_Direction: 0
 --- !u!95 &95239797520801976
 Animator:
   serializedVersion: 3
@@ -176,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec66413a1b766964e89265f6dae9eb97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114452519416231764
+--- !u!114 &114682110964404854
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -184,12 +174,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981554052719696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7b6cfa8b886c845a8c57d225d19075, type: 3}
+  m_Script: {fileID: 11500000, guid: 64a1201af090ac045ba0dba1b504e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 3
-  jumpTakeOffSpeed: 15
   MaxSpeed: 8
+  JumpSpeed: 12
+  PlatformRelativeJump: 0
 --- !u!114 &114683322516405030
 MonoBehaviour:
   m_ObjectHideFlags: 1
