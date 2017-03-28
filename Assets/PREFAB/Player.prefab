@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 50126344228189132}
   - component: {fileID: 114341981006615136}
   - component: {fileID: 70826779163791764}
-  - component: {fileID: 114549735004053944}
+  - component: {fileID: 114127635782268126}
+  - component: {fileID: 114781545305933754}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853083654767284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.83, y: 15.18, z: 0}
+  m_LocalPosition: {x: -5.45, y: 8.344, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,19 +53,19 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853083654767284}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 3
+  m_Material: {fileID: 6200000, guid: a7fc72d1432cb6444b16e8aac9c7162b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!70 &70826779163791764
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -97,6 +98,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114127635782268126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853083654767284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86992d5528b299f48baee7ddc5edcb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpeed: 10
+  JumpSpeed: 15
+  PlatformRelativeJump: 0
 --- !u!114 &114341981006615136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnTransform: {x: 0, y: 0, z: 0}
---- !u!114 &114549735004053944
+--- !u!114 &114781545305933754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,13 +132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853083654767284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d52386c3f1d0d459680ca0131463b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 3
-  minGroundNormalY: 0.999999
-  jumpTakeOffSpeed: 10
-  MaxSpeed: 10
+  health: 10
+  maxHealth: 10
+  isAlive: 1
 --- !u!212 &212974202682016816
 SpriteRenderer:
   m_ObjectHideFlags: 1
