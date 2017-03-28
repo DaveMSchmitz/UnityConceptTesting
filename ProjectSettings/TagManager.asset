@@ -11,6 +11,7 @@ TagManager:
   - Checkpoint
   - Enemy
   - Weapon
+  - Damage
   layers:
   - Default
   - TransparentFX
@@ -24,11 +25,11 @@ TagManager:
   - Player
   - Background
   - Sensor
-  - 
-  - 
-  - 
-  - 
-  - 
+  - AI
+  - Respawn
+  - Enemy
+  - GroundOneWay
+  - MovingPlatform
   - 
   - 
   - 

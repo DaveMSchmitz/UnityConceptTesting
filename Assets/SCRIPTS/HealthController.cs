@@ -1,9 +1,15 @@
-﻿public class HealthController
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class HealthController : MonoBehaviour 
 {
 
-    private int health;
-    private int maxHealth;
-    private bool isAlive;
+    public delegate void HealthChange();
+    public static event HealthChange onHealthChange; 
+
+    public int health;
+    public int maxHealth;
+    public bool isAlive;
 
     public HealthController(int maxHealth)
     {
@@ -51,6 +57,10 @@
             isAlive = true;
         }
 
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
+
         return isAlive;
     }
 
@@ -70,6 +80,10 @@
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+
+        if (onHealthChange != null) {
+            onHealthChange();
         }
 
         return isAlive;
@@ -93,6 +107,10 @@
             isAlive = false;
         }
 
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
+
         return isAlive;
     }
 
@@ -101,6 +119,10 @@
     {
         health = 0;
         isAlive = false;
+
+        if (onHealthChange != null) {
+            onHealthChange();
+        }
 
         return isAlive;
     }
