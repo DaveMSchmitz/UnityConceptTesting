@@ -25,3 +25,4 @@ public class FPS : MonoBehaviour {
         GUI.Label(rect, text, style);
     }
 }
+
