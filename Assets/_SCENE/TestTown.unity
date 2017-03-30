@@ -1253,7 +1253,7 @@ MonoBehaviour:
   StartPos: {fileID: 1288397410}
   EndPos: {fileID: 1631379845}
   Platform: {fileID: 1436936537}
-  MoveSpeed: 50
+  MoveSpeed: 7
   rbody: {fileID: 0}
 --- !u!1001 &1545322337
 Prefab:
@@ -1354,6 +1354,14 @@ Prefab:
     - target: {fileID: 4932684089006722, guid: 3eda7b71aae086c4bbed716d0c276445, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932684089006722, guid: 3eda7b71aae086c4bbed716d0c276445, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451647804886896, guid: 3eda7b71aae086c4bbed716d0c276445, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114059504044715890, guid: 3eda7b71aae086c4bbed716d0c276445, type: 2}
