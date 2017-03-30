@@ -32,14 +32,12 @@ public class DamageTemp : MonoBehaviour {
 		    {
 		        if (enemy != null)
 		        {
-
                     HealthController ec = enemy.GetComponent<HealthController>();
                     ec.changeHealth(Damage);
                     Debug.Log(ec.getCurrentHealth());
                 }
 
 			}
-
 
 		}
 
@@ -50,7 +48,6 @@ public class DamageTemp : MonoBehaviour {
         
 		//if you touch an enemy, keep track of that enemy
 		if (col.tag == "Damage") {
-            
             enemies.Add(col.gameObject);
 		}
 	}
