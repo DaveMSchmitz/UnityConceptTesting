@@ -33,7 +33,7 @@ public class PlayerMovementController : MonoBehaviour {
 
     bool IsGrounded() {
         
-        return Physics2D.OverlapCircle(JumpSensor.position, Radius, ConsideredGround); ;
+        return Physics2D.OverlapCircle(JumpSensor.position, Radius, ConsideredGround);
     }
 
     Vector2 PlatformVelocity() {
@@ -63,17 +63,20 @@ public class PlayerMovementController : MonoBehaviour {
             _movingPlatform = null;
         }
 
-
-
         float xVelocity = rbody2D.velocity.x;
         float yVelocity = rbody2D.velocity.y;
 
-        if (isGrounded && rbody2D.velocity.y < 0) {
+        if (isGrounded && rbody2D.velocity.y < 0 && _movingPlatform != null) {
             yVelocity = PlatformVelocity().y - 0.01f;
+            
         }
 
         xVelocity = Input.GetAxis("Horizontal") * MaxSpeed;
+
+        
         xVelocity += PlatformVelocity().x;
+        
+        
 
         if (_jumping && isGrounded) {
             yVelocity = JumpSpeed;
