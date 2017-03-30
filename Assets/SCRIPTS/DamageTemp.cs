@@ -39,7 +39,6 @@ public class DamageTemp : MonoBehaviour {
 
 			}
 
-
 		}
 
 	    enemies.RemoveAll(item => item == null);
@@ -49,7 +48,6 @@ public class DamageTemp : MonoBehaviour {
         
 		//if you touch an enemy, keep track of that enemy
 		if (col.tag == "Damage") {
-            
             enemies.Add(col.gameObject);
 		}
 	}
