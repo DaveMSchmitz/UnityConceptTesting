@@ -6,6 +6,9 @@ public class PlayerMovementController : MonoBehaviour {
 
     public float MaxSpeed = 10f;
     public float JumpSpeed = 12f;
+    public Transform JumpSensor;
+    public float Radius;
+    public LayerMask ConsideredGround;
 
     public bool PlatformRelativeJump = false;
 
@@ -25,32 +28,20 @@ public class PlayerMovementController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "MovingPlatform") {
             _movingPlatform = col.gameObject.GetComponent<MovingPlatform>();
+            
         }
     }
 
     bool IsGrounded() {
-        bool result = false;
-
-        if (Mathf.Abs(RelativeVelocity().y) < 0.1f) {
-
-            if (_groundedLastFrame) {
-                result = true;
-            }
-
-            _groundedLastFrame = true;
-
-        } else {
-            _groundedLastFrame = false;
-        }
-
-        return result;
+        
+        return Physics2D.OverlapCircle(JumpSensor.position, Radius, ConsideredGround); ;
     }
 
     Vector2 PlatformVelocity() {
         Vector2 result = Vector2.zero;
 
         if (_movingPlatform != null) {
-            result = _movingPlatform.GetComponent<Rigidbody>().velocity;
+            result = _movingPlatform.GetComponent<Rigidbody2D>().velocity;
         }
 
         return result;

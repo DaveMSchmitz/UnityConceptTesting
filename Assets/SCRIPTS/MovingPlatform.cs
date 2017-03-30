@@ -16,19 +16,25 @@ public class MovingPlatform : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _target = StartPos.position;
+        rigidbody = GetComponentInChildren<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        Platform.transform.position = Vector3.MoveTowards(Platform.transform.position, _target, MoveSpeed * Time.deltaTime);
+        Vector3 direction = (_target - Platform.transform.position).normalized * (MoveSpeed * Time.deltaTime);
 
-        if (Platform.transform.position == EndPos.position) {
-            _target = StartPos.position;
+        rigidbody.velocity = direction;
+
+
+        if (Mathf.Abs(Platform.transform.position.x - _target.x) <= .25) {
+            if(_target == StartPos.position) {
+                _target = EndPos.position;
+            } else {
+                _target = StartPos.position;
+            }
         }
 
-        if (Platform.transform.position == StartPos.position) {
-            _target = EndPos.position;
-        }
+
     }
 }
