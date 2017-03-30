@@ -63,7 +63,8 @@ public class LevelManager : MonoBehaviour {
         player.transform.position = player.RespawnTransform;
         player.gameObject.SetActive(true);
 
-        _playerHealth.changeHealth(-2);
+        //_playerHealth.changeHealth(-2);
+		_playerHealth.setHealth(_playerHealth.getMaxHealth());
 
     }
 
