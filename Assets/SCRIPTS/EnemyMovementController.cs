@@ -10,7 +10,7 @@ public class EnemyMovementController : MonoBehaviour {
     public bool PlatformRelativeJump = false;
 
     MovingPlatform _movingPlatform;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rbody2D;
     AIController _ai;
     Animator _animator;
     bool _groundedLastFrame;
@@ -19,7 +19,7 @@ public class EnemyMovementController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         _animator = GetComponent<Animator>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rbody2D = GetComponent<Rigidbody2D>();
         _ai = GetComponent<AIController>();
 
     }
@@ -59,7 +59,7 @@ public class EnemyMovementController : MonoBehaviour {
     }
 
     Vector2 RelativeVelocity() {
-        return rigidbody2D.velocity - PlatformVelocity();
+        return rbody2D.velocity - PlatformVelocity();
     }
 
     void FixedUpdate() {
@@ -69,8 +69,8 @@ public class EnemyMovementController : MonoBehaviour {
             _movingPlatform = null;
         }
 
-        float xVelocity = rigidbody2D.velocity.x;
-        float yVelocity = rigidbody2D.velocity.y;
+        float xVelocity = rbody2D.velocity.x;
+        float yVelocity = rbody2D.velocity.y;
 
         if (isGrounded) {
             yVelocity = PlatformVelocity().y - 0.01f;
@@ -88,7 +88,7 @@ public class EnemyMovementController : MonoBehaviour {
         }
 
         
-        rigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
+        rbody2D.velocity = new Vector2(xVelocity, yVelocity);
 
         if (_ai.GetMovementFromPlayer() != 0) {
             transform.localScale = new Vector3(_ai.GetMovementFromPlayer(), transform.localScale.y, transform.localScale.z);

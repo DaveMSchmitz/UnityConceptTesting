@@ -13,15 +13,14 @@ public class PlayerMovementController : MonoBehaviour {
     public bool PlatformRelativeJump = false;
 
     MovingPlatform _movingPlatform;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rbody2D;
     Animator _animator;
-    bool _groundedLastFrame;
     bool _jumping;
 
 	// Use this for initialization
 	void Start () {
         _animator = GetComponent<Animator>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rbody2D = GetComponent<Rigidbody2D>();
         
 	}
 	
@@ -48,7 +47,7 @@ public class PlayerMovementController : MonoBehaviour {
     }
 
     Vector2 RelativeVelocity() {
-        return rigidbody2D.velocity - PlatformVelocity();
+        return rbody2D.velocity - PlatformVelocity();
     }
 	// Update is called once per frame
 	void Update () {
@@ -60,14 +59,16 @@ public class PlayerMovementController : MonoBehaviour {
     void FixedUpdate() {
         bool isGrounded = IsGrounded();
 
-        if (_movingPlatform != null && !_groundedLastFrame && !isGrounded) {
+        if (_movingPlatform != null  && !isGrounded) {
             _movingPlatform = null;
         }
 
-        float xVelocity = rigidbody2D.velocity.x;
-        float yVelocity = rigidbody2D.velocity.y;
 
-        if (isGrounded) {
+
+        float xVelocity = rbody2D.velocity.x;
+        float yVelocity = rbody2D.velocity.y;
+
+        if (isGrounded && rbody2D.velocity.y < 0) {
             yVelocity = PlatformVelocity().y - 0.01f;
         }
 
@@ -84,7 +85,7 @@ public class PlayerMovementController : MonoBehaviour {
 
         _jumping = false;
 
-        rigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
+        rbody2D.velocity = new Vector2(xVelocity, yVelocity);
 
         if (Input.GetAxisRaw("Horizontal") != 0) {
             transform.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), transform.localScale.y, transform.localScale.z);
