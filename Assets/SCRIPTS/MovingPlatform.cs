@@ -9,26 +9,32 @@ public class MovingPlatform : MonoBehaviour {
     public GameObject Platform;
     public float MoveSpeed;
 
-    [HideInInspector] public Rigidbody2D rigidbody;
+    [HideInInspector] public Rigidbody2D rbody;
 
     private Vector3 _target;
 
 	// Use this for initialization
 	void Start () {
         _target = StartPos.position;
+        rbody = GetComponentInChildren<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        Platform.transform.position = Vector3.MoveTowards(Platform.transform.position, _target, MoveSpeed * Time.deltaTime);
+        Vector3 direction = (_target - Platform.transform.position).normalized * ( 10 * MoveSpeed * Time.deltaTime);
 
-        if (Platform.transform.position == EndPos.position) {
-            _target = StartPos.position;
+        rbody.velocity = direction;
+
+
+        if (Mathf.Abs(Platform.transform.position.x - _target.x) <= .25) {
+            if(_target == StartPos.position) {
+                _target = EndPos.position;
+            } else {
+                _target = StartPos.position;
+            }
         }
 
-        if (Platform.transform.position == StartPos.position) {
-            _target = EndPos.position;
-        }
+
     }
 }
