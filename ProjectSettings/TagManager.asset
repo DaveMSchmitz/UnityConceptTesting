@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - Weapon
   - Damage
+  - MovingPlatform
+  - Ground
   layers:
   - Default
   - TransparentFX
