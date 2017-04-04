@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
     private LevelManager levelManager;
 	//public HealthController health = new HealthController (10, 10);
 	private HealthController health;
-	private Coroutine dmgCoroutine;
+	private Coroutine ambientDamageCoroutine;
+	private Coroutine enemyDamageCoroutine;
 
     
     // Use this for initialization
@@ -43,10 +44,15 @@ public class PlayerController : MonoBehaviour {
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
 
-		if (obj.tag == "Damage")
+		if (obj.tag == "Damage" && ambientDamageCoroutine == null)
 		{
-			Debug.Log ("DAMAGE");
-			dmgCoroutine = StartCoroutine ("dmg");
+			Debug.Log ("AMBIENT DAMAGE");
+			ambientDamageCoroutine = StartCoroutine ("aDmg");
+		}
+		if (obj.tag == "Enemy")
+		{
+			Debug.Log ("ENEMY DAMAGE");
+			enemyDamageCoroutine = StartCoroutine ("eDmg");
 		}
     }
 	void OnTriggerExit2D(Collider2D obj)
@@ -54,11 +60,23 @@ public class PlayerController : MonoBehaviour {
 		if (obj.tag == "Damage") {
 			
 			Debug.Log ("STOP DAMAGE");
-			StopCoroutine (dmgCoroutine);
+			StopCoroutine (ambientDamageCoroutine);
+		}
+		if (obj.tag == "Enemy")
+		{
+			Debug.Log ("STOP ENEMY DAMAGE");
+			StopCoroutine (enemyDamageCoroutine);
 		}
 	}
 
-	IEnumerator dmg(){
+	IEnumerator aDmg(){
+		while (true) {
+			health.changeHealth (-1);
+			yield return new WaitForSeconds (2);
+		}
+	}
+
+	IEnumerator eDmg(){
 		while (true) {
 			health.changeHealth (-1);
 			yield return new WaitForSeconds (2);
