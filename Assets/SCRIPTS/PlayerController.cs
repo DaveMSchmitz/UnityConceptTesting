@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Killable {
     public Vector3 RespawnTransform;
     private LevelManager levelManager;
 	//public HealthController health = new HealthController (10, 10);
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.R) || !health.getIsAlive())
+		if (Input.GetKeyDown(KeyCode.R))
         {
             levelManager.Respawn();
         }
@@ -84,4 +85,12 @@ public class PlayerController : MonoBehaviour {
 			yield return new WaitForSeconds (2);
 		}
 	}*/
+
+    public override void killed() {
+        levelManager.Respawn();
+    }
+
+    public override void healthChanged() {
+        levelManager.changeHealthText();
+    }
 }
