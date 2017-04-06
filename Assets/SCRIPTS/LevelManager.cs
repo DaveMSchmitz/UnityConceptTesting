@@ -29,15 +29,6 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
-    void OnEnable() {
-        HealthController.onHealthChange += changeHealthText;
-    }
-
-    void OnDisable() {
-        HealthController.onHealthChange -= changeHealthText;
-    }
-	
-
     public void Respawn() {
         StartCoroutine("RespawnCoroutine");
     }
@@ -75,7 +66,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     //this function gets subscribed on the enabled 
-    void changeHealthText() {
+    public void changeHealthText() {
         healthText.text = "" + _playerHealth.getCurrentHealth();
     }
 }
