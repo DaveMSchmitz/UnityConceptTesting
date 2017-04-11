@@ -29,6 +29,7 @@ public class FireGuy : MonoBehaviour {
     private int rotator = 0;
     private int numProjectiles;
     private GameObject[] projectiles;
+    private Rigidbody2D[] projectileRB;
 
 	// Use this for initialization
 	void Start () {
@@ -43,10 +44,12 @@ public class FireGuy : MonoBehaviour {
         }
 
         projectiles = new GameObject[numProjectiles];
+        projectileRB = new Rigidbody2D[numProjectiles];
 
         for (int i = 0; i < numProjectiles; ++i) {
             GameObject fire = Instantiate(Projectile, transform.position, transform.rotation);
             projectiles[i] = fire;
+            projectileRB[i] = fire.GetComponent<Rigidbody2D>();
         }
 
 
@@ -76,12 +79,13 @@ public class FireGuy : MonoBehaviour {
     public IEnumerator shootCo() {
 
         GameObject fire = projectiles[rotator];
+        Rigidbody2D fireRB = projectileRB[rotator];
         rotator = (rotator + 1) % numProjectiles;
         
         
 
         Vector3 direction = (_player.transform.position - transform.position).normalized * (10 * ProjectileSpeed);
-        Rigidbody2D fireRB = fire.GetComponent<Rigidbody2D>();
+        
         fireRB.velocity = direction;
         fireRB.position = transform.position;
 
