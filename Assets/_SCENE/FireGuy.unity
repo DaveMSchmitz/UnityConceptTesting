@@ -383,6 +383,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 114360997494965164, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
+        type: 2}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 1045337634937630, guid: db07f88b14ec4e0479ddf180e0c8e75a,
+        type: 2}
+    - target: {fileID: 114360997494965164, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
+        type: 2}
+      propertyPath: ProjectileSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360997494965164, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
+        type: 2}
+      propertyPath: ShootCoolDown
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b9c93e3ffe990649a6e72aae5799a2f, type: 2}
   m_IsPrefabParent: 0

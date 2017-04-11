@@ -10,15 +10,40 @@ public class FireGuy : MonoBehaviour {
     [SerializeField]
     private float MoveSpeed;
 
+    [SerializeField]
+    private float ProjectileSpeed = 3;
+
+    [SerializeField]
+    private float ShootCoolDown = 3;
+
+    [SerializeField]
+    private GameObject Projectile;
+
+    [SerializeField]
+    private float ProjectileLifeTime = 2;
+
     private new Rigidbody2D rigidbody;
     private Vector3 target;
+    private bool executingCo = false;
+    private GameObject _player;
 
 
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         target = FloatingWayPoint.position;
-	}
+        _player = GameObject.FindGameObjectWithTag("Player");
+
+    }
+    void Update() {
+        if (!executingCo) {
+            executingCo = true;
+
+            StartCoroutine("shootCo");
+
+        }
+
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -31,4 +56,21 @@ public class FireGuy : MonoBehaviour {
 
         
 	}
+
+    public IEnumerator shootCo() {
+
+        Vector3 direction = (_player.transform.position - transform.position).normalized * (10 * ProjectileSpeed);
+
+        GameObject fire = Instantiate(Projectile, transform.position, transform.rotation);
+
+        
+
+        fire.GetComponent<Rigidbody2D>().velocity = direction;
+
+        Destroy(fire, ProjectileLifeTime);
+
+        yield return new WaitForSeconds(ShootCoolDown);
+
+        executingCo = false;
+    }
 }
