@@ -14,21 +14,37 @@ public class DamageController : MonoBehaviour {
 	public bool invincible;
 	public bool shouldStop;
 
+	private float fireRate;
+	private float nextFire;
+
+	public bool isAttacking;
+
 	// Use this for initialization
 	void Start () {
 		health = GetComponent<HealthController>();
+		fireRate = 1f;
 		aDamageCount = 0;
 		eDamageCount = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			Debug.Log (gameObject.name + " ATTACKING: Time.time: " + Time.time + " nextFire: " + nextFire);
+			isAttacking = true;
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D obj)
+	{
+		if (isAttacking) {
+			
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D obj)
 	{
-		
 		if (obj.tag == "Damage")
 		{
 			/*
