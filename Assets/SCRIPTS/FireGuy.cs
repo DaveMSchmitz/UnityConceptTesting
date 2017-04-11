@@ -26,13 +26,29 @@ public class FireGuy : MonoBehaviour {
     private Vector3 target;
     private bool executingCo = false;
     private GameObject _player;
-
+    private int rotator = 0;
+    private int numProjectiles;
+    private GameObject[] projectiles;
 
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         target = FloatingWayPoint.position;
         _player = GameObject.FindGameObjectWithTag("Player");
+
+        numProjectiles = 1;
+
+        if (ProjectileLifeTime >= ShootCoolDown) {
+            numProjectiles = (int) (ProjectileLifeTime / ShootCoolDown) + 1;
+        }
+
+        projectiles = new GameObject[numProjectiles];
+
+        for (int i = 0; i < numProjectiles; ++i) {
+            GameObject fire = Instantiate(Projectile, transform.position, transform.rotation);
+            projectiles[i] = fire;
+        }
+
 
     }
     void Update() {
@@ -59,15 +75,17 @@ public class FireGuy : MonoBehaviour {
 
     public IEnumerator shootCo() {
 
-        Vector3 direction = (_player.transform.position - transform.position).normalized * (10 * ProjectileSpeed);
-
-        GameObject fire = Instantiate(Projectile, transform.position, transform.rotation);
-
+        GameObject fire = projectiles[rotator];
+        rotator = (rotator + 1) % numProjectiles;
+        
         
 
-        fire.GetComponent<Rigidbody2D>().velocity = direction;
+        Vector3 direction = (_player.transform.position - transform.position).normalized * (10 * ProjectileSpeed);
+        Rigidbody2D fireRB = fire.GetComponent<Rigidbody2D>();
+        fireRB.velocity = direction;
+        fireRB.position = transform.position;
 
-        Destroy(fire, ProjectileLifeTime);
+
 
         yield return new WaitForSeconds(ShootCoolDown);
 
