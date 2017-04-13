@@ -152,6 +152,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.18
+--- !u!1 &314275582 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1853083654767284, guid: fcaadc39b1682cc4ea8500f36747ff86,
+    type: 2}
+  m_PrefabInternal: {fileID: 2096505930}
+--- !u!114 &314275589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314275582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4c5063dcedfbe47adfaaf527105fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damageable:
+    serializedVersion: 2
+    m_Bits: 0
+  aDamageCount: 1
+  eDamageCount: 1
+  invincible: 0
+  shouldStop: 0
+  isAttacking: 0
 --- !u!1001 &396541925
 Prefab:
   m_ObjectHideFlags: 0
