@@ -44,7 +44,7 @@ public class PlayerController : Killable {
             RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
         }
-
+		/*
 		if (obj.tag == "Damage" && ambientDamageCoroutine == null)
 		{
 			Debug.Log ("AMBIENT DAMAGE");
@@ -55,7 +55,9 @@ public class PlayerController : Killable {
 			Debug.Log ("ENEMY DAMAGE");
 			enemyDamageCoroutine = StartCoroutine ("eDmg");
 		}
+		*/
     }
+	/*
 	void OnTriggerExit2D(Collider2D obj)
 	{
 		if (obj.tag == "Damage") {
@@ -82,7 +84,7 @@ public class PlayerController : Killable {
 			health.changeHealth (-1);
 			yield return new WaitForSeconds (2);
 		}
-	}
+	}*/
 
     public override void killed() {
         levelManager.Respawn();
