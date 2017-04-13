@@ -14,6 +14,7 @@ TagManager:
   - Damage
   - MovingPlatform
   - Ground
+  - Damageable
   layers:
   - Default
   - TransparentFX

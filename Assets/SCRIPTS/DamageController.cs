@@ -31,7 +31,7 @@ public class DamageController : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			Debug.Log (gameObject.name + " ATTACKING: Time.time: " + Time.time + " nextFire: " + nextFire);
+			//Debug.Log (gameObject.name + " ATTACKING: Time.time: " + Time.time + " nextFire: " + nextFire);
 			isAttacking = true;
 		}
 	}
@@ -39,7 +39,13 @@ public class DamageController : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D obj)
 	{
 		if (isAttacking) {
-			
+			if (obj.tag == "Damageable") {
+				//Debug.Log ("DAMAGEABLE!");
+				//GetComponent (health).changeHealth (-1);
+				obj.GetComponent<HealthController>().changeHealth(-1);
+				Debug.Log("ATTACKING ENEMY: ENEMY HEALTH: " + obj.GetComponent<HealthController>().health);
+				isAttacking = false;
+			}
 		}
 	}
 
@@ -52,7 +58,7 @@ public class DamageController : MonoBehaviour {
 			ambientDamageCoroutine = StartCoroutine ("aDmg");
 			*/
 			aDamageCount++;
-			Debug.Log ("START AMBIENT DAMAGE");
+			//Debug.Log ("START AMBIENT DAMAGE");
 			if (!invincible) {
 				ambientDamageCoroutine = StartCoroutine ("aDmg");
 			}
@@ -60,7 +66,7 @@ public class DamageController : MonoBehaviour {
 		if (obj.tag == "Enemy")
 		{
 			eDamageCount++;
-			Debug.Log ("START ENEMY DAMAGE");
+			//Debug.Log ("START ENEMY DAMAGE");
 			if (!invincible) {
 				enemyDamageCoroutine = StartCoroutine ("eDmg");
 			}
@@ -80,7 +86,7 @@ public class DamageController : MonoBehaviour {
 			StopCoroutine (ambientDamageCoroutine);
 			*/
 			aDamageCount--;
-			Debug.Log ("STOP ENEMY DAMAGE");
+			//Debug.Log ("STOP ENEMY DAMAGE");
 			if (aDamageCount == 0 && ambientDamageCoroutine != null) {
 				//StopCoroutine (enemyDamageCoroutine);
 				shouldStop = true;
@@ -90,7 +96,7 @@ public class DamageController : MonoBehaviour {
 		if (obj.tag == "Enemy")
 		{
 			eDamageCount--;
-			Debug.Log ("STOP ENEMY DAMAGE");
+			//Debug.Log ("STOP ENEMY DAMAGE");
 			if (eDamageCount == 0 && enemyDamageCoroutine != null) {
 				//StopCoroutine (enemyDamageCoroutine);
 				shouldStop = true;
