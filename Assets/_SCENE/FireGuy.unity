@@ -399,6 +399,15 @@ Prefab:
       propertyPath: ShootCoolDown
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1408643519770160, guid: 8b9c93e3ffe990649a6e72aae5799a2f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198027325378994310, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b9c93e3ffe990649a6e72aae5799a2f, type: 2}
   m_IsPrefabParent: 0
