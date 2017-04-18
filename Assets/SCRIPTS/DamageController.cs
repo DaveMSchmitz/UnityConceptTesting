@@ -11,7 +11,6 @@ public class DamageController : MonoBehaviour {
 	public int aDamageCount;
 	public int eDamageCount;
 
-	public bool invincible;
 	public bool shouldStop;
 
 	private float fireRate;
@@ -43,7 +42,7 @@ public class DamageController : MonoBehaviour {
 				//Debug.Log ("DAMAGEABLE!");
 				//GetComponent (health).changeHealth (-1);
 				obj.GetComponent<HealthController>().changeHealth(-1);
-				Debug.Log("ATTACKING ENEMY: ENEMY HEALTH: " + obj.GetComponent<HealthController>().health);
+				Debug.Log("ATTACKING ENEMY: ENEMY HEALTH: " + obj.GetComponent<HealthController>().getCurrentHealth());
 				isAttacking = false;
 			}
 		}
@@ -59,17 +58,17 @@ public class DamageController : MonoBehaviour {
 			*/
 			aDamageCount++;
 			//Debug.Log ("START AMBIENT DAMAGE");
-			if (!invincible) {
-				ambientDamageCoroutine = StartCoroutine ("aDmg");
-			}
+			
+			ambientDamageCoroutine = StartCoroutine ("aDmg");
+			
 		}
 		if (obj.tag == "Enemy")
 		{
 			eDamageCount++;
 			//Debug.Log ("START ENEMY DAMAGE");
-			if (!invincible) {
-				enemyDamageCoroutine = StartCoroutine ("eDmg");
-			}
+			
+			enemyDamageCoroutine = StartCoroutine ("eDmg");
+			
 		}
 		/*
 		if (obj.tag == "Player")
@@ -121,9 +120,8 @@ public class DamageController : MonoBehaviour {
 		*/
 		while (!shouldStop) {
 			health.changeHealth (-1);
-			invincible = true;
 			yield return new WaitForSeconds (2);
-			invincible = false;
+			
 
 		}
 		shouldStop = false;
@@ -132,9 +130,8 @@ public class DamageController : MonoBehaviour {
 	IEnumerator eDmg(){
 		while (!shouldStop) {
 			health.changeHealth (-1);
-			invincible = true;
+			
 			yield return new WaitForSeconds (2);
-			invincible = false;
 
 		}
 		shouldStop = false;
