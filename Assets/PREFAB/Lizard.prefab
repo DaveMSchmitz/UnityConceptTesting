@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4745661379235432}
   - component: {fileID: 212533860980554172}
   - component: {fileID: 70093156076313176}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: Sword
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -279,9 +279,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damageable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   AttackStrength: 1
-  CoolDown: 2
+  CoolDown: 1
 --- !u!114 &114923254012161644
 MonoBehaviour:
   m_ObjectHideFlags: 1
