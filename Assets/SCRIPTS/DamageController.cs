@@ -14,21 +14,43 @@ public class DamageController : MonoBehaviour {
 	public bool invincible;
 	public bool shouldStop;
 
+	private float fireRate;
+	private float nextFire;
+
+	public bool isAttacking;
+
 	// Use this for initialization
 	void Start () {
 		health = GetComponent<HealthController>();
+		fireRate = 1f;
 		aDamageCount = 0;
 		eDamageCount = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			//Debug.Log (gameObject.name + " ATTACKING: Time.time: " + Time.time + " nextFire: " + nextFire);
+			isAttacking = true;
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D obj)
+	{
+		if (isAttacking) {
+			if (obj.tag == "Damageable") {
+				//Debug.Log ("DAMAGEABLE!");
+				//GetComponent (health).changeHealth (-1);
+				obj.GetComponent<HealthController>().changeHealth(-1);
+				Debug.Log("ATTACKING ENEMY: ENEMY HEALTH: " + obj.GetComponent<HealthController>().health);
+				isAttacking = false;
+			}
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D obj)
 	{
-		
 		if (obj.tag == "Damage")
 		{
 			/*
@@ -36,7 +58,7 @@ public class DamageController : MonoBehaviour {
 			ambientDamageCoroutine = StartCoroutine ("aDmg");
 			*/
 			aDamageCount++;
-			Debug.Log ("START AMBIENT DAMAGE");
+			//Debug.Log ("START AMBIENT DAMAGE");
 			if (!invincible) {
 				ambientDamageCoroutine = StartCoroutine ("aDmg");
 			}
@@ -44,7 +66,7 @@ public class DamageController : MonoBehaviour {
 		if (obj.tag == "Enemy")
 		{
 			eDamageCount++;
-			Debug.Log ("START ENEMY DAMAGE");
+			//Debug.Log ("START ENEMY DAMAGE");
 			if (!invincible) {
 				enemyDamageCoroutine = StartCoroutine ("eDmg");
 			}
@@ -64,7 +86,7 @@ public class DamageController : MonoBehaviour {
 			StopCoroutine (ambientDamageCoroutine);
 			*/
 			aDamageCount--;
-			Debug.Log ("STOP ENEMY DAMAGE");
+			//Debug.Log ("STOP ENEMY DAMAGE");
 			if (aDamageCount == 0 && ambientDamageCoroutine != null) {
 				//StopCoroutine (enemyDamageCoroutine);
 				shouldStop = true;
@@ -74,7 +96,7 @@ public class DamageController : MonoBehaviour {
 		if (obj.tag == "Enemy")
 		{
 			eDamageCount--;
-			Debug.Log ("STOP ENEMY DAMAGE");
+			//Debug.Log ("STOP ENEMY DAMAGE");
 			if (eDamageCount == 0 && enemyDamageCoroutine != null) {
 				//StopCoroutine (enemyDamageCoroutine);
 				shouldStop = true;
