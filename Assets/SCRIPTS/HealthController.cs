@@ -8,9 +8,6 @@ public class HealthController : MonoBehaviour {
 
     [SerializeField]
     private int maxHealth = 10;
-    
-    [SerializeField]
-    private bool isAlive = true;
 
     [SerializeField]
     private float InvincibilityTime = 0;
@@ -39,11 +36,9 @@ public class HealthController : MonoBehaviour {
 
         //if the health is less than or equal to zero change the object to dead
         if (health <= 0) {
-            isAlive = false;
             myBeing.killed();
 
         } else {
-            isAlive = true;
             myBeing.healthChanged();
         }
     }
@@ -79,7 +74,6 @@ public class HealthController : MonoBehaviour {
 
             //check if the object is dead
             if (health <= 0) {
-                isAlive = false;
                 myBeing.killed();
             } else {
                 myBeing.healthChanged();
@@ -92,7 +86,6 @@ public class HealthController : MonoBehaviour {
     //takes all health and sets to dead
     public void kill() {
         health = 0;
-        isAlive = false;
     }
 
     //returns whether the object is dead or alive.
