@@ -3,88 +3,140 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageController : MonoBehaviour {
-    private PlayerController player;
-	private EnemyController enemy;
-    private Coroutine dmgCoroutine;
+	private HealthController health;
+	private Coroutine ambientDamageCoroutine;
+	private Coroutine enemyDamageCoroutine;
+	public LayerMask Damageable;
 
-    // Use this for initialization
-    void Start () {
-        player = GameObject.Find("/Player").GetComponent<PlayerController>();
-		enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyController> ();
-        Debug.Log("Damage testing");
-        //var player = GameObject.FindWithTag("Player");
+	public int aDamageCount;
+	public int eDamageCount;
+
+	public bool invincible;
+	public bool shouldStop;
+
+	private float fireRate;
+	private float nextFire;
+
+	public bool isAttacking;
+
+	// Use this for initialization
+	void Start () {
+		health = GetComponent<HealthController>();
+		fireRate = 1f;
+		aDamageCount = 0;
+		eDamageCount = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			//Debug.Log (gameObject.name + " ATTACKING: Time.time: " + Time.time + " nextFire: " + nextFire);
+			isAttacking = true;
+		}
 	}
 
-    void OnTriggerEnter2D(Collider2D obj)
-    {
-        //This damages the player
-        //if(obj.CompareTag("Damage"))
-        //Debug.Log("Dealing damage to player");
-        if (obj.CompareTag("Player"))
-		{
-            dmgCoroutine = StartCoroutine(dmgPlayer());
-
-		//} else if (player.isAttacking && obj.CompareTag("Enemy")) {	// && this.CompareTag("Weapon")
-			//Debug.Log ("Enemy Health: " + enemy.health.getCurrentHealth ());
-			//enemy.health.changeHealth (-1);
-			//if (!enemy.health.getIsAlive ()) {
-			//	enemy.health.setHealth (player.health.getMaxHealth ());
-			//	enemy.transform.position = enemy.RespawnTransform;
-			//}
-            //Attacking from player
-
-		} else if (this.tag == "Weapon" && obj.CompareTag("Enemy")){
-			//dmgCoroutine = StartCoroutine (dmgEnemy ());
-			Destroy(obj);
-		}
-    }
-
-    void OnTriggerExit2D(Collider2D obj)
-    {
-        //if (obj.CompareTag("Damage"))
-		if (obj.CompareTag ("Player") && this.CompareTag ("Enemy")) {
-			Debug.Log ("Stop dealing damage to player");
-			StopCoroutine (dmgCoroutine);
-			//} else if (player.isAttacking && obj.CompareTag("Enemy") && this.CompareTag("Weapon")) {
-			Debug.Log ("Stop dealing damage to enemy");
-		} else if (this.tag == "Weapon" && obj.CompareTag ("Enemy")) {
-			//StopCoroutine (dmgPlayer ());
-			Debug.Log ("Weapon exits enemy");
-		}
-
-    }
-
-    IEnumerator dmgPlayer()
-    {
-        while (true)
-        {
-            Debug.Log("Health: " + player.health.getCurrentHealth());
-            player.health.changeHealth(-1);
-            if (!player.health.getIsAlive())
-            {
-                player.health.setHealth(player.health.getMaxHealth());
-                player.transform.position = player.RespawnTransform;
-                
-            }
-            yield return new WaitForSeconds(2);
-        }
-    }
-
-	IEnumerator dmgEnemy (){
-		while(true){
-			Debug.Log("Health: " + enemy.health.getCurrentHealth());
-			enemy.health.changeHealth (-1);
-			if(!enemy.health.getIsAlive()){
-				enemy.health.setHealth (enemy.health.getMaxHealth ());
-				enemy.transform.position = enemy.RespawnTransform;
+	void OnTriggerStay2D(Collider2D obj)
+	{
+		if (isAttacking) {
+			if (obj.tag == "Damageable") {
+				//Debug.Log ("DAMAGEABLE!");
+				//GetComponent (health).changeHealth (-1);
+				obj.GetComponent<HealthController>().changeHealth(-1);
+				Debug.Log("ATTACKING ENEMY: ENEMY HEALTH: " + obj.GetComponent<HealthController>().health);
+				isAttacking = false;
 			}
-			yield return new WaitForSeconds(2);
 		}
 	}
-		
+
+	void OnTriggerEnter2D(Collider2D obj)
+	{
+		if (obj.tag == "Damage")
+		{
+			/*
+			Debug.Log ("START AMBIENT DAMAGE");
+			ambientDamageCoroutine = StartCoroutine ("aDmg");
+			*/
+			aDamageCount++;
+			//Debug.Log ("START AMBIENT DAMAGE");
+			if (!invincible) {
+				ambientDamageCoroutine = StartCoroutine ("aDmg");
+			}
+		}
+		if (obj.tag == "Enemy")
+		{
+			eDamageCount++;
+			//Debug.Log ("START ENEMY DAMAGE");
+			if (!invincible) {
+				enemyDamageCoroutine = StartCoroutine ("eDmg");
+			}
+		}
+		/*
+		if (obj.tag == "Player")
+		{
+			Debug.Log ("AMBIENT DAMAGE");
+			ambientDamageCoroutine = StartCoroutine ("aDmg");
+		}*/
+	}
+	void OnTriggerExit2D(Collider2D obj)
+	{
+		if (obj.tag == "Damage") {
+			/*
+			Debug.Log ("STOP AMBIENT DAMAGE");
+			StopCoroutine (ambientDamageCoroutine);
+			*/
+			aDamageCount--;
+			//Debug.Log ("STOP ENEMY DAMAGE");
+			if (aDamageCount == 0 && ambientDamageCoroutine != null) {
+				//StopCoroutine (enemyDamageCoroutine);
+				shouldStop = true;
+				//enemyDamageCoroutine = null;
+			}
+		}
+		if (obj.tag == "Enemy")
+		{
+			eDamageCount--;
+			//Debug.Log ("STOP ENEMY DAMAGE");
+			if (eDamageCount == 0 && enemyDamageCoroutine != null) {
+				//StopCoroutine (enemyDamageCoroutine);
+				shouldStop = true;
+				//enemyDamageCoroutine = null;
+			}
+		}
+		/*if (obj.tag == "Player")
+		{
+			Debug.Log ("STOP AMBIENT DAMAGE");
+			StopCoroutine (ambientDamageCoroutine);
+		}*/
+	}
+
+	IEnumerator aDmg(){
+		/*
+		while (true) {
+			health.changeHealth (-1);
+			invincible = true;
+			yield return new WaitForSeconds (2);
+			invincible = false;
+		}
+		*/
+		while (!shouldStop) {
+			health.changeHealth (-1);
+			invincible = true;
+			yield return new WaitForSeconds (2);
+			invincible = false;
+
+		}
+		shouldStop = false;
+	}
+
+	IEnumerator eDmg(){
+		while (!shouldStop) {
+			health.changeHealth (-1);
+			invincible = true;
+			yield return new WaitForSeconds (2);
+			invincible = false;
+
+		}
+		shouldStop = false;
+	}
 }

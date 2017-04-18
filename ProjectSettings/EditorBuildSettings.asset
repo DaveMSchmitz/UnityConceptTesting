@@ -7,7 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/_SCENE/game.unity
+    guid: 94d42e68e39670b43bd8a0b02e7860fe
   - enabled: 0
     path: Assets/_SCENE/movement.unity
+    guid: 34540750a5ce8f54dbba83dd924ca654
   - enabled: 1
     path: Assets/_SCENE/VerticalSliceEnemyTest.unity
+    guid: 206aaffa13312444998a497f092f487c
+  - enabled: 0
+    path: Assets/_SCENE/Slice.unity
+    guid: e0391f29aa58b534bb5952dda318e783
