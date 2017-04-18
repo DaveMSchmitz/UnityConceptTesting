@@ -4,8 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : Killable {
+	private HealthController health;
+
+	void Start(){
+		health = GetComponent<HealthController>();
+	}
+
     public override void healthChanged() {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+		//knockback
     }
 
     public override void killed() {
