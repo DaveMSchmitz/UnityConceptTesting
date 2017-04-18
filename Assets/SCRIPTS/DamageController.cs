@@ -94,11 +94,14 @@ public class DamageController : MonoBehaviour {
 		}
 		if (obj.tag == "Enemy")
 		{
+
+            
 			eDamageCount--;
 			//Debug.Log ("STOP ENEMY DAMAGE");
 			if (eDamageCount == 0 && enemyDamageCoroutine != null) {
 				//StopCoroutine (enemyDamageCoroutine);
 				shouldStop = true;
+                Debug.Log(shouldStop);
 				//enemyDamageCoroutine = null;
 			}
 		}
