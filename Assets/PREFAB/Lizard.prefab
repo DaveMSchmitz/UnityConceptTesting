@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damageable:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   AttackStrength: 1
   CoolDown: 2
 --- !u!114 &114923254012161644
