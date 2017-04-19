@@ -19,8 +19,13 @@ public class DamageController : MonoBehaviour {
     void OnTriggerStay2D(Collider2D obj) {
 
         if (canAttack && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            StartCoroutine("Dmg");
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if (health != null) {
+                health.changeHealth(-AttackStrength);
+                StartCoroutine("Dmg");
+            }
+
         }
 
     }
@@ -28,8 +33,13 @@ public class DamageController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D obj) {
 
         if (canAttack && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            StartCoroutine("Dmg");
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if(health != null) {
+                health.changeHealth(-AttackStrength);
+                StartCoroutine("Dmg");
+            }
+
         }
 
     }

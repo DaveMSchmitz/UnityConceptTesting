@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireGuy : MonoBehaviour {
+public class FireGuy : Killable {
 
     [SerializeField]
     private Transform FloatingWayPoint;
@@ -30,6 +31,7 @@ public class FireGuy : MonoBehaviour {
 
     private new Rigidbody2D rigidbody;
     private bool executingCo = false;
+    [SerializeField]
     private State currentState = State.Attack;
 
     //for attack
@@ -79,6 +81,15 @@ public class FireGuy : MonoBehaviour {
 
 
     }
+
+    void OnEnable() {
+        currentState = State.Attack;
+        executingCo = false;
+
+        GetComponentInChildren<ParticleSystem>().Play();
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+    }
+
     void Update() {
         if (!executingCo) {
             executingCo = true;
@@ -127,7 +138,6 @@ public class FireGuy : MonoBehaviour {
 
     public IEnumerator AttackCoroutine() {
 
-
         GameObject fire = projectiles[rotator];
         
         Rigidbody2D fireRB = projectileRB[rotator];
@@ -160,7 +170,7 @@ public class FireGuy : MonoBehaviour {
     public void AttackMovement() {
 
         if (Mathf.Abs(target.y - transform.position.y) < .1) {
-            target = new Vector3(Random.Range(FloatingWayPoint.position.x - 2, FloatingWayPoint.position.x + 2), Random.Range(FloatingWayPoint.position.y - 2, FloatingWayPoint.position.y + 2), transform.position.z);
+            target = new Vector3(UnityEngine.Random.Range(FloatingWayPoint.position.x - 2, FloatingWayPoint.position.x + 2), UnityEngine.Random.Range(FloatingWayPoint.position.y - 2, FloatingWayPoint.position.y + 2), transform.position.z);
             
         } else {
             rigidbody.MovePosition(transform.position + (target - transform.position).normalized * (MoveSpeed * Time.deltaTime));
@@ -191,4 +201,11 @@ public class FireGuy : MonoBehaviour {
         
     }
 
+    public override void killed() {
+        gameObject.SetActive(false);
+    }
+
+    public override void healthChanged() {
+        
+    }
 }

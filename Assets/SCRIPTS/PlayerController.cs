@@ -6,12 +6,14 @@ using UnityEngine;
 public class PlayerController : Killable {
     public Vector3 RespawnTransform;
     private LevelManager levelManager;
+    private HealthController health;
 
 
     // Use this for initialization
     void Start() {
         RespawnTransform = transform.position;
         levelManager = FindObjectOfType<LevelManager>();
+        health = GetComponent<HealthController>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,8 @@ public class PlayerController : Killable {
             Debug.Log("CHECKPOINT");
             RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
+            health.setHealth(health.getMaxHealth());
+            
         }
     }
 

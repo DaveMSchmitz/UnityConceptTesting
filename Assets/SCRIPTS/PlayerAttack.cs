@@ -36,8 +36,14 @@ public class PlayerAttack : MonoBehaviour {
         //attack this enemy and make sure to end the grace period
         if (attacked && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
 
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if (health != null) {
+                health.changeHealth(-AttackStrength);
+                Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            }
+
+
             attacked = false;
         }
 
@@ -49,8 +55,14 @@ public class PlayerAttack : MonoBehaviour {
         //attack this enemy and make sure to end the grace period
         if (attacked && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
 
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if (health != null) {
+                health.changeHealth(-AttackStrength);
+                Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            }
+
+
             attacked = false;
         }
 
