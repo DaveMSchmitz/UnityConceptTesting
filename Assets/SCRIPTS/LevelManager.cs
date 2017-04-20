@@ -38,11 +38,6 @@ public class LevelManager : MonoBehaviour {
         //make the player disappear
         player.gameObject.SetActive(false);
 
-        foreach (ResetWhenRespawn obj in _objectsToRespawn) {
-            obj.gameObject.SetActive(false);
-            
-        }
-
         //wait for the delay
         yield return new WaitForSeconds(RespawnDelay);
 
