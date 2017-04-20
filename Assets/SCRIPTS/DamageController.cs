@@ -36,9 +36,7 @@ public class DamageController : MonoBehaviour {
 
     public IEnumerator Dmg() {
         canAttack = false;
-        GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1)
-        yield return new WaitForSeconds(CoolDown);
-        GetComponent<SpriteRenderer>().color = new Color
+        yield return new WaitForSeconds(CoolDown);   
         canAttack = true;
     }
 
