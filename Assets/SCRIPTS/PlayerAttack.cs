@@ -17,8 +17,9 @@ public class PlayerAttack : MonoBehaviour {
     private bool attacked;
 
 	// Use this for initialization
-	void Start () {
-		
+	void OnEnable() {
+        canAttack = true;
+        attacked = false;
 	}
 	
 	// Update is called once per frame
@@ -31,9 +32,18 @@ public class PlayerAttack : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D obj) {
 
+        //if i can attack and the object is inside of the damage layermask, then 
+        //attack this enemy and make sure to end the grace period
         if (attacked && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if (health != null) {
+                health.changeHealth(-AttackStrength);
+                Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            }
+
+
             attacked = false;
         }
 
@@ -41,9 +51,18 @@ public class PlayerAttack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D obj) {
 
+        //if i can attack and the object is inside of the damage layermask, then 
+        //attack this enemy and make sure to end the grace period
         if (attacked && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
-            obj.gameObject.GetComponent<HealthController>().changeHealth(-AttackStrength);
-            Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+
+            HealthController health = obj.gameObject.GetComponent<HealthController>();
+
+            if (health != null) {
+                health.changeHealth(-AttackStrength);
+                Debug.Log(obj.gameObject.GetComponent<HealthController>().getCurrentHealth());
+            }
+
+
             attacked = false;
         }
 
