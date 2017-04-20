@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireGuy : Killable {
 
@@ -41,6 +42,8 @@ public class FireGuy : Killable {
     private int numProjectiles;
     private GameObject[] projectiles;
     private Rigidbody2D[] projectileRB;
+    private Slider healthBar;
+    private HealthController health;
 
 
     //sleep
@@ -80,14 +83,25 @@ public class FireGuy : Killable {
         }
 
 
+        health = GetComponent<HealthController>();
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.value = health.getCurrentHealth();
     }
 
     void OnEnable() {
         currentState = State.Attack;
         executingCo = false;
 
+        
         GetComponentInChildren<ParticleSystem>().Play();
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        
+        if(health != null) {
+            health.setHealth(health.getMaxHealth());
+            healthBar.value = health.getCurrentHealth();
+        }
+
+        i = 0;
     }
 
     void Update() {
@@ -206,6 +220,6 @@ public class FireGuy : Killable {
     }
 
     public override void healthChanged() {
-        
+        healthBar.value = (float)health.getCurrentHealth()/health.getMaxHealth();
     }
 }

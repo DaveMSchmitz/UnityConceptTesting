@@ -15,6 +15,9 @@ public class DamageController : MonoBehaviour {
 
     private bool canAttack = true;
 
+    void OnEnable() {
+        canAttack = true;
+    }
 
     void OnTriggerStay2D(Collider2D obj) {
 
@@ -23,7 +26,10 @@ public class DamageController : MonoBehaviour {
 
             if (health != null) {
                 health.changeHealth(-AttackStrength);
-                StartCoroutine("Dmg");
+                if (health.getIsAlive()) {
+                    StartCoroutine("Dmg");
+                }
+                
             }
 
         }
@@ -37,7 +43,9 @@ public class DamageController : MonoBehaviour {
 
             if(health != null) {
                 health.changeHealth(-AttackStrength);
-                StartCoroutine("Dmg");
+                if (health.getIsAlive()) {
+                    StartCoroutine("Dmg");
+                }
             }
 
         }
