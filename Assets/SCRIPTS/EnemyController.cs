@@ -2,18 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : Killable {
 
     private HealthController health;
+    private Slider healthBar;
 
-	void Start(){
+    void Start(){
         health = GetComponent<HealthController>();
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.value = health.getCurrentHealth();
+
 	}
 
     public override void healthChanged() {
-        //throw new NotImplementedException();
-		//knockback
+        healthBar.value = (float)health.getCurrentHealth() /health.getMaxHealth();
     }
 
     public override void killed() {
