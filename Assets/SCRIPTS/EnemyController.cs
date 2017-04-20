@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : Killable {
-
-    private HealthController health;
+	private HealthController health;
 
 	void Start(){
-        health = GetComponent<HealthController>();
+		health = GetComponent<HealthController>();
 	}
 
     public override void healthChanged() {
@@ -17,7 +16,6 @@ public class EnemyController : Killable {
     }
 
     public override void killed() {
-        health.setHealth(health.getMaxHealth());
         gameObject.SetActive(false);
     }
 

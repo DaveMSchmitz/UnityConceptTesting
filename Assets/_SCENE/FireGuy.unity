@@ -108,37 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &187178850 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1818010607960986, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
-    type: 2}
-  m_PrefabInternal: {fileID: 700681730}
---- !u!114 &187178852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 187178850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224e2952ff8f559499d6ecad988054e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
-  InvincibilityTime: 0
-  invincible: 0
---- !u!114 &187178857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 187178850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b058d51837d9d4989c584916b60d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &284418661
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,22 +292,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b7b12252c305ef4c994a63ba8fe7241, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &508674275 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1238643984703164, guid: 8b9c93e3ffe990649a6e72aae5799a2f,
-    type: 2}
-  m_PrefabInternal: {fileID: 700681730}
---- !u!114 &508674276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 508674275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b058d51837d9d4989c584916b60d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &631180843 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4302627510392922, guid: fcaadc39b1682cc4ea8500f36747ff86,
@@ -1099,10 +1052,6 @@ Prefab:
       value: 65536
       objectReference: {fileID: 0}
     - target: {fileID: 4398140936756814, guid: fcaadc39b1682cc4ea8500f36747ff86, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775488769892444, guid: fcaadc39b1682cc4ea8500f36747ff86, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
