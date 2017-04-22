@@ -6,12 +6,16 @@ using UnityEngine;
 public class PlayerController : Killable {
     public Vector3 RespawnTransform;
     private LevelManager levelManager;
+    private HealthController health;
+    private SpriteRenderer sprite;
 
 
     // Use this for initialization
     void Start() {
         RespawnTransform = transform.position;
         levelManager = FindObjectOfType<LevelManager>();
+        health = GetComponent<HealthController>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class PlayerController : Killable {
             Debug.Log("CHECKPOINT");
             RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
+            health.setHealth(health.getMaxHealth());
+            
         }
     }
 
@@ -42,6 +48,20 @@ public class PlayerController : Killable {
     }
 
     public override void healthChanged() {
+
+        if (health.getIsAlive()) {
+            StartCoroutine("blink");
+        }
+
         levelManager.changeHealthText();
+    }
+
+    public IEnumerator blink() {
+
+        Color color = sprite.color;
+
+        sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
+        yield return new WaitForSeconds(.1f);
+        sprite.color = color;
     }
 }
