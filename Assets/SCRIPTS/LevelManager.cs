@@ -14,10 +14,10 @@ public class LevelManager : MonoBehaviour {
     private PlayerController player;
     private HealthController _playerHealth;
     private ResetWhenRespawn[] _objectsToRespawn;
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start() {
         player = FindObjectOfType<PlayerController>();
 
         _playerHealth = player.gameObject.GetComponent<HealthController>();
@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour {
 
         _objectsToRespawn = FindObjectsOfType<ResetWhenRespawn>();
 
-	}
+    }
 
     public void Respawn() {
         StartCoroutine("RespawnCoroutine");
@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour {
 
         foreach (ResetWhenRespawn obj in _objectsToRespawn) {
             obj.gameObject.SetActive(false);
-            
+
         }
 
         //wait for the delay
@@ -52,15 +52,12 @@ public class LevelManager : MonoBehaviour {
             obj.ResetGameObject();
         }
 
-        //reset the number of coins that you have
-        changeCoins(-coinCount);
-
         //respawn the player and make them active again
         player.transform.position = player.RespawnTransform;
         player.gameObject.SetActive(true);
 
         //_playerHealth.changeHealth(-2);
-		_playerHealth.setHealth(_playerHealth.getMaxHealth());
+        _playerHealth.setHealth(_playerHealth.getMaxHealth());
 
     }
 
