@@ -8,6 +8,7 @@ public class PlayerController : Killable {
     private LevelManager levelManager;
     private HealthController health;
     private SpriteRenderer sprite;
+    private Color color;
 
 
     // Use this for initialization
@@ -16,6 +17,7 @@ public class PlayerController : Killable {
         levelManager = FindObjectOfType<LevelManager>();
         health = GetComponent<HealthController>();
         sprite = GetComponent<SpriteRenderer>();
+        color = sprite.color;
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class PlayerController : Killable {
 
     public IEnumerator blink() {
 
-        Color color = sprite.color;
+        
 
         sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
         yield return new WaitForSeconds(.1f);
