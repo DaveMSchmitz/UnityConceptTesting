@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour {
 
     public float MaxSpeed = 10f;
+    private float DefaultMaxSpeed;
     public float JumpSpeed = 12f;
     public Transform JumpSensor;
     public float Radius;
@@ -21,9 +22,19 @@ public class PlayerMovementController : MonoBehaviour {
 	void Start () {
         _animator = GetComponent<Animator>();
         rbody2D = GetComponent<Rigidbody2D>();
-        
+        DefaultMaxSpeed = MaxSpeed;        
 	}
-	
+
+    public void multSpeed(float coef)
+    {
+        MaxSpeed *= coef;
+    }
+
+    public void restoreSpeed()
+    {
+        MaxSpeed = DefaultMaxSpeed;
+    }
+
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "MovingPlatform") {
             _movingPlatform = col.gameObject.GetComponent<MovingPlatform>();

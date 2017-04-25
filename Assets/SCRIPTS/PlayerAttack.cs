@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour {
 
     [SerializeField]
     private int AttackStrength = 1;
+    private int DefaultAttackStrength = 1;
 
     [SerializeField]
     private float CoolDown = .5f;
@@ -28,6 +29,11 @@ public class PlayerAttack : MonoBehaviour {
             StartCoroutine("grace");
             StartCoroutine("coolDown");
         }
+    }
+
+    public void AbleAttack(bool atk)
+    {
+        canAttack = atk;
     }
 
     void OnTriggerStay2D(Collider2D obj) {
