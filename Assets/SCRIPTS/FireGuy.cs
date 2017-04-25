@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class FireGuy : MonoBehaviour {
+public class FireGuy : Killable {
 
     [SerializeField]
     private Transform FloatingWayPoint;
@@ -30,6 +32,7 @@ public class FireGuy : MonoBehaviour {
 
     private new Rigidbody2D rigidbody;
     private bool executingCo = false;
+    [SerializeField]
     private State currentState = State.Attack;
 
     //for attack
@@ -39,6 +42,8 @@ public class FireGuy : MonoBehaviour {
     private int numProjectiles;
     private GameObject[] projectiles;
     private Rigidbody2D[] projectileRB;
+    private Slider healthBar;
+    private HealthController health;
 
 
     //sleep
@@ -78,7 +83,27 @@ public class FireGuy : MonoBehaviour {
         }
 
 
+        health = GetComponent<HealthController>();
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.value = health.getCurrentHealth();
     }
+
+    void OnEnable() {
+        currentState = State.Attack;
+        executingCo = false;
+
+        
+        GetComponentInChildren<ParticleSystem>().Play();
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        
+        if(health != null) {
+            health.setHealth(health.getMaxHealth());
+            healthBar.value = health.getCurrentHealth();
+        }
+
+        i = 0;
+    }
+
     void Update() {
         if (!executingCo) {
             executingCo = true;
@@ -127,6 +152,7 @@ public class FireGuy : MonoBehaviour {
 
     public IEnumerator AttackCoroutine() {
 
+        yield return new WaitForSeconds(ShootCoolDown);
 
         GameObject fire = projectiles[rotator];
         
@@ -139,11 +165,6 @@ public class FireGuy : MonoBehaviour {
         fire.transform.position = transform.position;
         fire.SetActive(true);
         fireRB.velocity = direction;
-        
-
-
-
-        yield return new WaitForSeconds(ShootCoolDown);
 
         ++i;
 
@@ -160,7 +181,7 @@ public class FireGuy : MonoBehaviour {
     public void AttackMovement() {
 
         if (Mathf.Abs(target.y - transform.position.y) < .1) {
-            target = new Vector3(Random.Range(FloatingWayPoint.position.x - 2, FloatingWayPoint.position.x + 2), Random.Range(FloatingWayPoint.position.y - 2, FloatingWayPoint.position.y + 2), transform.position.z);
+            target = new Vector3(UnityEngine.Random.Range(FloatingWayPoint.position.x - 2, FloatingWayPoint.position.x + 2), UnityEngine.Random.Range(FloatingWayPoint.position.y - 2, FloatingWayPoint.position.y + 2), transform.position.z);
             
         } else {
             rigidbody.MovePosition(transform.position + (target - transform.position).normalized * (MoveSpeed * Time.deltaTime));
@@ -191,4 +212,11 @@ public class FireGuy : MonoBehaviour {
         
     }
 
+    public override void killed() {
+        gameObject.SetActive(false);
+    }
+
+    public override void healthChanged() {
+        healthBar.value = (float)health.getCurrentHealth()/health.getMaxHealth();
+    }
 }
