@@ -16,13 +16,11 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField]
     private Animator Weapon;
 
-    private bool canAttack = true;
     private bool attacked;
     private float time;
 
 	// Use this for initialization
 	void OnEnable() {
-        canAttack = true;
         attacked = false;
         time = 0;
 	}
@@ -80,10 +78,4 @@ public class PlayerAttack : MonoBehaviour {
         attacked = false;
     }
 
-    private IEnumerator coolDown() {
-        canAttack = false;
-        yield return new WaitForSeconds(CoolDown);
-        canAttack = true;
-
-    }
 }
