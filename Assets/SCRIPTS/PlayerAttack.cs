@@ -16,21 +16,11 @@ public class PlayerAttack : MonoBehaviour {
     private bool canAttack = true;
     private bool attacked;
 
-    //private GameObject sword;
-    private Transform sword;
-    private Quaternion originalRot;
-
 	// Use this for initialization
 	void OnEnable() {
         canAttack = true;
         attacked = false;
 	}
-
-    void Start()
-    {
-        sword = transform.Find("Sword");
-        originalRot = sword.rotation;
-    }
 
     // Update is called once per frame
     void Update () {
