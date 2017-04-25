@@ -13,6 +13,9 @@ public class DamageController : MonoBehaviour {
     [SerializeField]
     private int CoolDown = 1;
 
+    [SerializeField]
+    private Animator Weapon;
+
     private bool canAttack = true;
 
     void OnEnable() {
@@ -28,6 +31,7 @@ public class DamageController : MonoBehaviour {
                 health.changeHealth(-AttackStrength);
                 if (health.getIsAlive()) {
                     StartCoroutine("Dmg");
+                    Weapon.SetTrigger("Attack");
                 }
                 
             }
@@ -45,6 +49,7 @@ public class DamageController : MonoBehaviour {
                 health.changeHealth(-AttackStrength);
                 if (health.getIsAlive()) {
                     StartCoroutine("Dmg");
+                    Weapon.SetTrigger("Attack");
                 }
             }
 

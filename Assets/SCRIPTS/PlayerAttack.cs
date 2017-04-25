@@ -13,6 +13,9 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField]
     private float CoolDown = .5f;
 
+    [SerializeField]
+    private Animator Weapon;
+
     private bool canAttack = true;
     private bool attacked;
 
@@ -24,9 +27,10 @@ public class PlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (canAttack && Input.GetButtonDown("Fire1")) {
+        if (canAttack && Input.GetButton("Fire1")) {
             StartCoroutine("grace");
             StartCoroutine("coolDown");
+            Weapon.SetTrigger("Attack");
         }
 	}
 
