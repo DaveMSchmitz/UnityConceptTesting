@@ -37,7 +37,6 @@ public class PlayerAttack : MonoBehaviour {
         if (canAttack && Input.GetButtonDown("Fire1")) {
             StartCoroutine("grace");
             StartCoroutine("coolDown");
-            StartCoroutine("swing");
         }
     }
 
@@ -88,11 +87,5 @@ public class PlayerAttack : MonoBehaviour {
         yield return new WaitForSeconds(CoolDown);
         canAttack = true;
 
-    }
-
-    private IEnumerator swing() {
-        sword.Rotate(0, 0, -45);
-        yield return new WaitForSeconds(1);
-        sword.Rotate(0, 0, 45);
     }
 }
