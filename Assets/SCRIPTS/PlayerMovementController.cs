@@ -22,18 +22,22 @@ public class PlayerMovementController : MonoBehaviour {
     bool _jumping;
 
     // Use this for initialization
-    void Start() {
+    void Awake() {
         _animator = GetComponent<Animator>();
         rbody2D = GetComponent<Rigidbody2D>();
         DefaultMaxSpeed = MaxSpeed;
     }
 
-    public void multSpeed(float coef) {
-        MaxSpeed *= coef;
+    private void OnEnable() {
+        MaxSpeed = DefaultMaxSpeed;
     }
 
-    public void restoreSpeed() {
-        MaxSpeed = DefaultMaxSpeed;
+    public void setSpeed(float coef) {
+        MaxSpeed = coef;
+    }
+
+    public float getSpeed() {
+        return MaxSpeed;
     }
 
     void OnCollisionEnter2D(Collision2D col) {
@@ -74,7 +78,7 @@ public class PlayerMovementController : MonoBehaviour {
 
         //if the moving platform is not null, but the player is no longer on the ground,
         //get rid of the moving platform
-        if (_movingPlatform != null  && !isGrounded) {
+        if (_movingPlatform != null && !isGrounded) {
             _movingPlatform = null;
         }
 
@@ -90,10 +94,10 @@ public class PlayerMovementController : MonoBehaviour {
 
         //for a more realistic jump
         if (yVelocity < 0 && _movingPlatform == null) {
-            yVelocity +=  Physics2D.gravity.y * (fallMultiplier - 1);
+            yVelocity += Physics2D.gravity.y * (fallMultiplier - 1);
 
-        //this lets the character jump shorter
-        }else if (yVelocity > 0 && !_jumping) {
+            //this lets the character jump shorter
+        } else if (yVelocity > 0 && !_jumping) {
             yVelocity += Physics2D.gravity.y * (lowJumpMultiplier - 1);
         }
 
@@ -103,8 +107,8 @@ public class PlayerMovementController : MonoBehaviour {
         //if the player is touching a moving platform, add the velocity of the moving
         //platform to the players velocity
         xVelocity += PlatformVelocity().x;
-        
-        
+
+
         //if the player has pressed jump and we are on the ground
         if (_jumping && isGrounded) {
             yVelocity = JumpSpeed;
