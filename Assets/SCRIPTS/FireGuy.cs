@@ -152,6 +152,8 @@ public class FireGuy : Killable {
 
     public IEnumerator AttackCoroutine() {
 
+        yield return new WaitForSeconds(ShootCoolDown);
+
         GameObject fire = projectiles[rotator];
         
         Rigidbody2D fireRB = projectileRB[rotator];
@@ -163,11 +165,6 @@ public class FireGuy : Killable {
         fire.transform.position = transform.position;
         fire.SetActive(true);
         fireRB.velocity = direction;
-        
-
-
-
-        yield return new WaitForSeconds(ShootCoolDown);
 
         ++i;
 
