@@ -44,15 +44,4 @@ public class PlayerDefend : MonoBehaviour {
             movement.restoreSpeed();
         }
     }
-
-    /*
-    private IEnumerator block()
-    {
-        atk.AbleAttack(false);
-        health.setInvincible(true);
-        yield return new WaitForSeconds(0);
-        atk.AbleAttack(true);
-        health.setInvincible(false);
-    }
-    */
 }
