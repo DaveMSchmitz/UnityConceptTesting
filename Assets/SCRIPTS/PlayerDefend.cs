@@ -8,40 +8,38 @@ public class PlayerDefend : MonoBehaviour {
     private HealthController health;
     private PlayerMovementController movement;
 
-    public bool isDefending;
+    //public bool isDefending;
 
-	// Use this for initialization
-	
-    void Start () {
+    // Use this for initialization
+    void Start() {
         atk = this.GetComponent<PlayerAttack>();
         health = this.GetComponent<HealthController>();
         movement = this.GetComponent<PlayerMovementController>();
     }
-    
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
+
+
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
             //StartCoroutine("block");
             Debug.Log("PUSH SHIFT BUTTON");
             atk.AbleAttack(false);
             health.setInvincible(true);
             movement.multSpeed(.5f);
+            Debug.Log(movement.DefaultMaxSpeed);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
+
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
             Debug.Log("RELEASE SHIFT BUTTON");
             //StopCoroutine("block");
             atk.AbleAttack(true);
             health.setInvincible(false);
             movement.multSpeed(2f);
+            Debug.Log(movement.DefaultMaxSpeed);
         }
-        if (!health.getIsAlive())
-        {
-            atk.AbleAttack(true);
-            health.setInvincible(false);
-            movement.restoreSpeed();
+
+        if (!health.getIsAlive()) {
+            Debug.Log("DEAD");
         }
     }
 }

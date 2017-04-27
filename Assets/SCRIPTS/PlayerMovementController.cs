@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour {
 
     public float MaxSpeed = 10f;
-    private float DefaultMaxSpeed;
+    public float DefaultMaxSpeed;
     public float JumpSpeed = 12f;
     public Transform JumpSensor;
     public float Radius;
@@ -18,32 +18,30 @@ public class PlayerMovementController : MonoBehaviour {
     Animator _animator;
     bool _jumping;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         _animator = GetComponent<Animator>();
         rbody2D = GetComponent<Rigidbody2D>();
-        DefaultMaxSpeed = MaxSpeed;        
-	}
+        DefaultMaxSpeed = MaxSpeed;
+    }
 
-    public void multSpeed(float coef)
-    {
+    public void multSpeed(float coef) {
         MaxSpeed *= coef;
     }
 
-    public void restoreSpeed()
-    {
+    public void restoreSpeed() {
         MaxSpeed = DefaultMaxSpeed;
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "MovingPlatform") {
             _movingPlatform = col.gameObject.GetComponent<MovingPlatform>();
-            
+
         }
     }
 
     bool IsGrounded() {
-        
+
         return Physics2D.OverlapCircle(JumpSensor.position, Radius, ConsideredGround);
     }
 
@@ -60,17 +58,17 @@ public class PlayerMovementController : MonoBehaviour {
     Vector2 RelativeVelocity() {
         return rbody2D.velocity - PlatformVelocity();
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
         if (Input.GetButton("Jump")) {
             _jumping = true;
         }
-	}
+    }
 
     void FixedUpdate() {
         bool isGrounded = IsGrounded();
 
-        if (_movingPlatform != null  && !isGrounded) {
+        if (_movingPlatform != null && !isGrounded) {
             _movingPlatform = null;
         }
 
@@ -79,15 +77,15 @@ public class PlayerMovementController : MonoBehaviour {
 
         if (isGrounded && rbody2D.velocity.y < 0 && _movingPlatform != null) {
             yVelocity = PlatformVelocity().y - 0.01f;
-            
+
         }
 
         xVelocity = Input.GetAxis("Horizontal") * MaxSpeed;
 
-        
+
         xVelocity += PlatformVelocity().x;
-        
-        
+
+
 
         if (_jumping && isGrounded) {
             yVelocity = JumpSpeed;

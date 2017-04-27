@@ -25,8 +25,7 @@ public class HealthController : MonoBehaviour {
         invincible = false;
     }
 
-    public void setInvincible(bool invc)
-    {
+    public void setInvincible(bool invc) {
         invincible = invc;
     }
 

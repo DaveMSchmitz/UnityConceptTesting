@@ -20,23 +20,25 @@ public class PlayerAttack : MonoBehaviour {
     private bool attacked;
     private float time;
 
-	// Use this for initialization
-	void OnEnable() {
+    private bool canAttack;
+
+    // Use this for initialization
+    void OnEnable() {
         attacked = false;
         time = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if ((Time.time >= time + CoolDown) && Input.GetButton("Fire1")) {
+        canAttack = true;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (canAttack && (Time.time >= time + CoolDown) && Input.GetButton("Fire1")) {
             StartCoroutine("grace");
             Weapon.SetTrigger("Attack");
             time = Time.time;
         }
     }
 
-    public void AbleAttack(bool atk)
-    {
+    public void AbleAttack(bool atk) {
         canAttack = atk;
     }
 
