@@ -227,7 +227,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 114944
   fallMultiplier: 1.2
-  lowJumpMultiplier: 2
+  lowJumpMultiplier: 1.3
   PlatformRelativeJump: 0
 --- !u!114 &114161944205808286
 MonoBehaviour:
