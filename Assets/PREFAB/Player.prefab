@@ -121,7 +121,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: a7fc72d1432cb6444b16e8aac9c7162b, type: 2}
@@ -219,13 +219,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86992d5528b299f48baee7ddc5edcb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
-  JumpSpeed: 16
+  MaxSpeed: 15
+  JumpSpeed: 20
   JumpSensor: {fileID: 4398140936756814}
   Radius: 0.18
   ConsideredGround:
     serializedVersion: 2
     m_Bits: 114944
+  fallMultiplier: 1.2
+  lowJumpMultiplier: 1.3
   PlatformRelativeJump: 0
 --- !u!114 &114161944205808286
 MonoBehaviour:
@@ -300,8 +302,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1671835335
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 843c0fcd8040d0e4eadbe28ebb38a258, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -311,6 +313,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_MaskInteraction: 0
 --- !u!212 &212974202682016816
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -351,3 +354,4 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_MaskInteraction: 0

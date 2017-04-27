@@ -52,7 +52,7 @@ public class EnemyMovementController : MonoBehaviour {
         Vector2 result = Vector2.zero;
 
         if (_movingPlatform != null) {
-            result = _movingPlatform.GetComponent<Rigidbody>().velocity;
+            result = _movingPlatform.GetComponent<Rigidbody2D>().velocity;
         }
 
         return result;

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 
+    //TODO make private
     public float MaxSpeed = 10f;
     public float DefaultMaxSpeed;
     public float JumpSpeed = 12f;
     public Transform JumpSensor;
     public float Radius;
     public LayerMask ConsideredGround;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
     public bool PlatformRelativeJump = false;
 
@@ -66,33 +69,53 @@ public class PlayerMovementController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        //check if the player is grounded
         bool isGrounded = IsGrounded();
 
-        if (_movingPlatform != null && !isGrounded) {
+        //if the moving platform is not null, but the player is no longer on the ground,
+        //get rid of the moving platform
+        if (_movingPlatform != null  && !isGrounded) {
             _movingPlatform = null;
         }
 
+        //get the currect velocities 
         float xVelocity = rbody2D.velocity.x;
         float yVelocity = rbody2D.velocity.y;
 
+        //if the player is on a moving platform and it is moving downwards
         if (isGrounded && rbody2D.velocity.y < 0 && _movingPlatform != null) {
             yVelocity = PlatformVelocity().y - 0.01f;
 
         }
 
+        //for a more realistic jump
+        if (yVelocity < 0 && _movingPlatform == null) {
+            yVelocity +=  Physics2D.gravity.y * (fallMultiplier - 1);
+
+        //this lets the character jump shorter
+        }else if (yVelocity > 0 && !_jumping) {
+            yVelocity += Physics2D.gravity.y * (lowJumpMultiplier - 1);
+        }
+
+        //get the direction that the player should be moving
         xVelocity = Input.GetAxis("Horizontal") * MaxSpeed;
 
+<<<<<<< HEAD
 
         xVelocity += PlatformVelocity().x;
 
 
 
+=======
+        //if the player is touching a moving platform, add the velocity of the moving
+        //platform to the players velocity
+        xVelocity += PlatformVelocity().x;
+        
+        
+        //if the player has pressed jump and we are on the ground
+>>>>>>> refs/remotes/origin/master
         if (_jumping && isGrounded) {
             yVelocity = JumpSpeed;
-
-            if (PlatformRelativeJump) {
-                yVelocity += PlatformVelocity().y;
-            }
         }
 
         _jumping = false;
