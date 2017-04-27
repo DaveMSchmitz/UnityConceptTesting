@@ -6,17 +6,18 @@ using UnityEngine;
 public class PlayerController : Killable {
     public Vector3 RespawnTransform;
     private LevelManager levelManager;
-	//public HealthController health = new HealthController (10, 10);
-	private HealthController health;
-	private Coroutine ambientDamageCoroutine;
-	private Coroutine enemyDamageCoroutine;
+    private HealthController health;
+    private SpriteRenderer sprite;
+    private Color color;
 
-    
     // Use this for initialization
     void Start () {
 		health = GetComponent<HealthController>();
         RespawnTransform = transform.position;
         levelManager = FindObjectOfType<LevelManager>();
+        health = GetComponent<HealthController>();
+        sprite = GetComponent<SpriteRenderer>();
+        color = sprite.color;
     }
 	
 	// Update is called once per frame
@@ -91,6 +92,20 @@ public class PlayerController : Killable {
     }
 
     public override void healthChanged() {
+
+        if (health.getIsAlive()) {
+            StartCoroutine("blink");
+        }
+
         levelManager.changeHealthText();
+    }
+
+    public IEnumerator blink() {
+
+        
+
+        sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
+        yield return new WaitForSeconds(.1f);
+        sprite.color = color;
     }
 }
