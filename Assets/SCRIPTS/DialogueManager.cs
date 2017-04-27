@@ -13,40 +13,29 @@ public class DialogueManager : MonoBehaviour {
     public int currLine;
 
 	void Start () {
-	}
+        currLine = 0;
+    }
 	
-	void Update () {
-        if (!dialogueActive && Input.GetKeyDown(KeyCode.Tab))
-        {
-            currLine = 0;
-        }
-        else if (dialogueActive && Input.GetKeyDown(KeyCode.Tab))
-        {
-           
-            currLine++;
-        }
 
-        if(currLine >= dialogueLines.Length)
-        {
+    public void ShowBox(string dialogue)
+    {
+        dText.text = dialogueLines[currLine];
+        dialogueActive = true;
+        dBox.SetActive(true);
+
+        ++currLine;
+
+        if (currLine >= dialogueLines.Length) {
             dBox.SetActive(false);
             dialogueActive = false;
             currLine = 0;
         }
-
-        dText.text = dialogueLines[currLine];
-
     }
 
-    public void ShowBox(string dialogue)
-    {
-        dialogueActive = true;
-        dBox.SetActive(true);
-        dText.text = dialogue;
+    public void ResetDialouge() {
+        dialogueActive = false;
+        dBox.SetActive(false);
+        currLine = 0;
     }
 
-    public void ShowDialogue()
-    {
-        dialogueActive = true;
-        dBox.SetActive(true);
-    }
 }
