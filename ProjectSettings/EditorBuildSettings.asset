@@ -4,13 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/_SCENE/Main Menu.unity
-    guid: 8feeb3f149914f44291de12d64b4bcc3
-  - enabled: 1
-    path: Assets/_SCENE/AutoGroundLevel.unity
-    guid: 67992397640aae54497b77bf89ca1596
-  - enabled: 1
-    path: Assets/_SCENE/FireGuy.unity
-    guid: 969b0130d7193a34caae7c3fadb38259
+  m_Scenes: []

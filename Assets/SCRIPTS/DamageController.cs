@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageController : MonoBehaviour {
-
-    [SerializeField]
+   [SerializeField]
     private LayerMask Damageable;
 
     [SerializeField]
@@ -62,6 +61,5 @@ public class DamageController : MonoBehaviour {
         yield return new WaitForSeconds(CoolDown);
         canAttack = true;
     }
-
 
 }

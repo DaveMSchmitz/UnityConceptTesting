@@ -32,7 +32,6 @@ public class EnemyController : Killable {
     }
 
     public override void killed() {
-        health.setHealth(health.getMaxHealth());
         gameObject.SetActive(false);
     }
 

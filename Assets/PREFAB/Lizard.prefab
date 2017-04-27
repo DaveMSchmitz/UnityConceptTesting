@@ -177,9 +177,9 @@ GameObject:
   - component: {fileID: 70412236484524622}
   - component: {fileID: 114682110964404854}
   - component: {fileID: 114923254012161644}
-  - component: {fileID: 114708992082583494}
   - component: {fileID: 114398350740789184}
-  m_Layer: 14
+  - component: {fileID: 114708992082583494}
+  m_Layer: 0
   m_Name: Lizard
   m_TagString: Damageable
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ Rigidbody2D:
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: a7fc72d1432cb6444b16e8aac9c7162b, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58891705597723494
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &114398350740789184
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981554052719696}
@@ -437,8 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  InvincibilityTime: 0
-  invincible: 0
+  isAlive: 1
 --- !u!114 &114497578614176448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,7 +519,7 @@ MonoBehaviour:
   JumpSensorRadius: 0.5
 --- !u!114 &114708992082583494
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981554052719696}
@@ -532,9 +531,10 @@ MonoBehaviour:
   Damageable:
     serializedVersion: 2
     m_Bits: 512
-  AttackStrength: 1
-  CoolDown: 1
-  Weapon: {fileID: 95929355463477066}
+  aDamageCount: 0
+  eDamageCount: 0
+  invincible: 0
+  shouldStop: 0
 --- !u!114 &114923254012161644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,8 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  InvincibilityTime: 0
-  invincible: 0
+  isAlive: 1
 --- !u!114 &114978662796528878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -638,6 +637,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_MaskInteraction: 0
 --- !u!212 &212987707156518586
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -678,6 +678,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_MaskInteraction: 0
 --- !u!222 &222113412160171722
 CanvasRenderer:
   m_ObjectHideFlags: 1

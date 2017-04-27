@@ -3,26 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class HealthController : MonoBehaviour {
 
-    [SerializeField]
-    private int health = 10;
+    public int health;
+    public int maxHealth;
+    public bool isAlive = true;
 
-    [SerializeField]
-    private int maxHealth = 10;
-
-    [SerializeField]
-    private float InvincibilityTime = 0;
-
-    [SerializeField]
-    private bool invincible;
     private Killable myBeing;
 
     public void Start() {
         myBeing = GetComponent<Killable>();
-        invincible = false;
-    }
-
-    public void OnEnable() {
-        invincible = false;
     }
 
     public void setHealth(int health) {
@@ -36,9 +24,11 @@ public class HealthController : MonoBehaviour {
 
         //if the health is less than or equal to zero change the object to dead
         if (health <= 0) {
+            isAlive = false;
             myBeing.killed();
 
         } else {
+            isAlive = true;
             myBeing.healthChanged();
         }
     }
@@ -67,25 +57,22 @@ public class HealthController : MonoBehaviour {
 
     //changes the health by what ever the change in health is
     public void changeHealth(int deltaHealth) {
+        //change the health by delta
+        health += deltaHealth;
 
-        if (!invincible) {
-            //change the health by delta
-            health += deltaHealth;
-
-            //check if the object is dead
-            if (health <= 0) {
-                myBeing.killed();
-            } else {
-                myBeing.healthChanged();
-                StartCoroutine("waitCoroutine");
-            }
+        //check if the object is dead
+        if (health <= 0) {
+            isAlive = false;
+            myBeing.killed();
+        } else {
+            myBeing.healthChanged();
         }
-
     }
 
     //takes all health and sets to dead
     public void kill() {
         health = 0;
+        isAlive = false;
     }
 
     //returns whether the object is dead or alive.
@@ -93,12 +80,5 @@ public class HealthController : MonoBehaviour {
         return health > 0;
     }
 
-    private IEnumerator waitCoroutine() {
-        invincible = true;
-
-        yield return new WaitForSeconds(InvincibilityTime);
-
-        invincible = false;
-    }
 
 }
