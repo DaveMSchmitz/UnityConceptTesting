@@ -25,6 +25,10 @@ public class HealthController : MonoBehaviour {
         invincible = false;
     }
 
+    public void setInvincible(bool invc) {
+        invincible = invc;
+    }
+
     public void setHealth(int health) {
         //set the health
         this.health = health;
