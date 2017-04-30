@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224410044988061246}
   - component: {fileID: 222152475210251762}
   - component: {fileID: 114574092419307124}
+  - component: {fileID: 114253901043314358}
   m_Layer: 5
   m_Name: CoinText
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 224432715469331334}
   - component: {fileID: 222650677839842002}
   - component: {fileID: 114830177403200036}
+  - component: {fileID: 114249658472919046}
   m_Layer: 5
   m_Name: HeartText
   m_TagString: Untagged
@@ -157,6 +159,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114249658472919046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365450568055290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4668e119556f74bb0ea7f3a23ad8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114253901043314358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007764735421198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc4fa9ca48e6ea41be784896f18a620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114267860818382146
 MonoBehaviour:
   m_ObjectHideFlags: 1

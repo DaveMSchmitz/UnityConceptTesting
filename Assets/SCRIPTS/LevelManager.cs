@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
-    public float RespawnDelay;
-    public Text coinText;
-    public Text healthText;
+    [SerializeField]
+    private float RespawnDelay;
 
-    public int coinCount = 0;
-
+    private HealthText healthText;
+    private int coinCount = 0;
+    private CoinText coinText;
     private PlayerController player;
     private HealthController _playerHealth;
     private ResetWhenRespawn[] _objectsToRespawn;
@@ -19,13 +19,14 @@ public class LevelManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
         player = FindObjectOfType<PlayerController>();
+        coinText = FindObjectOfType<CoinText>();
+        healthText = FindObjectOfType<HealthText>();
+        _objectsToRespawn = FindObjectsOfType<ResetWhenRespawn>();
 
         _playerHealth = player.gameObject.GetComponent<HealthController>();
-        healthText.text = "" + _playerHealth.getCurrentHealth();
 
-        coinText.text = "" + coinCount;
-
-        _objectsToRespawn = FindObjectsOfType<ResetWhenRespawn>();
+        healthText.ChangeText(_playerHealth.getCurrentHealth());
+        
 
     }
 
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour {
         player.transform.position = player.RespawnTransform;
         player.gameObject.SetActive(true);
 
-        //_playerHealth.changeHealth(-2);
+        //reset the player health
         _playerHealth.setHealth(_playerHealth.getMaxHealth());
 
     }
@@ -64,11 +65,11 @@ public class LevelManager : MonoBehaviour {
     //change the coin amount
     public void changeCoins(int coins) {
         coinCount += coins;
-        coinText.text = "" + coinCount;
+        coinText.ChangeText(coinCount);
     }
 
     //this function gets subscribed on the enabled 
     public void changeHealthText() {
-        healthText.text = "" + _playerHealth.getCurrentHealth();
+        healthText.ChangeText(_playerHealth.getCurrentHealth());
     }
 }
