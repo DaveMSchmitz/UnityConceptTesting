@@ -41,7 +41,7 @@ public class PlayerController : Killable {
             RespawnTransform = new Vector3(obj.gameObject.transform.position.x, obj.gameObject.transform.position.y, transform.position.z);
             obj.gameObject.GetComponent<Animator>().SetBool("check", true);
             health.setHealth(health.getMaxHealth());
-            
+
         }
     }
 
@@ -60,7 +60,7 @@ public class PlayerController : Killable {
 
     public IEnumerator blink() {
 
-        
+
 
         sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
         yield return new WaitForSeconds(.1f);
