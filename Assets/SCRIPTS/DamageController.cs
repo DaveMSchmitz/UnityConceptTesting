@@ -33,7 +33,7 @@ public class DamageController : MonoBehaviour {
                     StartCoroutine("Dmg");
                     Weapon.SetTrigger("Attack");
                 }
-                
+
             }
 
         }
@@ -45,7 +45,7 @@ public class DamageController : MonoBehaviour {
         if (canAttack && Damageable == (Damageable | (1 << obj.gameObject.layer))) {
             HealthController health = obj.gameObject.GetComponent<HealthController>();
 
-            if(health != null) {
+            if (health != null) {
                 health.changeHealth(-AttackStrength);
                 if (health.getIsAlive()) {
                     StartCoroutine("Dmg");
