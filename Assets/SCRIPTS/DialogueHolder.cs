@@ -19,14 +19,10 @@ public class DialogueHolder : MonoBehaviour {
         if ((Input.GetKeyDown(KeyCode.Tab) && playerCollide) || (playerCollide && firstTime))
         {
             firstTime = false;
+
+            dMan.dialogueLines = dialogueLines;
             dMan.ShowBox(dialogue);
 
-            if (!dMan.dialogueActive)
-            {
-                dMan.dialogueLines = dialogueLines;
-                dMan.ShowDialogue();
-            }
-            dMan.dialogueLines = dialogueLines;
         }
     }
 
@@ -44,6 +40,7 @@ public class DialogueHolder : MonoBehaviour {
         if (other.gameObject.name == "Player")
         {
             playerCollide = false;
+            dMan.ResetDialouge();
         }
     }
 
