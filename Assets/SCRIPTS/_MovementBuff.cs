@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementBuff : MonoBehaviour {
+public class _MovementBuff : _Buff {
+    public override void effect() {
+        Debug.Log("effect");
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void duration() {
+        Debug.Log("effect");
+    }
 }
