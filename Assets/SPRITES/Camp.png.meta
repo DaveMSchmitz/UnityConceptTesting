@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: f6856b6015fa6674bb1f21f90246286e
-timeCreated: 1493742834
+guid: 48cfa319cd1f5e14e92e92561dc5b6ab
+timeCreated: 1493609093
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Platform_0
-    21300002: Platform_1
-    21300004: Platform_2
+    21300000: Camp_0
+    21300002: Camp_1
+    21300004: Camp_2
+    21300006: Camp_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -78,44 +79,58 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platform_0
+      name: Camp_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 89
-        width: 38
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 2, z: 7, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Platform_1
-      rect:
-        serializedVersion: 2
-        x: 42
+        x: 0
         y: 63
-        width: 42
+        width: 63
         height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platform_2
+      name: Camp_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 63
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Camp_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
+        width: 63
         height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 28, z: 8, w: 33}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Camp_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

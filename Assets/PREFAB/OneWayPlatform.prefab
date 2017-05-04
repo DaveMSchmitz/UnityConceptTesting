@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4102813218256492}
   - component: {fileID: 212034718353330448}
-  - component: {fileID: 61189327407943292}
   - component: {fileID: 251350335633960888}
+  - component: {fileID: 60947895664994434}
   m_Layer: 8
   m_Name: OneWayPlatform
   m_TagString: Untagged
@@ -36,14 +36,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255152001366566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.656305, y: 4.870066, z: 0}
+  m_LocalPosition: {x: 8, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61189327407943292
-BoxCollider2D:
+--- !u!60 &60947895664994434
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -56,17 +56,20 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.04761905, y: 0.04761905, z: 0.04761905, w: 0.52380955}
+    border: {x: 0.33333334, y: 0.0952381, z: 0.33333334, w: 0.04761905}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 3, y: 1}
+    oldSize: {x: 1.8095238, y: 0.23809524}
+    newSize: {x: 3, y: 0.2}
     adaptiveTilingThreshold: 1
-    drawMode: 2
+    drawMode: 1
     adaptiveTiling: 1
   m_AutoTiling: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1, y: 0.071428575}
+      - {x: -1, y: -0.35714287}
+      - {x: 1, y: -0.35714287}
+      - {x: 1, y: 0.071428575}
 --- !u!212 &212034718353330448
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,12 +102,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c1788fc571df5504599b5cbceaf361e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6856b6015fa6674bb1f21f90246286e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 3, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 3, y: 0.2}
   m_AdaptiveModeThreshold: 1
   m_SpriteTileMode: 1
   m_MaskInteraction: 0
@@ -121,7 +124,7 @@ PlatformEffector2D:
     m_Bits: 4294967295
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
+  m_UseOneWayGrouping: 1
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0

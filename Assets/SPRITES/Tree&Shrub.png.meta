@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: f6856b6015fa6674bb1f21f90246286e
-timeCreated: 1493742834
+guid: df2f35abd157d18408cf6e57751efb19
+timeCreated: 1493743310
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Platform_0
-    21300002: Platform_1
-    21300004: Platform_2
+    21300000: Tree&Shrub_0
+    21300002: Tree&Shrub_1
+    21300004: Tree&Shrub_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -78,44 +78,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platform_0
+      name: Tree&Shrub_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 89
-        width: 38
-        height: 5
+        x: 0
+        y: 0
+        width: 21
+        height: 84
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 2, z: 7, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Platform_1
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 63
-        width: 42
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platform_2
+      name: Tree&Shrub_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 21
         y: 0
-        width: 42
-        height: 63
+        width: 21
+        height: 84
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 28, z: 8, w: 33}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree&Shrub_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 21
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
