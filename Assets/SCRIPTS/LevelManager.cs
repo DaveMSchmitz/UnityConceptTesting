@@ -8,6 +8,9 @@ public class LevelManager : MonoBehaviour {
     [SerializeField]
     private float RespawnDelay;
 
+    [SerializeField]
+    private bool FirstLevel = false;
+
     private HealthText healthText;
     //TODO make a getter
     public int coinCount = 0;
@@ -30,6 +33,10 @@ public class LevelManager : MonoBehaviour {
 
         healthText.ChangeText(_playerHealth.getCurrentHealth());
         coinText.ChangeText(coinCount);
+
+        if (FirstLevel) {
+            PlayerPrefs.SetInt("Coins", 0);
+        }
 
         coinCount = PlayerPrefs.GetInt("Coins");
     }
