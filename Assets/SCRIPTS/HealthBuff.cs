@@ -8,12 +8,14 @@ public class HealthBuff : Buff {
     private string name;
     private int e;
     private int d;
+    private Animator anim;
 
-    public HealthBuff(string name, int e, int d) {
+    public HealthBuff(string name, int e, int d, Animator anim) {
         health = GetComponent<HealthController>();
         this.name = name;
         this.e = e;
         this.d = d;
+        this.anim = anim;
     }
 
     public override void setEffect(int e) {
@@ -35,8 +37,10 @@ public class HealthBuff : Buff {
     }
 
     public override IEnumerator buff() {
-        health.changeHealth(getEffect());
-        yield return new WaitForSeconds(1);
+        while (getDuration() > 0) {
+            health.changeHealth(getEffect());
+            yield return new WaitForSeconds(1);
+            setDuration(getDuration() - 1);
+        }
     }
-
 }

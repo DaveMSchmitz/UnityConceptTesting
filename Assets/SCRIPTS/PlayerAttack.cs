@@ -42,6 +42,14 @@ public class PlayerAttack : MonoBehaviour {
         canAttack = atk;
     }
 
+    public void modAttack(int atk) {
+        AttackStrength = atk;
+    }
+
+    public void resetAttack() {
+        AttackStrength = DefaultAttackStrength;
+    }
+
     void OnTriggerStay2D(Collider2D obj) {
 
         //if i can attack and the object is inside of the damage layermask, then 

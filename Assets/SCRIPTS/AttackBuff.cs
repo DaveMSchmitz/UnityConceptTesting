@@ -34,6 +34,12 @@ public class AttackBuff : Buff {
     }
 
     public override IEnumerator buff() {
-        yield return new WaitForSeconds(1);
+        while (getDuration() > 0) {
+            //health.changeHealth(getEffect());
+            atk.modAttack(getEffect());
+            yield return new WaitForSeconds(1);
+            setDuration(getDuration() - 1);
+        }
+        atk.resetAttack();
     }
 }

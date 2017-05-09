@@ -60,8 +60,6 @@ public class PlayerController : Killable {
 
     public IEnumerator blink() {
 
-
-
         sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
         yield return new WaitForSeconds(.1f);
         sprite.color = color;

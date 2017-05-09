@@ -16,7 +16,7 @@ public class PlayerDefend : MonoBehaviour {
 
     void Update() {
         if (Input.GetKey(KeyCode.LeftShift)) {
-            Debug.Log("PUSH SHIFT BUTTON");
+            //Debug.Log("PUSH SHIFT BUTTON");
             atk.AbleAttack(false);
             health.setInvincible(true);
             movement.setSpeed(movement.DefaultMaxSpeed / 2f);
@@ -24,7 +24,7 @@ public class PlayerDefend : MonoBehaviour {
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            Debug.Log("RELEASE SHIFT BUTTON");
+            //Debug.Log("RELEASE SHIFT BUTTON");
             atk.AbleAttack(true);
             health.setInvincible(false);
             movement.setSpeed(movement.DefaultMaxSpeed);
