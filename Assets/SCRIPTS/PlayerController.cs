@@ -43,6 +43,10 @@ public class PlayerController : Killable {
             health.setHealth(health.getMaxHealth());
 
         }
+
+        if (obj.tag == "fire_buff") {
+            //HealthBuff b = HealthBuff("fire_buff", -1, 5);
+        }
     }
 
     public override void killed() {
