@@ -8,8 +8,12 @@ public class LevelManager : MonoBehaviour {
     [SerializeField]
     private float RespawnDelay;
 
+    [SerializeField]
+    private bool FirstLevel = false;
+
     private HealthText healthText;
-    private int coinCount = 0;
+    //TODO make a getter
+    public int coinCount = 0;
     private CoinText coinText;
     private PlayerController player;
     private HealthController _playerHealth;
@@ -18,16 +22,23 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        Debug.Log("In Start");
         player = FindObjectOfType<PlayerController>();
         coinText = FindObjectOfType<CoinText>();
         healthText = FindObjectOfType<HealthText>();
         _objectsToRespawn = FindObjectsOfType<ResetWhenRespawn>();
 
         _playerHealth = player.gameObject.GetComponent<HealthController>();
+        coinCount = PlayerPrefs.GetInt("Coins");
 
         healthText.ChangeText(_playerHealth.getCurrentHealth());
-        
+        coinText.ChangeText(coinCount);
 
+        if (FirstLevel) {
+            PlayerPrefs.SetInt("Coins", 0);
+        }
+
+        coinCount = PlayerPrefs.GetInt("Coins");
     }
 
     public void Respawn() {
@@ -65,6 +76,7 @@ public class LevelManager : MonoBehaviour {
     //change the coin amount
     public void changeCoins(int coins) {
         coinCount += coins;
+        PlayerPrefs.SetInt("Coins", coinCount);
         coinText.ChangeText(coinCount);
     }
 
