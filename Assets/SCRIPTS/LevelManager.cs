@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
@@ -18,7 +19,7 @@ public class LevelManager : MonoBehaviour {
     private PlayerController player;
     private HealthController _playerHealth;
     private ResetWhenRespawn[] _objectsToRespawn;
-
+    private int levelNumber;
 
     // Use this for initialization
     void Start() {
@@ -83,5 +84,18 @@ public class LevelManager : MonoBehaviour {
     //this function gets subscribed on the enabled 
     public void changeHealthText() {
         healthText.ChangeText(_playerHealth.getCurrentHealth());
+    }
+
+    public void EndLevel(int levelNumber) {
+        this.levelNumber = levelNumber;
+        StartCoroutine("EndScene");
+    }
+
+    private IEnumerator EndScene() {
+
+        yield return new WaitForSeconds(1);
+        Camera.main.GetComponent<Animator>().SetTrigger("EndLevel");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(levelNumber);
     }
 }

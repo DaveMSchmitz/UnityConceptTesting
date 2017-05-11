@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FireGuy : Killable {
@@ -30,10 +31,16 @@ public class FireGuy : Killable {
     [SerializeField]
     private int ShotsPerAttack = 10;
 
-    private new Rigidbody2D rigidbody;
-    private bool executingCo = false;
     [SerializeField]
     private State currentState = State.Attack;
+
+    [SerializeField]
+    private int LevelNumber;
+
+    private new Rigidbody2D rigidbody;
+    private bool executingCo = false;
+
+
 
     //for attack
     private Vector3 target;
@@ -214,7 +221,11 @@ public class FireGuy : Killable {
 
     public override void killed() {
         gameObject.SetActive(false);
+
+        GameObject.FindObjectOfType<LevelManager>().GetComponent<LevelManager>().EndLevel(LevelNumber);
     }
+
+
 
     public override void healthChanged() {
         healthBar.value = (float)health.getCurrentHealth()/health.getMaxHealth();
