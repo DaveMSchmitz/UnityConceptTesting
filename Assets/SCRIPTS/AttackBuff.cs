@@ -7,12 +7,22 @@ public class AttackBuff : Buff {
     private string name;
     private int e;
     private int d;
+    private bool buffing;
 
     public AttackBuff(string name, int e, int d) {
         atk = GetComponent<PlayerAttack>();
         this.name = name;
         this.e = e;
         this.d = d;
+        buffing = false;
+    }
+
+    public override void setBuffing(bool buffing) {
+        this.buffing = buffing;
+    }
+
+    public override bool getBuffing() {
+        return buffing;
     }
 
     public override void setEffect(int e) {

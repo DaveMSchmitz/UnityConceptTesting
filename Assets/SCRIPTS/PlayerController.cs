@@ -9,7 +9,7 @@ public class PlayerController : Killable {
     private HealthController health;
     private SpriteRenderer sprite;
     private Color color;
-
+    private Animator buffAnimator;
 
     // Use this for initialization
     void Start() {
@@ -45,7 +45,11 @@ public class PlayerController : Killable {
         }
 
         if (obj.tag == "fire_buff") {
-            //HealthBuff b = HealthBuff("fire_buff", -1, 5);
+            //HealthBuff b = new HealthBuff("fire_buff", -1, 5, buffAnimator);
+            HealthBuff b = new HealthBuff("fire_buff", -1, 5);
+            if (!b.getBuffing()) {
+                b.buff();
+            }
         }
     }
 

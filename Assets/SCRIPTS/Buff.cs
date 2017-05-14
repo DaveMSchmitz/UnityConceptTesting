@@ -7,5 +7,9 @@ public abstract class Buff : MonoBehaviour {
     abstract public void setDuration(int d);
     abstract public int getEffect();
     abstract public int getDuration();
+
+    public abstract void setBuffing(bool buffing);
+    public abstract bool getBuffing();
+
     abstract public IEnumerator buff();
 }
