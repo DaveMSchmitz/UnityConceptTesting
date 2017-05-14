@@ -15,6 +15,7 @@ TagManager:
   - MovingPlatform
   - Ground
   - Damageable
+  - fire_buff
   layers:
   - Default
   - TransparentFX
