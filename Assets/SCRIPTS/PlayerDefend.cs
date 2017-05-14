@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PlayerDefend : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject Shield;
+
     private PlayerAttack atk;
     private HealthController health;
     private PlayerMovementController movement;
+    private Animator shieldAnimator;
+
+    private bool isDefending = false;
 
     private void OnEnable() {
         atk = GetComponent<PlayerAttack>();
         health = GetComponent<HealthController>();
         movement = GetComponent<PlayerMovementController>();
+        shieldAnimator = Shield.GetComponent<Animator>();
     }
 
     void Update() {
@@ -21,6 +28,7 @@ public class PlayerDefend : MonoBehaviour {
             health.setInvincible(true);
             movement.setSpeed(movement.DefaultMaxSpeed / 2f);
             Debug.Log(movement.DefaultMaxSpeed);
+            isDefending = true;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
@@ -29,6 +37,9 @@ public class PlayerDefend : MonoBehaviour {
             health.setInvincible(false);
             movement.setSpeed(movement.DefaultMaxSpeed);
             Debug.Log(movement.DefaultMaxSpeed);
+            isDefending = false;
         }
+
+        shieldAnimator.SetBool("Blocking", isDefending);
     }
 }
