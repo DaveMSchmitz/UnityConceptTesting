@@ -1,16 +1,12 @@
 fileFormatVersion: 2
-guid: af505da43edb8c84582977e17685b546
-timeCreated: 1490891406
+guid: a114819240d177c4ba1d10623619cb94
+timeCreated: 1494520232
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dirt1_0
-    21300002: Dirt1_1
-    21300004: Dirt1_2
-    21300006: Dirt1_3
-    21300008: Dirt1_4
-    21300010: Dirt1_5
-    21300012: Dirt1_6
+    21300000: Fruit Cart and Lyfe_0
+    21300002: Fruit Cart and Lyfe_1
+    21300004: Fruit Cart and Lyfe_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -82,13 +78,27 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt1_0
+      name: Fruit Cart and Lyfe_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 63
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fruit Cart and Lyfe_1
       rect:
         serializedVersion: 2
         x: 0
         y: 42
-        width: 21
-        height: 21
+        width: 63
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,83 +106,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_1
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 42
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 42
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_4
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_5
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_6
+      name: Fruit Cart and Lyfe_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 21
-        height: 21
+        width: 63
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

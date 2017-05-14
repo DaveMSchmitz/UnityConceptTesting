@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour {
     public bool dialogueActive;
 
     public string[] dialogueLines;
-    public int currLine;
+    public int currLine = 0;
 
 	void Start () {
         currLine = 0;
@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void ShowBox(string dialogue)
     {
-        dText.text = dialogueLines[currLine];
+        dText.text = dialogueLines[currLine];//index out of bounds
         dialogueActive = true;
         dBox.SetActive(true);
 

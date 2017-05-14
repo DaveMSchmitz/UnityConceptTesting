@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: af505da43edb8c84582977e17685b546
-timeCreated: 1490891406
+guid: e8781c5b191219540b5df893870df688
+timeCreated: 1494520981
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dirt1_0
-    21300002: Dirt1_1
-    21300004: Dirt1_2
-    21300006: Dirt1_3
-    21300008: Dirt1_4
-    21300010: Dirt1_5
-    21300012: Dirt1_6
+    21300000: Dragon_0
+    21300002: Dragon_1
+    21300004: Dragon_2
+    21300006: Dragon_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -82,99 +79,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt1_0
+      name: Dragon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
-        width: 21
-        height: 21
+        y: 210
+        width: 210
+        height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_1
+      name: Dragon_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 42
-        width: 21
-        height: 21
+        x: 210
+        y: 210
+        width: 210
+        height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 42
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_4
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_5
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_6
+      name: Dragon_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 21
-        height: 21
+        width: 210
+        height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dragon_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 210
+        height: 210
+      alignment: 9
+      pivot: {x: 0.43389297, y: 0.32201898}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: af505da43edb8c84582977e17685b546
-timeCreated: 1490891406
+guid: b43bcd277ae0ff74ca98da1c3a5ae71a
+timeCreated: 1494520254
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dirt1_0
-    21300002: Dirt1_1
-    21300004: Dirt1_2
-    21300006: Dirt1_3
-    21300008: Dirt1_4
-    21300010: Dirt1_5
-    21300012: Dirt1_6
+    21300000: Shield_0
+    21300002: Shield_1
+    21300004: Shield_2
+    21300006: Shield_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -82,13 +79,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt1_0
+      name: Shield_0
       rect:
         serializedVersion: 2
         x: 0
         y: 42
         width: 21
-        height: 21
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,13 +93,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_1
+      name: Shield_1
       rect:
         serializedVersion: 2
         x: 21
         y: 42
         width: 21
-        height: 21
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,13 +107,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_2
+      name: Shield_2
       rect:
         serializedVersion: 2
         x: 42
         y: 42
         width: 21
-        height: 21
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,55 +121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Dirt1_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_4
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_5
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 21
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dirt1_6
+      name: Shield_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 21
-        height: 21
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
