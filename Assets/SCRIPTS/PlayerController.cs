@@ -9,7 +9,7 @@ public class PlayerController : Killable {
     private HealthController health;
     private SpriteRenderer sprite;
     private Color color;
-
+    private Animator buffAnimator;
 
     // Use this for initialization
     void Start() {
@@ -43,6 +43,14 @@ public class PlayerController : Killable {
             health.setHealth(health.getMaxHealth());
 
         }
+
+        if (obj.tag == "fire_buff") {
+            //HealthBuff b = new HealthBuff("fire_buff", -1, 5, buffAnimator);
+            HealthBuff b = new HealthBuff("fire_buff", -1, 5);
+            if (!b.getBuffing()) {
+                b.buff();
+            }
+        }
     }
 
     public override void killed() {
@@ -59,8 +67,6 @@ public class PlayerController : Killable {
     }
 
     public IEnumerator blink() {
-
-
 
         sprite.color = new Color(color.r, color.g / 10, color.b / 10, 1);
         yield return new WaitForSeconds(.1f);
