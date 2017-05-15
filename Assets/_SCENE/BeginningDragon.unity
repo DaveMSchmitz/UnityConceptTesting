@@ -380,6 +380,16 @@ Prefab:
       propertyPath: ProjectileLifeTime
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114880145560884018, guid: 9afe11f905e1d214dac511212c5819c4,
+        type: 2}
+      propertyPath: invincible
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114880145560884018, guid: 9afe11f905e1d214dac511212c5819c4,
+        type: 2}
+      propertyPath: InvincibilityTime
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afe11f905e1d214dac511212c5819c4, type: 2}
   m_IsPrefabParent: 0
