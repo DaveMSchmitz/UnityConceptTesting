@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Killable {
+    [SerializeField]
+    private bool LoadSceneOnDeath = false;
+
+    [SerializeField]
+    private int SceneNumber = 0;
+
     public Vector3 RespawnTransform;
     private LevelManager levelManager;
     private HealthController health;
@@ -47,6 +53,10 @@ public class PlayerController : Killable {
 
     public override void killed() {
         levelManager.Respawn();
+
+        if (LoadSceneOnDeath) {
+            levelManager.EndLevel(SceneNumber);
+        }
     }
 
     public override void healthChanged() {

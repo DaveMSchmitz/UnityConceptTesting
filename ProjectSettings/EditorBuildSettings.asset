@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/_SCENE/Tutorial.unity
     guid: f4e3c9b5bcba38b47b88c1b944b69147
   - enabled: 1
-    path: Assets/_SCENE/Dave.unity
+    path: Assets/_SCENE/BeginningDragon.unity
     guid: ba1ad0553918aed40b16e1fba57e8bb1
   - enabled: 1
     path: Assets/_SCENE/HubAfterTutorial.unity
@@ -33,5 +33,5 @@ EditorBuildSettings:
     path: Assets/_SCENE/HubAfterLevel2.unity
     guid: 614ee019cb23de141bf6db8ad6d53fbc
   - enabled: 1
-    path: Assets/_SCENE/Dave 1.unity
-    guid: 994ea25c4e4eb5b41bec314a9d8f21b6
+    path: Assets/_SCENE/EndDragon.unity
+    guid: f9134c02dd87d4947a839ae66ce7e30d
