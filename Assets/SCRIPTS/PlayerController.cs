@@ -44,13 +44,18 @@ public class PlayerController : Killable {
 
         }
 
+        /*
         if (obj.tag == "fire_buff") {
+            Debug.Log("BUFF");
             //HealthBuff b = new HealthBuff("fire_buff", -1, 5, buffAnimator);
-            HealthBuff b = new HealthBuff("fire_buff", -1, 5);
-            if (!b.getBuffing()) {
-                b.buff();
-            }
+            //HealthBuff b = new HealthBuff("fire_buff", -1, 5);
+            HealthBuff b = GetComponent<HealthBuff>();
+
+            //if (!b.getBuffing()) {
+            //    b.buff();
+            //}
         }
+        */
     }
 
     public override void killed() {
