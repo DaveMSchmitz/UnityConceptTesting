@@ -5,20 +5,25 @@ using UnityEngine;
 
 public class HealthBuff : Buff {
     private HealthController health;
-    private string name;
     private int e;
     private int d;
-    private Animator anim;
+    public Animator anim;
     public bool buffing;
 
-    //public HealthBuff(string name, int e, int d, Animator anim) {
-    public HealthBuff(string name, int e, int d) {
+    private void OnEnable() {
         health = GetComponent<HealthController>();
-        this.name = name;
-        this.e = e;
-        this.d = d;
-        this.anim = anim;
+        e = 0;
+        d = 0;
         buffing = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.tag == "fire_buff" && !getBuffing()) {
+            Debug.Log("Fire Buff");
+            setEffect(-1);
+            setDuration(5);
+            StartCoroutine("buff");
+        }
     }
 
     public override void setBuffing(bool buffing) {
@@ -48,6 +53,7 @@ public class HealthBuff : Buff {
     }
 
     public override IEnumerator buff() {
+        Debug.Log("Buffing!");
         while (getDuration() > 0) {
             setBuffing(true);
             health.changeHealth(getEffect());
@@ -55,6 +61,7 @@ public class HealthBuff : Buff {
             setDuration(getDuration() - 1);
 
         }
+        Debug.Log("Not Buffing!");
         setBuffing(false);
     }
 }
