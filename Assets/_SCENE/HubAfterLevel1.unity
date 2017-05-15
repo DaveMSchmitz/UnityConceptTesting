@@ -2494,7 +2494,6 @@ MonoBehaviour:
   - You should go to the next village now, it has a monster too
   - You helped out the last place, maybe you can save this one too!
   - 'test 3 '
-  - test 4
   firstTime: 1
 --- !u!61 &794442664
 BoxCollider2D:
