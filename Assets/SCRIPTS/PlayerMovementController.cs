@@ -102,7 +102,7 @@ public class PlayerMovementController : MonoBehaviour {
         }
 
         //get the direction that the player should be moving
-        xVelocity = Input.GetAxis("Horizontal") * MaxSpeed * Time.fixedDeltaTime;
+        xVelocity = Input.GetAxis("Horizontal") * MaxSpeed;
 
         //if the player is touching a moving platform, add the velocity of the moving
         //platform to the players velocity
@@ -111,7 +111,7 @@ public class PlayerMovementController : MonoBehaviour {
 
         //if the player has pressed jump and we are on the ground
         if (_jumping && isGrounded) {
-            yVelocity = JumpSpeed * Time.fixedDeltaTime;
+            yVelocity = JumpSpeed;
         }
 
         _jumping = false;

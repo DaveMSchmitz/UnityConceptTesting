@@ -20,11 +20,11 @@ public class MovingPlatform : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
-        Vector3 direction = (_target - Platform.transform.position).normalized * ( 10 * MoveSpeed * Time.deltaTime);
+        Vector3 direction = (_target - Platform.transform.position).normalized;
 
-        rbody.velocity = direction;
+        rbody.velocity = direction * MoveSpeed;
 
 
         if (Mathf.Abs(Platform.transform.position.x - _target.x) <= .25) {
