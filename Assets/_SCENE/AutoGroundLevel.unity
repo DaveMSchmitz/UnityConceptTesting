@@ -1846,6 +1846,31 @@ Prefab:
       propertyPath: m_Name
       value: Green Lizard (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
   m_IsPrefabParent: 0
@@ -2322,11 +2347,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4922774821129702, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1192421875964648, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
       propertyPath: m_Name
       value: Green Lizard (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
@@ -2368,7 +2418,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4972782375749638, guid: 1fda7714e339fd148a7979e2824d81fe, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fda7714e339fd148a7979e2824d81fe, type: 2}
@@ -2802,6 +2877,31 @@ Prefab:
     - target: {fileID: 1402796422220456, guid: 60faaad10d0790b4082734ffdfd93204, type: 2}
       propertyPath: m_Name
       value: Blue Lizard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60faaad10d0790b4082734ffdfd93204, type: 2}
@@ -3671,6 +3771,31 @@ Prefab:
     - target: {fileID: 1192421875964648, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
       propertyPath: m_Name
       value: Green Lizard (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
@@ -5017,7 +5142,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4351430372065592, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1811724286154610, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_Name
@@ -6427,7 +6552,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4351430372065592, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1811724286154610, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_Name
@@ -6816,6 +6941,31 @@ Prefab:
     - target: {fileID: 1375848320371086, guid: 1fda7714e339fd148a7979e2824d81fe, type: 2}
       propertyPath: m_Name
       value: Yellow Lizard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fda7714e339fd148a7979e2824d81fe, type: 2}
@@ -8155,6 +8305,31 @@ Prefab:
       propertyPath: m_Name
       value: Yellow Lizard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941512836260880, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224851221527107050, guid: 1fda7714e339fd148a7979e2824d81fe,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fda7714e339fd148a7979e2824d81fe, type: 2}
   m_IsPrefabParent: 0
@@ -8196,6 +8371,31 @@ Prefab:
     - target: {fileID: 4026729245786828, guid: 3fd0a73361c02bb49a4e90e53e3428ad, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224174732447702608, guid: 3fd0a73361c02bb49a4e90e53e3428ad,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224174732447702608, guid: 3fd0a73361c02bb49a4e90e53e3428ad,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224820597641253748, guid: 3fd0a73361c02bb49a4e90e53e3428ad,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224820597641253748, guid: 3fd0a73361c02bb49a4e90e53e3428ad,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224820597641253748, guid: 3fd0a73361c02bb49a4e90e53e3428ad,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fd0a73361c02bb49a4e90e53e3428ad, type: 2}
@@ -8825,6 +9025,31 @@ Prefab:
       propertyPath: m_Name
       value: Green Lizard (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
   m_IsPrefabParent: 0
@@ -9331,6 +9556,31 @@ Prefab:
       propertyPath: m_Name
       value: Blue Lizard (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60faaad10d0790b4082734ffdfd93204, type: 2}
   m_IsPrefabParent: 0
@@ -9735,7 +9985,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4628629766261076, guid: 60faaad10d0790b4082734ffdfd93204, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455738775145632, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224688750218459642, guid: 60faaad10d0790b4082734ffdfd93204,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60faaad10d0790b4082734ffdfd93204, type: 2}
@@ -11648,6 +11923,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224553340014191808, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224890094135852412, guid: b619c9938aa9e224e8ef8e5a2513dd8c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b619c9938aa9e224e8ef8e5a2513dd8c, type: 2}
   m_IsPrefabParent: 0
@@ -12122,7 +12422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4351430372065592, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1811724286154610, guid: 9081016e4240cb44191d0f58aa592515, type: 2}
       propertyPath: m_Name
